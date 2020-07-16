@@ -1,0 +1,14 @@
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{KuncelTellegen_files/figure-latex/Figure1-1.pdf}
+\caption{\label{fig:Figure1}Kuncel and Tellegen (2009) method for determining socially desirable saturation at the item response level.}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{KuncelTellegen_files/figure-latex/Figure2-1.pdf}
+\caption{\label{fig:Figure2}Kuncel \& Tellegen (2009) patterns across Edwards (1953) scale values.}
+\end{figure*}
