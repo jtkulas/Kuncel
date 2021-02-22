@@ -821,6 +821,15 @@ latscorer<- round(sdscore,1)
 freq(latscorer)
 ```
 
+```{r Reduced, echo=FALSE, warning=FALSE}
+
+library(tidyverse)
+
+ReducedData <- read.csv("Reduced_scale", col_names = TRUE)
+ ReducedData <- Reduced_scale %>% slice(3:n())
+
+
+```
 # Discussion
 
 Certainly the @kuncel_conceptual_2009 procedure conveys information not contained in the classic @edwards_social_1957 approach. The purpose of this investigation, however, was to document overlap between the two procedures. Clearly nonmonotonic functions do exist for some indicators across scaled "trait levels". However, the vast majority of such circumstances are located within what the @edwards_social_1957 procedure labels as "moderately desirable". There is certainly additional information contained within these items, but the current investigation suggests that perhaps the more cognitively taxing and time-intensive procedure be retained for only those items first identified by the cognitively-easier and less time consuming @edwards_social_1957 method as "moderately desirable". 
