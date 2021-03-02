@@ -23,7 +23,7 @@ hist(latencies$Q1643_First.Click)
 
 # This shorter version was created since we noticed participants were clicking mindlessly through the 300 item 
 # version of the Kuncel & Tellegen assessment. We reviewed the items' from the Minnesota data and we selected the items
-# that followed the expected distributions or linearity of the responses. We selected __ items for each possible 
+# that followed the expected distributions or linearity of the responses. We selected 3 items for each possible 
 # response. 
 
 library(readxl)
