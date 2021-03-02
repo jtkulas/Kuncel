@@ -18,3 +18,14 @@ outlierReplace = function(dataframe, cols, rows, newValue = NA) {
 # same variable without outliers
 outlierReplace(latencies, "Q1643_First.Click", which(latencies$Q1643_First.Click > 600), NA )
 hist(latencies$Q1643_First.Click)
+
+# online version of K&T
+
+# This shorter version was created since we noticed participants were clicking mindlessly through the 300 item 
+# version of the Kuncel & Tellegen assessment. We reviewed the items' from the Minnesota data and we selected the items
+# that followed the expected distributions or linearity of the responses. We selected __ items for each possible 
+# response. 
+
+library(readxl)
+X15Item <- read_excel("15Item.xlsx", skip = 1)
+View(X15Item)
