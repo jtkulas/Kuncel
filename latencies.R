@@ -29,3 +29,6 @@ hist(latencies$Q1643_First.Click)
 library(readxl)
 X15Item <- read_excel("15Item.xlsx", skip = 1)
 View(X15Item)
+
+## First two items in the survey -> make people feel welcome and insult people/others were example items that we shouldn't consider
+# when analyzing data 
