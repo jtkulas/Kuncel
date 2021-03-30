@@ -32,3 +32,7 @@ View(X15Item)
 
 ## First two items in the survey -> make people feel welcome and insult people/others were example items that we shouldn't consider
 # when analyzing data 
+
+# NOTES 3.30.2021
+# We have items for how carefully respondentd answered for Edwards and the 15 item kuncel forms, however, the Edwards one doesn't seem to have
+# any responses recorded. Additionally, we seem to be missing 1 of the 15 items in the Edwards form (Trust others.
