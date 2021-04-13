@@ -51,9 +51,10 @@ asym <- asym %>%
 asym <- cbind(asym, asym_des$mean, asym_des$sd)
 
   
-  library(ggplot2)
-L_plot <- ggplot(asym, aes(x=level, y=asym_des$mean, group=1)) + geom_line(size=1) +
+library(ggplot2)
+
+A_plot <- ggplot(asym, aes(x=level, y=asym_des$mean, group=1)) + geom_line(size=1) +
   scale_x_discrete(limits=c("Extremely High", "Above Average", "Average", "Below Average", "Extremely Low")) +
   facet_wrap(~ item, nrow=1) +
   scale_colour_brewer() + theme_dark()
-L_plot + theme(axis.text.x = element_text(angle=60, hjust=1))
+A_plot + theme(axis.text.x = element_text(angle=60, hjust=1))
