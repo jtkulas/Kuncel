@@ -1,0 +1,359 @@
+---
+title: "Latencies"
+author: "Kulas"
+date: "4/23/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE)
+```
+
+
+```{r data}
+
+
+temp <- read.csv("Reduced_scale.csv", header=FALSE, na.strings="")
+
+x <- temp[2,]
+data <- temp[-c(1:3),]
+colnames(data) <- x
+
+# library(psych)
+# opt <- describe(data)
+# write.csv(opt, "description.csv")
+
+## column #20 = page submit latency; column #22 = Desirability rating
+## column #458 = how difficult was this?
+## column #457 = how carefully did you respond?
+
+data$Progress <- as.numeric(as.character(data$Progress))
+newdata <- data[ which(data$Progress > 75), ]
+
+temp2 <- newdata[,-c(93,119,145,171,197,223,249,275,301,327,353,379,405,431)] ## getting rid of quality check items (13 here)
+
+use <- temp2[,c(20,22,25,27,30,32,35,37,40,42,45,47,50,52,55,57,60,62,65,67,70,72,75,77,80,82,85,87,90,92,95,97,100,102,105,107,110,112,115,117,
+               120,122,125,127,130,132,135,137,140,142,145,147,150,152,155,157,160,162,165,167,170,172,175,177,180,182,185,187,190,192,195,197,200,202,205,207,210,212,215,217,
+               220,222,225,227,230,232,235,237,240,242,245,247,250,252,255,257,260,262,265,267,270,272,275,277,280,282,285,287,290,292,295,297,300,302,305,307,310,312,315,317,
+               320,322,325,327,330,332,335,337,340,342,345,347,350,352,355,357,360,362,365,367,370,372,375,377,380,382,385,387,390,392,395,397,400,402,405,407,410,412,415,417,
+               420,422,425,427,430,432,435,437,440,442)]
+
+total <- nrow(data)
+usable <- nrow(use)
+
+```
+
+# Latencies
+
+`r total` Montclair State University students responded to 15 items identified by Julia and Renata as relatively conforming to the Kuncel and Tellegen empirical patterns (linear, asymmetric, or quasi-symmetric). Two sample items were first presented ("Make people feel welcome" and "Insult people"). We retained responses if at least 75% of questions were answered, resulting in `r usable` student responses.
+
+| Item type  | Content                                 |
+|------------|-----------------------------------------|
+| ???        | Make people feel welcome                |
+| ???        | Insult people                           |
+| Asymmetric | Worry about things                      |
+| Linear     | Make friends easily                     |
+| Asymmetric | Trust others                            |
+| Linear     | Get angry easily                        |
+| Linear     | Often feel blue                         |
+| Asymmetric | Take charge                             |
+| Quasi      | Am always busy                          |
+| Asymmetric | Am easy to satisfy                      |
+| Asymmetric | Love excitement                         |
+| Linear     | Sympathize with the homeless            |
+| Quasi      | Enjoy wild flights of fantasy           |
+| Linear     | Get irritated easily                    |
+| Quasi      | Am always on the go                     |
+| Quasi      | Am relaxed most of the time             |
+| Quasi      | Am a creature of habit                  |
+
+Linear:  
+
+1. Make friends easily
+2. Get angry easily
+3. Often feel blue
+4. Sympathize with the homeless
+5. Get irritated easily
+
+Quasi-Symmetric:  
+
+1. Am always busy
+2. Enjoy wild flights of fantasy
+3. Am always on the go
+4. Am relaxed most of the time
+5. Am a creature of habit
+
+Assymetric:  
+
+1. Worry about things
+2. Trust others
+3. Take charge
+4. Am easy to satisfy
+5. Love excitement
+
+
+```{r together}
+### Data is messy - not all "1%, 30%, etc" read in sequentially
+### Requesting column names as an excel file so can double-check numbers used to create "use" object (line 35)
+
+# write.csv(colnames(temp2), "check.csv"); write.csv(colnames(use), "check2.csv")
+
+
+ass.b1 <- use[,c(29:30,49:50,79:80,99:100,109:110)]
+ass.b3 <- use[,c(27:28,47:48,77:78,97:98,107:108)]
+ass.n  <- use[,c(25:26,45:46,75:76,95:96,105:106)]
+ass.t3 <- use[,c(21:22,43:44,73:74,93:94,103:104)]
+ass.t1 <- use[,c(23:24,41:42,71:72,91:92,101:102)]
+
+qua.b1 <- use[,c(89:90,129:130,149:150,159:160,169:170)]
+qua.b3 <- use[,c(87:88,127:128,147:148,157:158,167:168)]
+qua.n  <- use[,c(85:86,125:126,145:146,155:156,165:166)]
+qua.t3 <- use[,c(83:84,123:124,143:144,153:154,163:164)]
+qua.t1 <- use[,c(81:82,121:122,141:142,151:152,161:162)]
+
+lin.b1 <- use[,c(39:40,59:60,69:70,119:120,139:140)]
+lin.b3 <- use[,c(37:38,57:58,67:68,117:118,137:138)]
+lin.n  <- use[,c(35:36,55:56,65:66,115:116,135:136)]
+lin.t3 <- use[,c(33:34,53:54,63:64,113:114,133:134)]
+lin.t1 <- use[,c(31:32,51:52,61:62,111:112,131:132)]
+
+ass.b1$cat <- "ass.b1"
+ass.b3$cat <- "ass.b3"
+ass.n$cat  <- "ass.n"
+ass.t3$cat <- "ass.t3"
+ass.t1$cat <- "ass.t1"
+
+qua.b1$cat <- "qua.b1"
+qua.b3$cat <- "qua.b3"
+qua.n$cat  <- "qua.n"
+qua.t3$cat <- "qua.t3"
+qua.t1$cat <- "qua.t1"
+
+lin.b1$cat <- "lin.b1"
+lin.b3$cat <- "lin.b3"
+lin.n$cat  <- "lin.n"
+lin.t3$cat <- "lin.t3"
+lin.t1$cat <- "lin.t1"
+
+ass.b1.1 <- ass.b1[,c(1:2,11)]
+ass.b1.2 <- ass.b1[,c(3:4,11)]
+ass.b1.3 <- ass.b1[,c(5:6,11)]
+ass.b1.4 <- ass.b1[,c(7:8,11)]
+ass.b1.5 <- ass.b1[,c(9:10,11)]
+
+ass.b3.1 <- ass.b3[,c(1:2,11)]
+ass.b3.2 <- ass.b3[,c(3:4,11)]
+ass.b3.3 <- ass.b3[,c(5:6,11)]
+ass.b3.4 <- ass.b3[,c(7:8,11)]
+ass.b3.5 <- ass.b3[,c(9:10,11)]
+
+ass.n.1 <- ass.n[,c(1:2,11)]
+ass.n.2 <- ass.n[,c(3:4,11)]
+ass.n.3 <- ass.n[,c(5:6,11)]
+ass.n.4 <- ass.n[,c(7:8,11)]
+ass.n.5 <- ass.n[,c(9:10,11)]
+
+ass.t3.1 <- ass.t3[,c(1:2,11)]
+ass.t3.2 <- ass.t3[,c(3:4,11)]
+ass.t3.3 <- ass.t3[,c(5:6,11)]
+ass.t3.4 <- ass.t3[,c(7:8,11)]
+ass.t3.5 <- ass.t3[,c(9:10,11)]
+
+ass.t1.1 <- ass.t1[,c(1:2,11)]
+ass.t1.2 <- ass.t1[,c(3:4,11)]
+ass.t1.3 <- ass.t1[,c(5:6,11)]
+ass.t1.4 <- ass.t1[,c(7:8,11)]
+ass.t1.5 <- ass.t1[,c(9:10,11)]
+
+
+
+qua.b1.1 <- qua.b1[,c(1:2,11)]
+qua.b1.2 <- qua.b1[,c(3:4,11)]
+qua.b1.3 <- qua.b1[,c(5:6,11)]
+qua.b1.4 <- qua.b1[,c(7:8,11)]
+qua.b1.5 <- qua.b1[,c(9:10,11)]
+
+qua.b3.1 <- qua.b3[,c(1:2,11)]
+qua.b3.2 <- qua.b3[,c(3:4,11)]
+qua.b3.3 <- qua.b3[,c(5:6,11)]
+qua.b3.4 <- qua.b3[,c(7:8,11)]
+qua.b3.5 <- qua.b3[,c(9:10,11)]
+
+qua.n.1 <- qua.n[,c(1:2,11)]
+qua.n.2 <- qua.n[,c(3:4,11)]
+qua.n.3 <- qua.n[,c(5:6,11)]
+qua.n.4 <- qua.n[,c(7:8,11)]
+qua.n.5 <- qua.n[,c(9:10,11)]
+
+qua.t3.1 <- qua.t3[,c(1:2,11)]
+qua.t3.2 <- qua.t3[,c(3:4,11)]
+qua.t3.3 <- qua.t3[,c(5:6,11)]
+qua.t3.4 <- qua.t3[,c(7:8,11)]
+qua.t3.5 <- qua.t3[,c(9:10,11)]
+
+qua.t1.1 <- qua.t1[,c(1:2,11)]
+qua.t1.2 <- qua.t1[,c(3:4,11)]
+qua.t1.3 <- qua.t1[,c(5:6,11)]
+qua.t1.4 <- qua.t1[,c(7:8,11)]
+qua.t1.5 <- qua.t1[,c(9:10,11)]
+
+
+
+lin.b1.1 <- lin.b1[,c(1:2,11)]
+lin.b1.2 <- lin.b1[,c(3:4,11)]
+lin.b1.3 <- lin.b1[,c(5:6,11)]
+lin.b1.4 <- lin.b1[,c(7:8,11)]
+lin.b1.5 <- lin.b1[,c(9:10,11)]
+
+lin.b3.1 <- lin.b3[,c(1:2,11)]
+lin.b3.2 <- lin.b3[,c(3:4,11)]
+lin.b3.3 <- lin.b3[,c(5:6,11)]
+lin.b3.4 <- lin.b3[,c(7:8,11)]
+lin.b3.5 <- lin.b3[,c(9:10,11)]
+
+lin.n.1 <- lin.n[,c(1:2,11)]
+lin.n.2 <- lin.n[,c(3:4,11)]
+lin.n.3 <- lin.n[,c(5:6,11)]
+lin.n.4 <- lin.n[,c(7:8,11)]
+lin.n.5 <- lin.n[,c(9:10,11)]
+
+lin.t3.1 <- lin.t3[,c(1:2,11)]
+lin.t3.2 <- lin.t3[,c(3:4,11)]
+lin.t3.3 <- lin.t3[,c(5:6,11)]
+lin.t3.4 <- lin.t3[,c(7:8,11)]
+lin.t3.5 <- lin.t3[,c(9:10,11)]
+
+lin.t1.1 <- lin.t1[,c(1:2,11)]
+lin.t1.2 <- lin.t1[,c(3:4,11)]
+lin.t1.3 <- lin.t1[,c(5:6,11)]
+lin.t1.4 <- lin.t1[,c(7:8,11)]
+lin.t1.5 <- lin.t1[,c(9:10,11)]
+
+
+
+library(data.table)
+together <- rbindlist(list(ass.b1.1,
+                              ass.b1.2,
+                              ass.b1.3,
+                              ass.b1.4,
+                              ass.b1.5,
+                              ass.b3.1,
+                              ass.b3.2,
+                              ass.b3.3,
+                              ass.b3.4,
+                              ass.b3.5,
+                              ass.n.1,
+                              ass.n.2,
+                              ass.n.3,
+                              ass.n.4,
+                              ass.n.5,
+                              ass.t3.1,
+                              ass.t3.2,
+                              ass.t3.3,
+                              ass.t3.4,
+                              ass.t3.5,
+                              ass.t1.1,
+                              ass.t1.2,
+                              ass.t1.3,
+                              ass.t1.4,
+                              ass.t1.5,
+                              qua.b1.1,
+                              qua.b1.2,
+                              qua.b1.3,
+                              qua.b1.4,
+                              qua.b1.5,
+                              qua.b3.1,
+                              qua.b3.2,
+                              qua.b3.3,
+                              qua.b3.4,
+                              qua.b3.5,
+                              qua.n.1,
+                              qua.n.2,
+                              qua.n.3,
+                              qua.n.4,
+                              qua.n.5,
+                              qua.t3.1,
+                              qua.t3.2,
+                              qua.t3.3,
+                              qua.t3.4,
+                              qua.t3.5,
+                              qua.t1.1,
+                              qua.t1.2,
+                              qua.t1.3,
+                              qua.t1.4,
+                              qua.t1.5,
+                              lin.b1.1,
+                              lin.b1.2,
+                              lin.b1.3,
+                              lin.b1.4,
+                              lin.b1.5,
+                              lin.b3.1,
+                              lin.b3.2,
+                              lin.b3.3,
+                              lin.b3.4,
+                              lin.b3.5,
+                              lin.n.1,
+                              lin.n.2,
+                              lin.n.3,
+                              lin.n.4,
+                              lin.n.5,
+                              lin.t3.1,
+                              lin.t3.2,
+                              lin.t3.3,
+                              lin.t3.4,
+                              lin.t3.5,
+                              lin.t1.1,
+                              lin.t1.2,
+                              lin.t1.3,
+                              lin.t1.4,
+                              lin.t1.5))
+
+together$cond[together$cat == "ass.b1"] <- "Bottom 1%"
+together$cond[together$cat == "ass.b3"] <- "Bottom 30%"
+together$cond[together$cat == "ass.n"] <- "Average"
+together$cond[together$cat == "ass.t3"] <- "Top 30%"
+together$cond[together$cat == "ass.t1"] <- "Top 1%"
+
+together$cond[together$cat == "qua.b1"] <- "Bottom 1%"
+together$cond[together$cat == "qua.b3"] <- "Bottom 30%"
+together$cond[together$cat == "qua.n"] <- "Average"
+together$cond[together$cat == "qua.t3"] <- "Top 30%"
+together$cond[together$cat == "qua.t1"] <- "Top 1%"
+
+together$cond[together$cat == "lin.b1"] <- "Bottom 1%"
+together$cond[together$cat == "lin.b3"] <- "Bottom 30%"
+together$cond[together$cat == "lin.n"] <- "Average"
+together$cond[together$cat == "lin.t3"] <- "Top 30%"
+together$cond[together$cat == "lin.t1"] <- "Top 1%"
+
+together$tier[together$cat == "ass.b1"] <- "Bottom 1%"
+together$tier[together$cat == "ass.b3"] <- "Bottom 30%"
+together$tier[together$cat == "ass.n"] <- "Average"
+together$tier[together$cat == "ass.t3"] <- "Top 30%"
+together$tier[together$cat == "ass.t1"] <- "Top 1%"
+
+together$tier[together$cat == "qua.b1"] <- "Bottom 1%"
+together$tier[together$cat == "qua.b3"] <- "Bottom 30%"
+together$tier[together$cat == "qua.n"] <- "Average"
+together$tier[together$cat == "qua.t3"] <- "Top 30%"
+together$tier[together$cat == "qua.t1"] <- "Top 1%"
+
+together$tier[together$cat == "lin.b1"] <- "Bottom 1%"
+together$tier[together$cat == "lin.b3"] <- "Bottom 30%"
+together$tier[together$cat == "lin.n"] <- "Average"
+together$tier[together$cat == "lin.t3"] <- "Top 30%"
+together$tier[together$cat == "lin.t1"] <- "Top 1%"
+
+
+colnames(together)[1] <- "Latency"
+colnames(together)[2] <- "Answer"
+
+together$Latency <- as.numeric(as.character(together$Latency))
+
+library(ggplot2)
+
+
+p <- ggplot(together, aes(x=Latency)) + geom_histogram()
+p + facet_grid(~Answer)
+
+```
