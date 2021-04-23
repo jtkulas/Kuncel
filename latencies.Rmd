@@ -308,23 +308,23 @@ together <- rbindlist(list(ass.b1.1,
                               lin.t1.4,
                               lin.t1.5))
 
-together$cond[together$cat == "ass.b1"] <- "Bottom 1%"
-together$cond[together$cat == "ass.b3"] <- "Bottom 30%"
-together$cond[together$cat == "ass.n"] <- "Average"
-together$cond[together$cat == "ass.t3"] <- "Top 30%"
-together$cond[together$cat == "ass.t1"] <- "Top 1%"
+together$cond[together$cat == "ass.b1"] <- "Asymmetric"
+together$cond[together$cat == "ass.b3"] <- "Asymmetric"
+together$cond[together$cat == "ass.n"] <- "Asymmetric"
+together$cond[together$cat == "ass.t3"] <- "Asymmetric"
+together$cond[together$cat == "ass.t1"] <- "Asymmetric"
 
-together$cond[together$cat == "qua.b1"] <- "Bottom 1%"
-together$cond[together$cat == "qua.b3"] <- "Bottom 30%"
-together$cond[together$cat == "qua.n"] <- "Average"
-together$cond[together$cat == "qua.t3"] <- "Top 30%"
-together$cond[together$cat == "qua.t1"] <- "Top 1%"
+together$cond[together$cat == "qua.b1"] <- "Quasi-symmetric"
+together$cond[together$cat == "qua.b3"] <- "Quasi-symmetric"
+together$cond[together$cat == "qua.n"] <- "Quasi-symmetric"
+together$cond[together$cat == "qua.t3"] <- "Quasi-symmetric"
+together$cond[together$cat == "qua.t1"] <- "Quasi-symmetric"
 
-together$cond[together$cat == "lin.b1"] <- "Bottom 1%"
-together$cond[together$cat == "lin.b3"] <- "Bottom 30%"
-together$cond[together$cat == "lin.n"] <- "Average"
-together$cond[together$cat == "lin.t3"] <- "Top 30%"
-together$cond[together$cat == "lin.t1"] <- "Top 1%"
+together$cond[together$cat == "lin.b1"] <- "Linear"
+together$cond[together$cat == "lin.b3"] <- "Linear"
+together$cond[together$cat == "lin.n"] <- "Linear"
+together$cond[together$cat == "lin.t3"] <- "Linear"
+together$cond[together$cat == "lin.t1"] <- "Linear"
 
 together$tier[together$cat == "ass.b1"] <- "Bottom 1%"
 together$tier[together$cat == "ass.b3"] <- "Bottom 30%"
@@ -350,10 +350,42 @@ colnames(together)[2] <- "Answer"
 
 together$Latency <- as.numeric(as.character(together$Latency))
 
+#library(descr)
+#yaddup <- freq(together$Latency)
+#write.csv(yaddup, "temp.csv")      ## top 1% = 37.396; top 2% = 21.302
+                                    ## bottom 1% = 0.3
+together$Latency[together$Latency >= 21.302] <- NA
+together$Latency[together$Latency <= .3]     <- NA
+
+
+together$Answer <- factor(together$Answer, levels = c("Very Undesirable", "Undesirable", "Neutral", "Desirable", "Very Desirable"))
+together$tier <- factor(together$tier, levels = c("Bottom 1%","Bottom 30%","Average","Top 30%","Top 1%"))
+
+
 library(ggplot2)
 
-
-p <- ggplot(together, aes(x=Latency)) + geom_histogram()
+p <- ggplot(data=subset(together, !is.na(Answer)), aes(x=Latency)) + geom_histogram()
 p + facet_grid(~Answer)
+
+p + facet_grid(vars(tier), vars(Answer))
+
+```
+
+## Looking within item sets 
+
+```{r itemsets}
+
+linear <- together[ which(together$cond=='Linear'), ]
+asympt <- together[ which(together$cond=='Asymmetric'), ]
+quasia <- together[ which(together$cond=='Quasi-symmetric'), ]
+
+ggplot(data=subset(linear, !is.na(Answer)), aes(x=Latency)) + geom_histogram() +
+  facet_grid(vars(tier), vars(Answer)) + ggtitle("Linear items")
+
+ggplot(data=subset(asympt, !is.na(Answer)), aes(x=Latency)) + geom_histogram() +
+  facet_grid(vars(tier), vars(Answer)) + ggtitle("Asymmetric items")
+
+ggplot(data=subset(quasia, !is.na(Answer)), aes(x=Latency)) + geom_histogram() +
+  facet_grid(vars(tier), vars(Answer)) + ggtitle("Quasi-symmetric items")
 
 ```

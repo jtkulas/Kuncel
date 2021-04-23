@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.7.14)  16 JUL 2020 15:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.7.19)  29 JUL 2020 16:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**KuncelTellegen2.tex
-(./KuncelTellegen2.tex
+**KuncelTellegen.tex
+(./KuncelTellegen.tex
 LaTeX2e <2020-02-02> patch level 5
-L3 programming layer <2020-06-18> (c:/Users/John-o/AppData/Roaming/TinyTeX/texm
+L3 programming layer <2020-07-17> (c:/Users/John-o/AppData/Roaming/TinyTeX/texm
 f-dist/tex/latex/apa6/apa6.cls
 Document Class: apa6 2020/01/13 v2.34 APA formatting (6th edition)
 (c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
@@ -13,14 +13,14 @@ Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
 (c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 )
-\c@part=\count167
-\c@section=\count168
-\c@subsection=\count169
-\c@subsubsection=\count170
-\c@paragraph=\count171
-\c@subparagraph=\count172
-\c@figure=\count173
-\c@table=\count174
+\c@part=\count168
+\c@section=\count169
+\c@subsection=\count170
+\c@subsubsection=\count171
+\c@paragraph=\count172
+\c@subparagraph=\count173
+\c@figure=\count174
+\c@table=\count175
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen134
@@ -28,7 +28,7 @@ File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 (c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox
 .sty
 Package: etoolbox 2020/07/15 v2.5i e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count175
+\etb@tempcnta=\count176
 )
 Class apa6 Info: No bibliography package was specified; defaulting to (but not 
 loading) Biblatex on input line 213.
@@ -133,9 +133,9 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 (c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2020/03/06 v1.0d TeX engine tests
 ))
-\Gm@cnth=\count176
-\Gm@cntv=\count177
-\c@Gm@tempcnt=\count178
+\Gm@cnth=\count177
+\Gm@cntv=\count178
+\c@Gm@tempcnt=\count179
 \Gm@bindingoffset=\dimen135
 \Gm@wd@mp=\dimen136
 \Gm@odd@mp=\dimen137
@@ -183,12 +183,12 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen152
 \cmidrulekern=\dimen153
 \defaultaddspace=\dimen154
-\@cmidla=\count179
-\@cmidlb=\count180
+\@cmidla=\count180
+\@cmidlb=\count181
 \@aboverulesep=\dimen155
 \@belowrulesep=\dimen156
-\@thisruleclass=\count181
-\@lastruleclass=\count182
+\@thisruleclass=\count182
+\@lastruleclass=\count183
 \@thisrulewidth=\dimen157
 )
 (c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/threeparttable/th
@@ -213,7 +213,7 @@ Package: caption 2020/05/30 v3.4k Customizing captions (AR)
 
 (c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption3.
 sty
-Package: caption3 2020/05/30 v1.12 caption3 kernel (AR)
+Package: caption3 2020/07/20 v1.12b caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 61.
 \captionmargin=\dimen158
 \captionmargin@=\dimen159
@@ -224,11 +224,11 @@ Package caption3 Info: TeX engine: e-TeX on input line 61.
 \caption@hangindent=\dimen164
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count183
-\c@continuedfloat=\count184
+\c@caption@flags=\count184
+\c@continuedfloat=\count185
 Package caption Info: threeparttable package is loaded.
 )
-\c@APAenum=\count185
+\c@APAenum=\count186
 \@text@par@indent=\skip59
 \gr@box=\box46
 \gr@boxwidth=\skip60
@@ -237,7 +237,7 @@ Package caption Info: threeparttable package is loaded.
 Package: bm 2019/07/24 v1.2d Bold Symbol Support (DPC/FMi)
 LaTeX Info: Redefining \bm on input line 209.
 )
-\c@appendix=\count186
+\c@appendix=\count187
 
 (c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/ftnright.st
 y
@@ -292,13 +292,13 @@ LaTeX Info: Redefining \boldsymbol on input line 28.
 y
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count187
+\inf@bad=\count188
 LaTeX Info: Redefining \frac on input line 227.
-\uproot@=\count188
-\leftroot@=\count189
+\uproot@=\count189
+\leftroot@=\count190
 LaTeX Info: Redefining \overline on input line 389.
-\classnum@=\count190
-\DOTSCASE@=\count191
+\classnum@=\count191
+\DOTSCASE@=\count192
 LaTeX Info: Redefining \ldots on input line 486.
 LaTeX Info: Redefining \dots on input line 489.
 LaTeX Info: Redefining \cdots on input line 610.
@@ -307,15 +307,15 @@ LaTeX Info: Redefining \cdots on input line 610.
 \big@size=\dimen168
 LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
-\macc@depth=\count192
-\c@MaxMatrixCols=\count193
+\macc@depth=\count193
+\c@MaxMatrixCols=\count194
 \dotsspace@=\muskip16
-\c@parentequation=\count194
-\dspbrk@lvl=\count195
+\c@parentequation=\count195
+\dspbrk@lvl=\count196
 \tag@help=\toks19
-\row@=\count196
-\column@=\count197
-\maxfields@=\count198
+\row@=\count197
+\column@=\count198
+\maxfields@=\count199
 \andhelp@=\toks20
 \eqnshift@=\dimen169
 \alignsep@=\dimen170
@@ -421,8 +421,8 @@ ns.sty
 Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
 )
 \@linkdim=\dimen175
-\Hy@linkcounter=\count199
-\Hy@pagecounter=\count266
+\Hy@linkcounter=\count266
+\Hy@pagecounter=\count267
 
 (c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.d
 ef
@@ -438,7 +438,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 ds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count267
+\Hy@SavedSpaceFactor=\count268
 Package hyperref Info: Option `unicode' set `true' on input line 4338.
 
 (c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.de
@@ -454,7 +454,7 @@ Package hyperref Info: Plain pages OFF on input line 4479.
 Package hyperref Info: Backreferencing OFF on input line 4484.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4717.
-\c@Hy@tempcnt=\count268
+\c@Hy@tempcnt=\count269
 (c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
@@ -471,7 +471,7 @@ ntcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count269
+\Fld@menulength=\count270
 \Field@Width=\dimen177
 \Fld@charsize=\dimen178
 Package hyperref Info: Hyper figures OFF on input line 6347.
@@ -488,9 +488,9 @@ LaTeX Info: Redefining \pageref on input line 6421.
 hi.sty
 Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
 )
-\Hy@abspage=\count270
-\c@Item=\count271
-\c@Hfootnote=\count272
+\Hy@abspage=\count271
+\c@Item=\count272
+\c@Hfootnote=\count273
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
@@ -502,8 +502,8 @@ File: hpdftex.def 2020-05-15 v7.00e Hyperref driver for pdfTeX
 nd.sty
 Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
 )
-\Fld@listcount=\count273
-\c@bookmark@seq@number=\count274
+\Fld@listcount=\count274
+\c@bookmark@seq@number=\count275
 
 (c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/re
 runfilecheck.sty
@@ -538,16 +538,16 @@ Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
 \LTright=\skip71
 \LTpre=\skip72
 \LTpost=\skip73
-\LTchunksize=\count275
+\LTchunksize=\count276
 \LTcapwidth=\dimen179
 \LT@head=\box52
 \LT@firsthead=\box53
 \LT@foot=\box54
 \LT@lastfoot=\box55
-\LT@cols=\count276
-\LT@rows=\count277
-\c@LT@tables=\count278
-\c@LT@chunks=\count279
+\LT@cols=\count277
+\LT@rows=\count278
+\c@LT@tables=\count279
+\c@LT@chunks=\count280
 \LT@p@ftn=\toks25
 )
 (c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/lscape.s
@@ -558,7 +558,7 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 .sty
 Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
 \multirow@colwidth=\skip74
-\multirow@cntb=\count280
+\multirow@cntb=\count281
 \multirow@dima=\skip75
 \bigstrutjot=\dimen180
 )
@@ -580,7 +580,7 @@ Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 \TX@old@col=\dimen185
 \TX@target=\dimen186
 \TX@delta=\dimen187
-\TX@cols=\count281
+\TX@cols=\count282
 \TX@ftn=\toks27
 )
 (c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/threeparttablex/t
@@ -615,18 +615,18 @@ Package fixltx2e Warning: fixltx2e is not required with releases after 2015
 
 Already applied: [0000/00/00] Old fixltx2e package on input line 53.
 )
-\@dblbotnum=\count282
-\c@dblbotnumber=\count283
+\@dblbotnum=\count283
+\c@dblbotnumber=\count284
 )
 (c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/csquotes/csquotes
 .sty
 Package: csquotes 2019-12-06 v5.2j context-sensitive quotations (JAW)
-\csq@reset=\count284
-\csq@gtype=\count285
-\csq@glevel=\count286
-\csq@qlevel=\count287
-\csq@maxlvl=\count288
-\csq@tshold=\count289
+\csq@reset=\count285
+\csq@gtype=\count286
+\csq@glevel=\count287
+\csq@qlevel=\count288
+\csq@maxlvl=\count289
+\csq@tshold=\count290
 \csq@ltx@everypar=\toks28
 
 (c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/csquotes/csquotes
@@ -650,7 +650,7 @@ Package: babel 2020/07/13 3.47 The Babel package
 
 (c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2020/07/13 3.47 Babel common definitions
-\babel@savecnt=\count290
+\babel@savecnt=\count291
 \U@D=\dimen188
 \l@babelnohyphens=\language3
 
@@ -658,7 +658,7 @@ File: babel.def 2020/07/13 3.47 Babel common definitions
 def)
 \bbl@readstream=\read2
 )
-\bbl@dirlevel=\count291
+\bbl@dirlevel=\count292
 
 (c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel-english/e
 nglish.ldf
@@ -686,10 +686,10 @@ Package csquotes Info: Redefining alias 'default' -> 'english'.
 (c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backe
 nd-pdfmode.def
 File: l3backend-pdfmode.def 2020-06-29 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count292
+\l__kernel_color_stack_int=\count293
 \l__pdf_internal_box=\box58
-) (./KuncelTellegen2.aux)
-\openout1 = `KuncelTellegen2.aux'.
+) (./KuncelTellegen.aux)
+\openout1 = `KuncelTellegen.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 144.
 LaTeX Font Info:    ... okay on input line 144.
@@ -791,14 +791,14 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count293
+\c@section@level=\count294
 )
 LaTeX Info: Redefining \ref on input line 144.
 LaTeX Info: Redefining \pageref on input line 144.
 LaTeX Info: Redefining \nameref on input line 144.
-(./KuncelTellegen2.out) (./KuncelTellegen2.out)
+(./KuncelTellegen.out) (./KuncelTellegen.out)
 \@outlinefile=\write3
-\openout3 = `KuncelTellegen2.out'.
+\openout3 = `KuncelTellegen.out'.
 
 LaTeX Font Info:    Trying to load font information for OT1+ptmcm on input line
  146.
@@ -856,7 +856,10 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 146.
 
-Underfull \vbox (badness 7468) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [1{c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pd
 ftex.map}
@@ -864,495 +867,76 @@ ftex.map}
 
 ]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 161.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 158.
 [2]
-<KuncelTellegen2_files/figure-latex/Figure1-1.pdf, id=57, 469.755pt x 325.215pt
->
-File: KuncelTellegen2_files/figure-latex/Figure1-1.pdf Graphic file (type pdf)
-<use KuncelTellegen2_files/figure-latex/Figure1-1.pdf>
-Package pdftex.def Info: KuncelTellegen2_files/figure-latex/Figure1-1.pdf  used
- on input line 173.
-(pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
-[3 <./KuncelTellegen2_files/figure-latex/Figure1-1.pdf>]
-<KuncelTellegen2_files/figure-latex/getQualtrics-1.pdf, id=77, 469.755pt x 325.
-215pt>
-File: KuncelTellegen2_files/figure-latex/getQualtrics-1.pdf Graphic file (type 
-pdf)
-<use KuncelTellegen2_files/figure-latex/getQualtrics-1.pdf>
-Package pdftex.def Info: KuncelTellegen2_files/figure-latex/getQualtrics-1.pdf 
- used on input line 229.
-(pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
+<KuncelTellegen_files/figure-latex/Figure1-1.pdf, id=74, 469.755pt x 325.215pt>
 
-Overfull \hbox (0.0005pt too wide) in paragraph at lines 229--230
-[][] 
- []
-
-[4]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 23
-1.
+File: KuncelTellegen_files/figure-latex/Figure1-1.pdf Graphic file (type pdf)
+<use KuncelTellegen_files/figure-latex/Figure1-1.pdf>
+Package pdftex.def Info: KuncelTellegen_files/figure-latex/Figure1-1.pdf  used 
+on input line 177.
+(pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
+[3 <./KuncelTellegen_files/figure-latex/Figure1-1.pdf>]
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 20
+6.
 (c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ##       Frequency  Percent Valid Percent[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 0.4           1   0.3322        0.3344[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 0.5           3   0.9967        1.0033[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 0.6           1   0.3322        0.3344[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 0.7           4   1.3289        1.3378[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 0.8           2   0.6645        0.6689[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 0.9           4   1.3289        1.3378[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 1             3   0.9967        1.0033[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 1.1           5   1.6611        1.6722[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 1.2           3   0.9967        1.0033[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 1.3           4   1.3289        1.3378[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 1.4           6   1.9934        2.0067[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 1.5          11   3.6545        3.6789[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 1.6           7   2.3256        2.3411[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 1.7           5   1.6611        1.6722[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 1.8          19   6.3123        6.3545[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 1.9          16   5.3156        5.3512[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 2            19   6.3123        6.3545[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 2.1          16   5.3156        5.3512[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 2.2           6   1.9934        2.0067[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 2.3          12   3.9867        4.0134[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 2.4          10   3.3223        3.3445[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 2.5          12   3.9867        4.0134[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 2.6           9   2.9900        3.0100[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 2.7          12   3.9867        4.0134[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 2.8           5   1.6611        1.6722[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 2.9           6   1.9934        2.0067[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 3            10   3.3223        3.3445[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 3.1           4   1.3289        1.3378[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 3.2          10   3.3223        3.3445[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 3.3           3   0.9967        1.0033[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 3.4           1   0.3322        0.3344[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 3.5           6   1.9934        2.0067[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 3.7           3   0.9967        1.0033[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 3.8           3   0.9967        1.0033[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 4             2   0.6645        0.6689[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 4.1           1   0.3322        0.3344[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 4.2           2   0.6645        0.6689[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 4.3           3   0.9967        1.0033[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 4.4           2   0.6645        0.6689[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 4.5           1   0.3322        0.3344[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 4.6           4   1.3289        1.3378[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 4.8           1   0.3322        0.3344[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 4.9           1   0.3322        0.3344[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 5             1   0.3322        0.3344[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 5.1           2   0.6645        0.6689[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 5.2           3   0.9967        1.0033[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 5.5           2   0.6645        0.6689[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 5.6           2   0.6645        0.6689[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 5.7           3   0.9967        1.0033[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 5.8           2   0.6645        0.6689[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 5.9           1   0.3322        0.3344[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 6             1   0.3322        0.3344[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 6.4           1   0.3322        0.3344[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 6.5           2   0.6645        0.6689[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 6.8           1   0.3322        0.3344[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 6.9           1   0.3322        0.3344[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 7.1           2   0.6645        0.6689[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 8.1           1   0.3322        0.3344[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 8.3           1   0.3322        0.3344[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 8.4           1   0.3322        0.3344[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 9.3           1   0.3322        0.3344[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 9.5           1   0.3322        0.3344[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 9.6           1   0.3322        0.3344[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 9.8           1   0.3322        0.3344[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 9.9           2   0.6645        0.6689[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 10.6          1   0.3322        0.3344[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 12.1          1   0.3322        0.3344[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 12.5          1   0.3322        0.3344[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 12.7          1   0.3322        0.3344[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 13            2   0.6645        0.6689[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 13.2          1   0.3322        0.3344[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## 25.8          1   0.3322        0.3344[] 
- []
-
-
-Overfull \hbox (4.25676pt too wide) in paragraph at lines 308--308
-[]\T1/pcr/m/n/10 ## Total       301 100.0000      100.0000[] 
- []
-
-<KuncelTellegen2_files/figure-latex/getQualtrics-2.pdf, id=89, 469.755pt x 325.
-215pt>
-File: KuncelTellegen2_files/figure-latex/getQualtrics-2.pdf Graphic file (type 
-pdf)
-<use KuncelTellegen2_files/figure-latex/getQualtrics-2.pdf>
-Package pdftex.def Info: KuncelTellegen2_files/figure-latex/getQualtrics-2.pdf 
- used on input line 310.
+Overfull \hbox (262.25676pt too wide) in paragraph at lines 208--208
+[]\T1/pcr/m/n/10 **NONE OF THIS WAS IN THE SUBMISSION BUT DONNOT WANT TO DELETE
+ WITHOUT PERMISSION***[] 
+ []
+
+[4] [5]
+<KuncelTellegen_files/figure-latex/Figure2-1.pdf, id=107, 469.755pt x 325.215pt
+>
+File: KuncelTellegen_files/figure-latex/Figure2-1.pdf Graphic file (type pdf)
+<use KuncelTellegen_files/figure-latex/Figure2-1.pdf>
+Package pdftex.def Info: KuncelTellegen_files/figure-latex/Figure2-1.pdf  used 
+on input line 255.
 (pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
-<KuncelTellegen2_files/figure-latex/getQualtrics-3.pdf, id=90, 469.755pt x 325.
-215pt>
-File: KuncelTellegen2_files/figure-latex/getQualtrics-3.pdf Graphic file (type 
-pdf)
-<use KuncelTellegen2_files/figure-latex/getQualtrics-3.pdf>
-Package pdftex.def Info: KuncelTellegen2_files/figure-latex/getQualtrics-3.pdf 
- used on input line 310.
-(pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
+<KuncelTellegen_files/figure-latex/Figure3-1.pdf, id=108, 722.7pt x 361.35pt>
+File: KuncelTellegen_files/figure-latex/Figure3-1.pdf Graphic file (type pdf)
+<use KuncelTellegen_files/figure-latex/Figure3-1.pdf>
+Package pdftex.def Info: KuncelTellegen_files/figure-latex/Figure3-1.pdf  used 
+on input line 259.
+(pdftex.def)             Requested size: 241.74484pt x 120.87242pt.
 
-Overfull \hbox (0.0005pt too wide) in paragraph at lines 310--311
+Overfull \hbox (0.0016pt too wide) in paragraph at lines 259--261
 [][]
  []
 
+[6 <./KuncelTellegen_files/figure-latex/Figure2-1.pdf> <./KuncelTellegen_files/
+figure-latex/Figure3-1.pdf>] [7]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 379.
+[8
 
-Overfull \hbox (0.0005pt too wide) in paragraph at lines 310--311
-[] 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[5 <./KuncelTellegen2_files/figure-latex/getQualtrics-1.pdf>]
-<KuncelTellegen2_files/figure-latex/getQualtrics-4.pdf, id=101, 469.755pt x 325
-.215pt>
-File: KuncelTellegen2_files/figure-latex/getQualtrics-4.pdf Graphic file (type 
-pdf)
-<use KuncelTellegen2_files/figure-latex/getQualtrics-4.pdf>
-Package pdftex.def Info: KuncelTellegen2_files/figure-latex/getQualtrics-4.pdf 
- used on input line 391.
-(pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
-
-Overfull \hbox (0.0005pt too wide) in paragraph at lines 391--392
-[][] 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[6 <./KuncelTellegen2_files/figure-latex/getQualtrics-2.pdf> <./KuncelTellegen2
-_files/figure-latex/getQualtrics-3.pdf>]
-<KuncelTellegen2_files/figure-latex/Figure2-1.pdf, id=118, 469.755pt x 325.215p
-t>
-File: KuncelTellegen2_files/figure-latex/Figure2-1.pdf Graphic file (type pdf)
-<use KuncelTellegen2_files/figure-latex/Figure2-1.pdf>
-Package pdftex.def Info: KuncelTellegen2_files/figure-latex/Figure2-1.pdf  used
- on input line 427.
-(pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
-<KuncelTellegen2_files/figure-latex/Figure3-1.pdf, id=119, 722.7pt x 361.35pt>
-File: KuncelTellegen2_files/figure-latex/Figure3-1.pdf Graphic file (type pdf)
-<use KuncelTellegen2_files/figure-latex/Figure3-1.pdf>
-Package pdftex.def Info: KuncelTellegen2_files/figure-latex/Figure3-1.pdf  used
- on input line 433.
-(pdftex.def)             Requested size: 241.74484pt x 120.87242pt.
-[7 <./KuncelTellegen2_files/figure-latex/getQualtrics-4.pdf> <./KuncelTellegen2
-_files/figure-latex/Figure2-1.pdf> <./KuncelTellegen2_files/figure-latex/Figure
-3-1.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 501.
-[8]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 501.
-(./KuncelTellegen2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 501.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 501.
-Package rerunfilecheck Info: File `KuncelTellegen2.out' has not changed.
-(rerunfilecheck)             Checksum: 93ADB19B5F2862A698ED57A66FCE3F50;934.
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 379.
+(./KuncelTellegen.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 379.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 379.
+Package rerunfilecheck Info: File `KuncelTellegen.out' has not changed.
+(rerunfilecheck)             Checksum: 23B45CCFE404DCE143691A28CFD1D9FC;1623.
  ) 
 Here is how much of TeX's memory you used:
- 14390 strings out of 482419
- 214695 string characters out of 5946262
- 500315 words of memory out of 5000000
- 29811 multiletter control sequences out of 15000+600000
- 587100 words of font info for 110 fonts, out of 8000000 for 9000
+ 14396 strings out of 482854
+ 214077 string characters out of 5955135
+ 494836 words of memory out of 5000000
+ 29366 multiletter control sequences out of 15000+600000
+ 589850 words of font info for 115 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 46i,9n,47p,3386b,420s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 46i,9n,47p,3385b,413s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.e
 nc}<c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/courier/
 ucrr8a.pfb><c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/
 times/utmb8a.pfb><c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dist/fonts/type
 1/urw/times/utmr8a.pfb><c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dist/font
 s/type1/urw/times/utmri8a.pfb>
-Output written on KuncelTellegen2.pdf (8 pages, 300733 bytes).
+Output written on KuncelTellegen.pdf (8 pages, 295529 bytes).
 PDF statistics:
- 199 PDF objects out of 1000 (max. 8388607)
- 168 compressed objects within 2 object streams
- 56 named destinations out of 1000 (max. 500000)
- 116 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 213 PDF objects out of 1000 (max. 8388607)
+ 190 compressed objects within 2 object streams
+ 76 named destinations out of 1000 (max. 500000)
+ 120 words of extra memory for PDF output out of 10000 (max. 10000000)
 
