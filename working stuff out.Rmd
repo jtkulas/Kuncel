@@ -825,7 +825,7 @@ freq(latscorer)
 
 library(tidyverse)
 
-ReducedData <- read.csv("Reduced_scale", col_names = TRUE)
+ReducedData <- read.csv("Reduced_scale.csv", col_names = TRUE)
  ReducedData <- Reduced_scale %>% slice(3:n())
 
 
