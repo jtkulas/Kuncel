@@ -44,7 +44,7 @@ footnotelist      : no
 lineno            : no
 mask              : no
 
-class             : "man"
+class             : "jou"
 header-includes:
 - \usepackage{pdflscape}
 - \newcommand{\blandscape}{\begin{landscape}}

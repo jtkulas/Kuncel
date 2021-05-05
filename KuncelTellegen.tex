@@ -4,7 +4,7 @@
 %
 \documentclass[
   english,
-  ,man]{apa6}
+  ,jou]{apa6}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -113,12 +113,9 @@
 \makeatother
 \shorttitle{ITEM SD RATINGS}
 \keywords{Social desirability, response bias, personality assessment, content validation}
-\DeclareDelayedFloatFlavor{ThreePartTable}{table}
-\DeclareDelayedFloatFlavor{lltable}{table}
-\DeclareDelayedFloatFlavor*{longtable}{table}
-\makeatletter
-\renewcommand{\efloat@iwrite}[1]{\immediate\expandafter\protected@write\csname efloat@post#1\endcsname{}}
-\makeatother
+\usepackage{dblfloatfix}
+
+
 \usepackage{csquotes}
 \usepackage{pdflscape}
 \newcommand{\blandscape}{\begin{landscape}}
