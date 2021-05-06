@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.4.9)  5 MAY 2021 15:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.4.9)  6 MAY 2021 16:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -876,68 +876,56 @@ ftex.map}
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 165.
 [2]
-<KuncelTellegen_files/figure-latex/Figure1-1.pdf, id=72, 469.755pt x 325.215pt>
+<KuncelTellegen_files/figure-latex/Figure1-1.pdf, id=84, 469.755pt x 325.215pt>
 
 File: KuncelTellegen_files/figure-latex/Figure1-1.pdf Graphic file (type pdf)
 <use KuncelTellegen_files/figure-latex/Figure1-1.pdf>
 Package pdftex.def Info: KuncelTellegen_files/figure-latex/Figure1-1.pdf  used 
 on input line 177.
 (pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
-[3 <./KuncelTellegen_files/figure-latex/Figure1-1.pdf>]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 20
-6.
-(c:/Users/kulasj/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
-Overfull \hbox (262.25676pt too wide) in paragraph at lines 208--208
-[]\T1/pcr/m/n/10 **NONE OF THIS WAS IN THE SUBMISSION BUT DONNOT WANT TO DELETE
- WITHOUT PERMISSION***[] 
- []
-
-[4] [5]
-<KuncelTellegen_files/figure-latex/Figure2-1.pdf, id=105, 469.755pt x 325.215pt
+[3 <./KuncelTellegen_files/figure-latex/Figure1-1.pdf>] [4] [5]
+<KuncelTellegen_files/figure-latex/Figure2-1.pdf, id=119, 469.755pt x 325.215pt
 >
 File: KuncelTellegen_files/figure-latex/Figure2-1.pdf Graphic file (type pdf)
 <use KuncelTellegen_files/figure-latex/Figure2-1.pdf>
 Package pdftex.def Info: KuncelTellegen_files/figure-latex/Figure2-1.pdf  used 
-on input line 259.
+on input line 266.
 (pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
-<KuncelTellegen_files/figure-latex/Figure3-1.pdf, id=106, 722.7pt x 361.35pt>
+<KuncelTellegen_files/figure-latex/Figure3-1.pdf, id=120, 722.7pt x 361.35pt>
 File: KuncelTellegen_files/figure-latex/Figure3-1.pdf Graphic file (type pdf)
 <use KuncelTellegen_files/figure-latex/Figure3-1.pdf>
 Package pdftex.def Info: KuncelTellegen_files/figure-latex/Figure3-1.pdf  used 
-on input line 263.
+on input line 270.
 (pdftex.def)             Requested size: 241.74484pt x 120.87242pt.
 
-Overfull \hbox (0.0016pt too wide) in paragraph at lines 263--265
+Overfull \hbox (0.0016pt too wide) in paragraph at lines 270--272
 [][]
  []
 
-[6 <./KuncelTellegen_files/figure-latex/Figure2-1.pdf> <./KuncelTellegen_files/
-figure-latex/Figure3-1.pdf>] [7] [8
+[6 <./KuncelTellegen_files/figure-latex/Figure3-1.pdf> <./KuncelTellegen_files/
+figure-latex/Figure2-1.pdf>] [7] [8
 
 ] (./KuncelTellegen.aux)
 Package rerunfilecheck Info: File `KuncelTellegen.out' has not changed.
-(rerunfilecheck)             Checksum: 23B45CCFE404DCE143691A28CFD1D9FC;1623.
+(rerunfilecheck)             Checksum: 546B2DCE90C312255D4426E7AEEE5C5E;1882.
  ) 
 Here is how much of TeX's memory you used:
- 14055 strings out of 480954
- 213620 string characters out of 5905755
- 550390 words of memory out of 5000000
- 30911 multiletter control sequences out of 15000+600000
- 458192 words of font info for 113 fonts, out of 8000000 for 9000
+ 14034 strings out of 480954
+ 213255 string characters out of 5905755
+ 549486 words of memory out of 5000000
+ 30890 multiletter control sequences out of 15000+600000
+ 457571 words of font info for 111 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 83i,10n,88p,3385b,418s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 83i,9n,88p,3385b,422s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/kulasj/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.e
-nc}<c:/Users/kulasj/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/courier/
-ucrr8a.pfb><c:/Users/kulasj/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/
-times/utmb8a.pfb><c:/Users/kulasj/AppData/Roaming/TinyTeX/texmf-dist/fonts/type
-1/urw/times/utmr8a.pfb><c:/Users/kulasj/AppData/Roaming/TinyTeX/texmf-dist/font
-s/type1/urw/times/utmri8a.pfb>
-Output written on KuncelTellegen.pdf (8 pages, 295567 bytes).
+nc}<c:/Users/kulasj/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/ut
+mb8a.pfb><c:/Users/kulasj/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/ti
+mes/utmr8a.pfb><c:/Users/kulasj/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/
+urw/times/utmri8a.pfb>
+Output written on KuncelTellegen.pdf (8 pages, 289119 bytes).
 PDF statistics:
- 211 PDF objects out of 1000 (max. 8388607)
- 188 compressed objects within 2 object streams
- 75 named destinations out of 1000 (max. 500000)
- 120 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 222 PDF objects out of 1000 (max. 8388607)
+ 200 compressed objects within 2 object streams
+ 80 named destinations out of 1000 (max. 500000)
+ 144 words of extra memory for PDF output out of 10000 (max. 10000000)
 
