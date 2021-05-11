@@ -116,7 +116,7 @@ grid.raster(figure)
 
 Although there is both theoretical and empirical support for @kuncel_conceptual_2009's procedure, it also quite substantially more time- and (we propose) effort-intensive than is the traditional item-rating approach [e.g., @edwards_social_1957; @edwards_relationship_1953]. As technically specified, the *traditional* Edwards procedure requires one evaluation per item (albeit that evaluation is made across nine levels of social desirability). The *contemporary* Kuncel and Tellegen procedure specifies five evaluations across five levels of desirability per item.  In addition to the greater *number* of evaluations required in the contemporary approach (requiring a longer time commitment from item judges), we propose that the contemporary approach is also likely more cognitively demanding due to shifting frames of reference (the referent of appraisal is variable across ratings).  
 
-> Possibly integrate shifting & cognitive load here
+> Possibly integrate shifting & cognitive load here. Kulas tried a search to no avail - Melcher suggested searching for "perspective shift" (5/10/21)
 
 Given the greater time and (we argue) resource commitments required of the contemporary approach (relative to the traditional), we aim to gauge to what extent these two approaches in fact capture similar versus unique pieces of information. The goal of the present investigation is therefore to directly compare these two methodologies with an "additional information" orientation - that is, is the new approach truly unique, or rather does it at least with some indicators convey somewhat redundant information as the classic, cognitively easier and less time-intensive approach?
 
