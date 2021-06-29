@@ -45,7 +45,7 @@ usable <- nrow(use)
 
 # Latencies
 
-`r total` Montclair State University students responded to 15 items identified by Julia and Renata as relatively conforming to the Kuncel and Tellegen empirical patterns (linear, asymmetric, or quasi-symmetric). Two sample items were first presented ("Make people feel welcome" and "Insult people"). We retained responses if at least 75% of questions were answered, resulting in `r usable` student responses.
+`r total` Montclair State University students responded to 15 items identified by Julia and Renata as relatively conforming to the Kuncel and Tellegen empirical patterns (linear, asymmetric, or quasi-symmetric). Two example items were first presented ("Make people feel welcome" and "Insult people"). We retained responses if at least 75% of questions were answered, resulting in `r usable` student responses.
 
 | Item type  | Content                                 |
 |------------|-----------------------------------------|
@@ -353,8 +353,10 @@ together$Latency <- as.numeric(as.character(together$Latency))
 #library(descr)
 #yaddup <- freq(together$Latency)
 #write.csv(yaddup, "temp.csv")      ## top 1% = 37.396; top 2% = 21.302
+                                    ## top 5% = 11.637 (6/2/21)
+
                                     ## bottom 1% = 0.3
-together$Latency[together$Latency >= 21.302] <- NA
+together$Latency[together$Latency >= 11.637] <- NA
 together$Latency[together$Latency <= .3]     <- NA
 
 
@@ -365,9 +367,16 @@ together$tier <- factor(together$tier, levels = c("Bottom 1%","Bottom 30%","Aver
 library(ggplot2)
 
 p <- ggplot(data=subset(together, !is.na(Answer)), aes(x=Latency)) + geom_histogram()
-p + facet_grid(~Answer)
+p + facet_grid(Answer ~.)
 
 p + facet_grid(vars(tier), vars(Answer))
+
+```
+
+The average response latency across all conditions (after trimming extremes) was `r round(mean(together$Latency, na.rm=TRUE), 2)` (sd = `r round(sd(together$Latency, na.rm=TRUE),2)`). 
+```{r bygroup, echo=FALSE, warning=FALSE}
+ 
+psych::describeBy(together$Latency, group = together$cond)
 
 ```
 
@@ -389,3 +398,7 @@ ggplot(data=subset(quasia, !is.na(Answer)), aes(x=Latency)) + geom_histogram() +
   facet_grid(vars(tier), vars(Answer)) + ggtitle("Quasi-symmetric items")
 
 ```
+
+## Taking "reverse-scored" items into consideration
+
+
