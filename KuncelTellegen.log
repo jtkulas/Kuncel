@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.6.17)  28 JUN 2021 20:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.6.17)  29 JUN 2021 10:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -964,31 +964,37 @@ ftex.map}
 
 ]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 191.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 193.
 [2]
 <KuncelTellegen_files/figure-latex/Figure1-1.pdf, id=22, 469.755pt x 325.215pt>
 
 File: KuncelTellegen_files/figure-latex/Figure1-1.pdf Graphic file (type pdf)
 <use KuncelTellegen_files/figure-latex/Figure1-1.pdf>
 Package pdftex.def Info: KuncelTellegen_files/figure-latex/Figure1-1.pdf  used 
-on input line 203.
+on input line 207.
 (pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
-[3 <./KuncelTellegen_files/figure-latex/Figure1-1.pdf>] [4] [5]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[3 <./KuncelTellegen_files/figure-latex/Figure1-1.pdf>] [4]
+Underfull \vbox (badness 1694) has occurred while \output is active []
+
+[5]
 <KuncelTellegen_files/figure-latex/Figure2-1.pdf, id=67, 469.755pt x 325.215pt>
 
 File: KuncelTellegen_files/figure-latex/Figure2-1.pdf Graphic file (type pdf)
 <use KuncelTellegen_files/figure-latex/Figure2-1.pdf>
 Package pdftex.def Info: KuncelTellegen_files/figure-latex/Figure2-1.pdf  used 
-on input line 292.
+on input line 296.
 (pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
 <KuncelTellegen_files/figure-latex/Figure3-1.pdf, id=68, 722.7pt x 361.35pt>
 File: KuncelTellegen_files/figure-latex/Figure3-1.pdf Graphic file (type pdf)
 <use KuncelTellegen_files/figure-latex/Figure3-1.pdf>
 Package pdftex.def Info: KuncelTellegen_files/figure-latex/Figure3-1.pdf  used 
-on input line 296.
+on input line 300.
 (pdftex.def)             Requested size: 241.74484pt x 120.87242pt.
 
-Overfull \hbox (0.0016pt too wide) in paragraph at lines 296--298
+Overfull \hbox (0.0016pt too wide) in paragraph at lines 300--302
 [][]
  []
 
@@ -996,14 +1002,14 @@ Overfull \hbox (0.0016pt too wide) in paragraph at lines 296--298
 figure-latex/Figure3-1.pdf>] [7]
 - LAST -
 Extra skip:12.0pt
-Left:22.0pt/2.04498pt
-Right:10.0pt/2.04498pt
-Output:17.0pt
+Left:76.0pt/2.04498pt
+Right:64.0pt/2.04498pt
+Output:76.0pt
 [8] (./KuncelTellegen.aux) ) 
 Here is how much of TeX's memory you used:
  16640 strings out of 480452
  259200 string characters out of 5896253
- 633253 words of memory out of 5000000
+ 633344 words of memory out of 5000000
  33599 multiletter control sequences out of 15000+600000
  474844 words of font info for 334 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -1013,7 +1019,7 @@ Here is how much of TeX's memory you used:
 t/fonts/type1/urw/times/utmb8a.pfb><c:/Users/John-o/AppData/Roaming/TinyTeX/tex
 mf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/John-o/AppData/Roaming/TinyT
 eX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on KuncelTellegen.pdf (8 pages, 295545 bytes).
+Output written on KuncelTellegen.pdf (8 pages, 295990 bytes).
 PDF statistics:
  228 PDF objects out of 1000 (max. 8388607)
  202 compressed objects within 3 object streams
