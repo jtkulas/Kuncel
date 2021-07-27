@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.6.17)  14 JUL 2021 10:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.7.19)  27 JUL 2021 10:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **KuncelTellegen.tex
 (./KuncelTellegen.tex
 LaTeX2e <2021-06-01> patch level 1
-L3 programming layer <2021-06-01> (c:/Users/John-o/AppData/Roaming/TinyTeX/texm
+L3 programming layer <2021-07-12> (c:/Users/John-o/AppData/Roaming/TinyTeX/texm
 f-dist/tex/latex/apa6/apa6.cls
 Document Class: apa6 2020/01/13 v2.34 APA formatting (6th edition)
 (c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
@@ -716,10 +716,10 @@ Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
 (c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2021/06/02 3.60 The Babel package
+Package: babel 2021/06/28 3.61 The Babel package
 
 (c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2021/06/02 3.60 Babel common definitions
+File: babel.def 2021/06/28 3.61 Babel common definitions
 \babel@savecnt=\count310
 \U@D=\dimen198
 \l@unhyphenated=\language4
@@ -770,7 +770,7 @@ Package csquotes Info: Redefining alias 'default' -> 'english'.
 
 (c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backe
 nd-pdftex.def
-File: l3backend-pdftex.def 2021-05-07 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2021-07-12 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count315
 \l__pdf_internal_box=\box70
 ) (./KuncelTellegen.aux)
@@ -974,14 +974,17 @@ Package pdftex.def Info: KuncelTellegen_files/figure-latex/Figure1-1.pdf  used
 on input line 207.
 (pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
 
-Underfull \vbox (badness 7558) has occurred while \output is active []
+Underfull \vbox (badness 2027) has occurred while \output is active []
 
 [3 <./KuncelTellegen_files/figure-latex/Figure1-1.pdf>]
 LaTeX Font Info:    Trying to load font information for T1+pcr on input line 24
-0.
+7.
 (c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-) [4] [5]
+) [4]
+Underfull \vbox (badness 1694) has occurred while \output is active []
+
+[5]
 <KuncelTellegen_files/figure-latex/Figure2-1.pdf, id=68, 469.755pt x 325.215pt>
 
 File: KuncelTellegen_files/figure-latex/Figure2-1.pdf Graphic file (type pdf)
@@ -1009,20 +1012,20 @@ Right:64.0pt/2.04498pt
 Output:76.0pt
 [8] (./KuncelTellegen.aux) ) 
 Here is how much of TeX's memory you used:
- 16683 strings out of 480452
- 259804 string characters out of 5896253
- 634443 words of memory out of 5000000
- 33630 multiletter control sequences out of 15000+600000
- 475725 words of font info for 340 fonts, out of 8000000 for 9000
+ 16682 strings out of 480482
+ 259855 string characters out of 5897029
+ 632049 words of memory out of 5000000
+ 33606 multiletter control sequences out of 15000+600000
+ 475335 words of font info for 334 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 74i,10n,80p,3385b,452s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 74i,9n,80p,3385b,452s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dist
 /fonts/enc/dvips/base/8r.enc}<c:/Users/John-o/AppData/Roaming/TinyTeX/texmf-dis
 t/fonts/type1/urw/courier/ucrr8a.pfb><c:/Users/John-o/AppData/Roaming/TinyTeX/t
 exmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/Users/John-o/AppData/Roaming/Tin
 yTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/John-o/AppData/Roami
 ng/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on KuncelTellegen.pdf (8 pages, 303627 bytes).
+Output written on KuncelTellegen.pdf (8 pages, 303667 bytes).
 PDF statistics:
  233 PDF objects out of 1000 (max. 8388607)
  205 compressed objects within 3 object streams
