@@ -362,7 +362,7 @@ together$Latency[together$Latency <= .3]     <- NA
 
 together$Answer <- factor(together$Answer, levels = c("Very Undesirable", "Undesirable", "Neutral", "Desirable", "Very Desirable"))
 together$tier <- factor(together$tier, levels = c("Bottom 1%","Bottom 30%","Average","Top 30%","Top 1%"))
-
+write.csv(together, "interrater.csv")
 
 library(ggplot2)
 
