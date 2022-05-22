@@ -12,3 +12,10 @@
 \includegraphics{KuncelTellegen_files/figure-latex/Figure2-1.pdf}
 \caption{\label{fig:Figure2}Kuncel \& Tellegen (2009) patterns across Edwards (1953) scale values.}
 \end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{KuncelTellegen_files/figure-latex/lastone-1.pdf}
+\caption{\label{fig:lastone}Response Category and Mean Rating slope across Edwards' scale values (individual scatterpoints represent items).}
+\end{figure*}
