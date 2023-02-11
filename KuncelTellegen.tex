@@ -131,6 +131,20 @@
 % \setlength{\parindent}{0.5in}
 % \setlength{\parskip}{0pt plus 0pt minus 0pt}
 
+% Overwrite redefinition of paragraph and subparagraph by the default LaTeX template
+% See https://github.com/crsh/papaja/issues/292
+\makeatletter
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries\itshape\typesectitle}}
+
+\renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{1em}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-\z@\relax}%
+  {\normalfont\normalsize\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
+\makeatother
+
 % \usepackage{etoolbox}
 \makeatletter
 \patchcmd{\HyOrg@maketitle}
@@ -142,7 +156,15 @@
   {\section*{\protect\normalfont{\@title}}}
   {}{\typeout{Failed to patch title.}}
 \makeatother
-\shorttitle{ITEM SD RATINGS}
+
+\usepackage{xpatch}
+\makeatletter
+\xapptocmd\appendix
+  {\xapptocmd\section
+    {\addcontentsline{toc}{section}{\appendixname\ifoneappendix\else~\theappendix\fi\\: #1}}
+    {}{\InnerPatchFailed}%
+  }
+{}{\PatchFailed}
 \keywords{Social desirability, response bias, personality assessment, content validation}
 \DeclareDelayedFloatFlavor{ThreePartTable}{table}
 \DeclareDelayedFloatFlavor{lltable}{table}
@@ -163,9 +185,17 @@
 \date{}
 
 
+\shorttitle{ITEM SD RATINGS}
+
+\authornote{
+
+Correspondence concerning this article should be addressed to John T. Kulas, 250 Dickson Hall; Montclair State University; Montclair, NJ, 07043. E-mail: \href{mailto:kulasj@montclair.edu}{\nolinkurl{kulasj@montclair.edu}}
+
+}
+
 \affiliation{\vspace{0.5cm}\textsuperscript{1} Montclair State University\\\textsuperscript{2} St.~Cloud State University}
 
-\abstract{
+\abstract{%
 Historical approaches to the assessment of socially desirable content within Psychological inventory indicators have been implicated as being too broadly focused. Correspondingly, an alternative method has been proposed whereby the target of rating is shifted from the item \emph{stem} to the item's \emph{response option} (Kuncel \& Tellegen, 2009). The current study examines whether the added complexity of the more contemporary procedure is accompanied with an incrementally meaningful amount of unique information regarding the magnitude and valence of socially desirable content within Psychological inventory indicators. Toward this pursuit, the historically traditional and more recently advocated methodologies were empirically compared and contrasted. Our interest was in collecting estimates of: 1) similarity (and uniqueness) of information, 2) inter-rater consistency (when making evaluations), and 3) cognitive difficulty of the rating processes. Results suggest that although the contemporary approach captures some unique information, this is in fact only incrementally informative in predictably particular instances. Specifically, the more cognitively taxing contemporary procedure may be best leveraged with indicators first implicated as ``moderately desirable'' via application of the traditional (Edwards, 1953, 1957b) approach. A more judiciously limited application of the contemporary approach should benefit both researchers and item judges.
 }
 
@@ -250,7 +280,7 @@ All analyses were performed in R version 4.1.1 (R Core Team, 2021). We leveraged
 
 For the first investigative approach (linearity of function across ``Kuncel and Tellegen'' values) several regressions were fit using the five different rated trait locations as predictors (e.g., Kuncel and Tellegen (2009)'s ``bottom 1\%'', ``bottom 30\%'', ``Average'', ``top 30\%'', and ``top 1\%'' - these were treated as an ordinal continuum {[}1, 2, 3, 4, and 5{]}) and averaged response desirability rating as the criterion (see Figure 2 for exposition - regressions were fit to the plotted space {[}response category on the x-axis and average rating on the y-axis{]}). For example, the expectation was that Figure 2's ``Excel in what I do'' and ``Believe that others have good intentions'' would realize negative slope estimates, ``Enjoy wild flights of fancy'' would exhibit a flat slope, and ``Get irritated easily'' would return a moderately positive slope. Within each of the 300 regressions, the expectation was that slope magnitude and valence would parallel the classic Edwards ratings of the same items
 
-In order to capture the extremity of function across Kuncel and Tellegen (2009) values, several regressions\footnote{Polynomial regressions were also conducted to capture functional form but are not presented as a central index - these are however available from the authors upon request (indeed this manuscript was generated via the \texttt{R} package \texttt{papaja} (Aust \& Barth, 2021) and consistent with reproducible research standards the entire self-contained project is available upon request).} were fit using trait location as a predictor (e.g., Kuncel and Tellegen (2009)'s ``Lower 1\%'', ``Lower 30\%'', ``Median'', ``Upper 30\%'', and ``Upper 1\%'' were treated as a scaled continuum) and average desirability rating as the criterion. Slopes were retained for each function, with the expectation that slope magnitude and valence would parallel the classic Edwards ratings.
+In order to capture the extremity of function across Kuncel and Tellegen (2009) values, several regressions\footnote{Polynomial regressions were also conducted to capture functional form but are not presented as a central index - these are however available from the authors upon request (indeed this manuscript was generated via the \texttt{R} package \texttt{papaja} (Aust \& Barth, 2022) and consistent with reproducible research standards the entire self-contained project is available upon request).} were fit using trait location as a predictor (e.g., Kuncel and Tellegen (2009)'s ``Lower 1\%'', ``Lower 30\%'', ``Median'', ``Upper 30\%'', and ``Upper 1\%'' were treated as a scaled continuum) and average desirability rating as the criterion. Slopes were retained for each function, with the expectation that slope magnitude and valence would parallel the classic Edwards ratings.
 
 Across all 300 items, the relationship was strong (\emph{R2} = .67, \emph{p} \textless{} .05), suggesting some level of similarity across procedures. Figure \ref{fig:Figure2} demonstrates these relationships for 25 randomly selected items within five categorized Edwards arrays. Note that the functions (even if somewhat non-monotonic - see, for example, ``Seldom Daydream'' in Figure \ref{fig:Figure2}) tend to exhibit greater slope Edwards' highly desirable or undesirable items, and are ``flatter'' with Edwards' moderate items.
 
@@ -341,7 +371,7 @@ Alicke, M. D., \& Sedikides, C. (2009). Self-enhancement and self-protection: Wh
 Alicke, M. D., \& Sedikides, C. (2011). \emph{Handbook of self-enhancement and self-protection}. Guilford Press.
 
 \leavevmode\vadjust pre{\hypertarget{ref-R-papaja}{}}%
-Aust, F., \& Barth, M. (2021). \emph{Papaja: Prepare reproducible APA journal articles with r markdown}. \url{https://github.com/crsh/papaja}
+Aust, F., \& Barth, M. (2022). \emph{Papaja: Prepare american psychological association journal articles with r markdown}. \url{https://github.com/crsh/papaja}
 
 \leavevmode\vadjust pre{\hypertarget{ref-barrick_what_2009}{}}%
 Barrick, M. R., Shaffer, J. A., \& DeGrassi, S. W. (2009). What you see may not be what you get: Relationships among self-presentation tactics and ratings of interview and job performance. \emph{Journal of Applied Psychology}, \emph{94}(6), 1394.
