@@ -1,0 +1,12 @@
+To do for Kuncel & Tellegen:
+
+1) put mono & linear rating forms on repository (KULAS)
+2) fill in European authors who have been doing direct SD item ratings [line 80] (take from student paper) (KULAS)
+3) find recent rebuttal of Ones Red Herring paper - possibly also faking (KULAS)
+4) explain Figure 2 - currently explained twice but neither explanation makes sense (KULAS)
+
+Results should be: 
+
+1) similarity/uniqueness of information
+2) inter-rater consistency (of judge ratings)
+3) cognitive difficulty of rating process
