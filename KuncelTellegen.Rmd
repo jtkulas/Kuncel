@@ -11,7 +11,7 @@ author:
   - name          : "Emily J. Johnson"
     affiliation   : "2"
     email         : "ejjohnson@stcloudstate.edu"
-  - name          : "Renata Garcia Prieto Palacios Roji"
+  - name          : "Renata García Prieto Palacios Roji"
     affiliation   : "1"
     email         : "garciaprier1@montclair.edu"
   - name          : "Julia Wefferling"
@@ -30,7 +30,9 @@ author_note: |
 
 abstract: |
 
-  Historical approaches to the assessment of socially desirable content within Psychological inventory indicators have been implicated as being too broadly focused. Correspondingly, an alternative method has been proposed whereby the target of rating is shifted from the item *stem* to the item's *response option* [@kuncel_conceptual_2009]. The current study examines whether the added complexity of the more contemporary procedure is accompanied with an incrementally meaningful amount of unique information regarding the magnitude and valence of socially desirable content within Psychological inventories. Toward this pursuit, the historically traditional and more recently advocated methodologies were empirically compared and contrasted. Our interest was in collecting estimates of: 1) similarity (and uniqueness) of information, 2) inter-rater consistency (when making evaluations), and 3) cognitive difficulty of the rating processes. Results suggest that although the contemporary approach captures some unique information, this is in fact only incrementally informative in predictably particular instances. Specifically, the more cognitively taxing contemporary procedure may be best leveraged with indicators first implicated as "moderately desirable" via application of the traditional [@edwards_relationship_1953; @edwards_social_1957] approach.  A more judiciously targeted application of the contemporary approach should benefit both researchers and item judges.
+  Historical approaches to the assessment of socially desirable content within Psychological inventory indicators have been implicated as being too broadly focused. Correspondingly, an alternative method has been proposed whereby the target of rating is shifted from the item *stem* to the item's *response option* [@kuncel_conceptual_2009]. The current study examines whether the added complexity of the more contemporary procedure is accompanied with an incrementally meaningful amount of unique information regarding the magnitude and valence of socially desirable content within Psychological inventories. Toward this pursuit, the historically traditional and more recently advocated methodologies were empirically compared and contrasted. Our interest was in collecting estimates of: 1) similarity (and uniqueness) of information, 2) inter-rater consistency (when making evaluations), and 3) cognitive difficulty of the rating processes. Results suggest that although the contemporary approach captures some unique information, this is in fact only incrementally informative in predictably particular instances. Specifically, the more cognitively taxing contemporary procedure may be best leveraged with indicators first implicated as "moderately desirable" via application of the traditional [@edwards_relationship_1953; @edwards_social_1957] approach.  A more complementary application of the two approaches should benefit both researchers and item judges.
+  
+  >**Yet to do 3/11/23**: 1) graph relating Edwards to K/T (maybe look at residuals instead of subjective ratings), 2) response latencies (proxy for task difficulty), 3) inter-rater agreement (also proxy for difficulty of task)
   
 keywords          : "Social desirability, response bias, personality assessment, content validation"
 #wordcount         : "X"
