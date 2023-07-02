@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.25)  3 JUN 2023 11:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.25)  1 JUL 2023 10:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -706,34 +706,37 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 ] [2]
-<KuncelTellegen_files/figure-latex/Figure1-1.pdf, id=90, 469.755pt x 325.215pt>
+<KuncelTellegen_files/figure-latex/Figure1-1.pdf, id=98, 469.755pt x 325.215pt>
 File: KuncelTellegen_files/figure-latex/Figure1-1.pdf Graphic file (type pdf)
 <use KuncelTellegen_files/figure-latex/Figure1-1.pdf>
-Package pdftex.def Info: KuncelTellegen_files/figure-latex/Figure1-1.pdf  used on input line 247.
+Package pdftex.def Info: KuncelTellegen_files/figure-latex/Figure1-1.pdf  used on input line 249.
 (pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
 [3 <./KuncelTellegen_files/figure-latex/Figure1-1.pdf>]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 292.
+(hyperref)                than one, level fixed on input line 294.
 
-[4] [5]
-<KuncelTellegen_files/figure-latex/Figure2-1.pdf, id=137, 794.97pt x 578.16pt>
+[4]
+Underfull \vbox (badness 1009) has occurred while \output is active []
+
+[5]
+<KuncelTellegen_files/figure-latex/Figure2-1.pdf, id=149, 794.97pt x 578.16pt>
 File: KuncelTellegen_files/figure-latex/Figure2-1.pdf Graphic file (type pdf)
 <use KuncelTellegen_files/figure-latex/Figure2-1.pdf>
-Package pdftex.def Info: KuncelTellegen_files/figure-latex/Figure2-1.pdf  used on input line 345.
+Package pdftex.def Info: KuncelTellegen_files/figure-latex/Figure2-1.pdf  used on input line 353.
 (pdftex.def)             Requested size: 241.74374pt x 175.81363pt.
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 349.
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 357.
 (c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-Overfull \hbox (160.25676pt too wide) in paragraph at lines 351--351
+Overfull \hbox (160.25676pt too wide) in paragraph at lines 359--359
 []\T1/pcr/m/n/10 ## Warning: Removed 46 rows containing missing values (geom_point).[] 
  []
 
-<KuncelTellegen_files/figure-latex/lastone-1.pdf, id=138, 794.97pt x 361.35pt>
+<KuncelTellegen_files/figure-latex/lastone-1.pdf, id=150, 794.97pt x 361.35pt>
 File: KuncelTellegen_files/figure-latex/lastone-1.pdf Graphic file (type pdf)
 <use KuncelTellegen_files/figure-latex/lastone-1.pdf>
-Package pdftex.def Info: KuncelTellegen_files/figure-latex/lastone-1.pdf  used on input line 355.
+Package pdftex.def Info: KuncelTellegen_files/figure-latex/lastone-1.pdf  used on input line 363.
 (pdftex.def)             Requested size: 241.74374pt x 109.88351pt.
 [6 <./KuncelTellegen_files/figure-latex/Figure2-1.pdf> <./KuncelTellegen_files/figure-latex/lastone-1.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -743,21 +746,21 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [8] (./KuncelTellegen.aux)
 Package rerunfilecheck Info: File `KuncelTellegen.out' has not changed.
-(rerunfilecheck)             Checksum: 3D2AB2D79DDAC51E62FB86BEB5666C38;2098.
+(rerunfilecheck)             Checksum: F3C5ADC49FB407FE90DE3C8A567EAD20;2639.
  ) 
 Here is how much of TeX's memory you used:
- 15788 strings out of 477985
- 263307 string characters out of 5837248
- 1869382 words of memory out of 5000000
- 35577 multiletter control sequences out of 15000+600000
+ 15797 strings out of 477985
+ 263508 string characters out of 5837248
+ 1870382 words of memory out of 5000000
+ 35581 multiletter control sequences out of 15000+600000
  575931 words of font info for 128 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,9n,77p,3385b,554s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,9n,77p,3385b,550s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on KuncelTellegen.pdf (8 pages, 321405 bytes).
+Output written on KuncelTellegen.pdf (8 pages, 322430 bytes).
 PDF statistics:
- 264 PDF objects out of 1000 (max. 8388607)
- 232 compressed objects within 3 object streams
- 87 named destinations out of 1000 (max. 500000)
- 152 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 277 PDF objects out of 1000 (max. 8388607)
+ 245 compressed objects within 3 object streams
+ 92 named destinations out of 1000 (max. 500000)
+ 168 words of extra memory for PDF output out of 10000 (max. 10000000)
 
