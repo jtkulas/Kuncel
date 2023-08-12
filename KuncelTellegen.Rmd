@@ -162,7 +162,9 @@ All three approaches focused on the 2-dimensional associations between the avera
 
 For the first investigative approach, we probed for associations between "Edwards"' item ratings and regression slope of "Kuncel & Tellegen" function. If the two procedures result in similar output, we would expect greater incidences of linearity with extremely desirable (and undesirable) items. 
 
-We first fit 300 individual regressions retaining the five different rated trait locations as predictors (e.g., @kuncel_conceptual_2009's "bottom 1%", "bottom 30%", "Average", "top 30%", and "top 1%" - these were treated as a scaled continuum [values of 1, 2, 3, 4, and 5])  and averaged response desirability rating as the criterion. Within each of the 300 regressions, the expectation was that slope magnitude and valence would parallel the classic Edwards ratings of the same items. For example, the expectation was that Figure \@ref(fig:Figure2)'s "Excel in what I do" and "Believe that others have good intentions" would realize negative slope estimates, "Enjoy wild flights of fancy" would exhibit a flat slope, and "Get irritated easily" would return a moderately positive slope. Across all 300 items, the relationship was strong ($R^2$ = .67, *p* < .05), suggesting some level of similarity across procedures.
+We first fit 300 individual regressions retaining the five different rated trait locations as predictors (e.g., @kuncel_conceptual_2009's "bottom 1%", "bottom 30%", "Average", "top 30%", and "top 1%" - these were treated as a scaled continuum [values of 1, 2, 3, 4, and 5])  and averaged response desirability rating as the criterion. Within each of the 300 regressions, the expectation was that slope magnitude and valence would parallel the classic Edwards ratings of the same items. For example, the expectation was that Figure \@ref(fig:Figure2)'s "Excel in what I do" and "Believe that others have good intentions" would realize negative slope estimates, "Enjoy wild flights of fancy" would exhibit a flat slope, and "Get irritated easily" would return a moderately positive slope. Across all 300 items, the relationship was strong ($R^2 = .58$, $F_{(1,298)} = 412.26$, *p* < .05), suggesting some level of similarity across procedures. 
+
+>NOTE. Maybe do something with residuals to replace current subjective rating graph - lm object is named, "try" 8/12/23
 
 Figure \@ref(fig:Figure2) presents "Kuncel & Tellegen" functional forms for 25 items. These items were randomly selected from within five categorized Edwards arrays[^yabut], and the figure *rows* reflect these strata.  Note that the functions (even if somewhat non-monotonic - see, for example, "Seldom Daydream" in Figure \@ref(fig:Figure2)) tend to exhibit "steeper slope" with Edwards' highly desirable or undesirable items, and are "flatter" with Edwards' moderate items - this first exploration merely confirms a general pattern such that more extreme "Edwards" items tend to have steeper "Kuncel & Tellegen" functions, but is not sensitive to functional form (e.g., this is insensitive to "monotonicity").  
 
@@ -2664,11 +2666,10 @@ paper$nonmono <- rowMeans(nonmono, na.rm=TRUE)
 paper$linear <- rowMeans(linear, na.rm=TRUE)
 
 
-#############################################     Some ed.values are missing - 10/12/18
+#############################################     Some ed.values are missing - 10/12/18 (not seeing missing on 8/12/23)
 
-howboutthis <- apa_print(try)
 ```
-`r howboutthis$full_result`
+
 ```{r lastone, fig.cap="Response Category and Mean Rating slope across Edwards' scale values (individual scatterpoints represent items).", fig.height=5, fig.width=11}
 
 paper$nonmono <- rowMeans(nonmono[,c(2,4)], na.rm=TRUE)   ## Emily + Renata (10/22/19)

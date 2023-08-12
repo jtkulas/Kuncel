@@ -33,16 +33,6 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={Crossing a River to get some Water? An Empirical Comparison of Classic and Contemporary Approaches to Item Social Desirability Evaluation},
-  pdfauthor={John T. Kulas1, Emily J. Johnson2, Renata García Prieto Palacios Roji3, \& Julia Wefferling3},
-  pdflang={en-EN},
-  pdfkeywords={Social desirability, response bias, personality assessment, content validation},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
 \usepackage{graphicx}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -176,6 +166,16 @@
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Crossing a River to get some Water? An Empirical Comparison of Classic and Contemporary Approaches to Item Social Desirability Evaluation},
+  pdfauthor={John T. Kulas1, Emily J. Johnson2, Renata García Prieto Palacios Roji3, \& Julia Wefferling3},
+  pdflang={en-EN},
+  pdfkeywords={Social desirability, response bias, personality assessment, content validation},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
 \title{Crossing a River to get some Water? An Empirical Comparison of Classic and Contemporary Approaches to Item Social Desirability Evaluation}
 \author{John T. Kulas\textsuperscript{1}, Emily J. Johnson\textsuperscript{2}, Renata García Prieto Palacios Roji\textsuperscript{3}, \& Julia Wefferling\textsuperscript{3}}
@@ -286,7 +286,7 @@ All ratings were made via paper and pencil in an experimental laboratory. The Ed
 \hypertarget{results}{%
 \section{Results}\label{results}}
 
-All analyses were performed in R version 4.1.1 (R Core Team, 2021). We leveraged three different approaches comparing findings across the two item rating procedures. First, we fit linear regressions to all ``Kuncel \& Tellegen'' functions (as explained below), extracting slope coefficients, then regressed Edwards' ratings on these slopes across items. Secondly, we collected visual estimates of the monotonicity and linearity of these functions, and used these estimates to help inform ranges of Edwards values along which nonlinear item functions tend to be more prominent (e.g., how many ``inverted U-shaped'' functions were noted in items characterized by Edwards' system as \emph{extremely undesirable}, \emph{undesirable}, \emph{average}, \emph{desirable}, and \emph{extremely desirable}). Lastly, we conducted 300 hierarchical polynomial regressions to capture ``U'' or ``inverted-U'' functional forms, and tallied how many items were incrementally characterized by a quadratic (``above and beyond'' the linear) equation.
+All analyses were performed in R version 4.2.2 (R Core Team, 2022). We leveraged three different approaches comparing findings across the two item rating procedures. First, we fit linear regressions to all ``Kuncel \& Tellegen'' functions (as explained below), extracting slope coefficients, then regressed Edwards' ratings on these slopes across items. Secondly, we collected visual estimates of the monotonicity and linearity of these functions, and used these estimates to help inform ranges of Edwards values along which nonlinear item functions tend to be more prominent (e.g., how many ``inverted U-shaped'' functions were noted in items characterized by Edwards' system as \emph{extremely undesirable}, \emph{undesirable}, \emph{average}, \emph{desirable}, and \emph{extremely desirable}). Lastly, we conducted 300 hierarchical polynomial regressions to capture ``U'' or ``inverted-U'' functional forms, and tallied how many items were incrementally characterized by a quadratic (``above and beyond'' the linear) equation.
 
 All three approaches focused on the 2-dimensional associations between the average item rating (aka ``Edwards'' value) and ``Kuncel \& Tellegen'' rating. These ratings reflect progression across ``Kuncel \& Tellegen'' frames of reference (ranging from someone who is ``Extremely High in the characteristic'' to someone who is ``Extremely Low in the characteristic'', again see Figure \ref{fig:Figure1} for exposition). The height of the function at each of these 5 categories is determined by the average ``Edwards'' desirability value for the focal item.
 
@@ -295,7 +295,11 @@ All three approaches focused on the 2-dimensional associations between the avera
 
 For the first investigative approach, we probed for associations between ``Edwards''' item ratings and regression slope of ``Kuncel \& Tellegen'' function. If the two procedures result in similar output, we would expect greater incidences of linearity with extremely desirable (and undesirable) items.
 
-We first fit 300 individual regressions retaining the five different rated trait locations as predictors (e.g., Kuncel and Tellegen (2009)'s ``bottom 1\%'', ``bottom 30\%'', ``Average'', ``top 30\%'', and ``top 1\%'' - these were treated as a scaled continuum {[}values of 1, 2, 3, 4, and 5{]}) and averaged response desirability rating as the criterion. Within each of the 300 regressions, the expectation was that slope magnitude and valence would parallel the classic Edwards ratings of the same items. For example, the expectation was that Figure \ref{fig:Figure2}'s ``Excel in what I do'' and ``Believe that others have good intentions'' would realize negative slope estimates, ``Enjoy wild flights of fancy'' would exhibit a flat slope, and ``Get irritated easily'' would return a moderately positive slope. Across all 300 items, the relationship was strong (\(R^2\) = .67, \emph{p} \textless{} .05), suggesting some level of similarity across procedures.
+We first fit 300 individual regressions retaining the five different rated trait locations as predictors (e.g., Kuncel and Tellegen (2009)'s ``bottom 1\%'', ``bottom 30\%'', ``Average'', ``top 30\%'', and ``top 1\%'' - these were treated as a scaled continuum {[}values of 1, 2, 3, 4, and 5{]}) and averaged response desirability rating as the criterion. Within each of the 300 regressions, the expectation was that slope magnitude and valence would parallel the classic Edwards ratings of the same items. For example, the expectation was that Figure \ref{fig:Figure2}'s ``Excel in what I do'' and ``Believe that others have good intentions'' would realize negative slope estimates, ``Enjoy wild flights of fancy'' would exhibit a flat slope, and ``Get irritated easily'' would return a moderately positive slope. Across all 300 items, the relationship was strong (\(R^2 = .58\), \(F_{(1,298)} = 412.26\), \emph{p} \textless{} .05), suggesting some level of similarity across procedures.
+
+\begin{quote}
+NOTE. Maybe do something with residuals to replace current subjective rating graph - lm object is named, ``try'' 8/12/23
+\end{quote}
 
 Figure \ref{fig:Figure2} presents ``Kuncel \& Tellegen'' functional forms for 25 items. These items were randomly selected from within five categorized Edwards arrays\footnote{Note that these plotted functions progress along only 5 actual x-axis values. The ``connected dots'' do not imply continuous x-axis values but are presented to facilitate observation of linear, monotonic, or non-monotonic patterns (e.g., Kuncel \& Tellegen, 2009).}, and the figure \emph{rows} reflect these strata. Note that the functions (even if somewhat non-monotonic - see, for example, ``Seldom Daydream'' in Figure \ref{fig:Figure2}) tend to exhibit ``steeper slope'' with Edwards' highly desirable or undesirable items, and are ``flatter'' with Edwards' moderate items - this first exploration merely confirms a general pattern such that more extreme ``Edwards'' items tend to have steeper ``Kuncel \& Tellegen'' functions, but is not sensitive to functional form (e.g., this is insensitive to ``monotonicity'').
 
@@ -339,7 +343,7 @@ The Study One items were administered via Qualtrics (2014). Participants were ad
 
 In addition to actual ratings, we also recorded latencies, which we interpret as indirect assessments of difficulty.
 
-Because of the tedium and cognitive complexity of the requested task, we computed consecutive non-differentiating responses as well as intra-individual response variability estimates (see, for example, Dunn et al., 2018; Marjanovic et al., 2015) via the \emph{careless} R package (Yentes \& Wilhelm, 2021) in R version 4.1.1 (R Core Team, 2021).
+Because of the tedium and cognitive complexity of the requested task, we computed consecutive non-differentiating responses as well as intra-individual response variability estimates (see, for example, Dunn et al., 2018; Marjanovic et al., 2015) via the \emph{careless} R package (Yentes \& Wilhelm, 2021) in R version 4.2.2 (R Core Team, 2022).
 
 Table to add: ICC's for each condition
 
@@ -348,16 +352,22 @@ Focus on response latencies (Edwards ratings vs.~Kuncel \& Tellegen vs.~revised 
 \hypertarget{results-2}{%
 \section{Results}\label{results-2}}
 
+\begin{verbatim}
+## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+## i Please use `linewidth` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.
+\end{verbatim}
+
 \begin{figure}
 \centering
 \includegraphics{KuncelTellegen_files/figure-latex/Figure2-1.pdf}
 \caption{\label{fig:Figure2}Kuncel \& Tellegen (2009) patterns across Edwards (1953) scale values.}
 \end{figure}
 
-\(b = -0.10\), 95\% CI \([-0.24, 0.04]\), \(t(298) = -1.38\), \(p = .169\), \(b = -3.08\), 95\% CI \([-3.37, -2.78]\), \(t(298) = -20.30\), \(p < .001\), list(r2 = ``\(R^2 = .58\), 90\textbackslash\% CI \([0.52, 0.64]\), \(F(1, 298) = 412.26\), \(p < .001\)'')
-
 \begin{verbatim}
-## Warning: Removed 46 rows containing missing values (geom_point).
+## Warning: Removed 46 rows containing missing values (`geom_point()`).
 \end{verbatim}
 
 \begin{figure}
@@ -467,7 +477,7 @@ Paulhus, D. L. (1988). Balanced inventory of desirable responding ({BIDR}). \emp
 Qualtrics, L. L. C. (2014). Qualtrics {[}software{]}. \emph{Utah, {USA}: Qualtrics}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-R-base}{}}%
-R Core Team. (2021). \emph{R: A language and environment for statistical computing}. R Foundation for Statistical Computing. \url{https://www.R-project.org/}
+R Core Team. (2022). \emph{R: A language and environment for statistical computing}. R Foundation for Statistical Computing. \url{https://www.R-project.org/}
 
 \leavevmode\vadjust pre{\hypertarget{ref-sedikides_self-enhancement_2012}{}}%
 Sedikides, C., \& Alicke, M. D. (2012). \emph{Self-enhancement and self-protection motives}. Oxford handbook of motivation, ed. R. Ryan. Oxford University Press.{[}{rWvH}{]}.
