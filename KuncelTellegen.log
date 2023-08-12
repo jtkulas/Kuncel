@@ -1,13 +1,13 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.7.26)  29 JUL 2023 10:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.11)  12 AUG 2023 10:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **KuncelTellegen.tex
 (./KuncelTellegen.tex
 LaTeX2e <2023-06-01> patch level 1
-L3 programming layer <2023-06-30>
+L3 programming layer <2023-08-03>
 (c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/apa6/apa6.cls
-Document Class: apa6 2020/01/13 v2.34 APA formatting (6th edition)
+Document Class: apa6 2023/08/07 v2.35 APA formatting (6th edition)
 (c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
 (c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/size10.clo
@@ -145,7 +145,15 @@ File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen149
 \Gin@req@width=\dimen150
-) (c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
+) (c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+(c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+(c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+) (c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+))) (c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \heavyrulewidth=\dimen151
 \lightrulewidth=\dimen152
@@ -179,9 +187,9 @@ Package: threeparttable 2003/06/13  v 3.0
 \b@level@five@skip=\skip58
 \e@level@five@skip=\skip59
 (c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2023/03/12 v3.6j Customizing captions (AR)
+Package: caption 2023/07/31 v3.6n Customizing captions (AR)
 (c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2023/03/12 v2.4 caption3 kernel (AR)
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
 \caption@tempdima=\dimen164
 \captionmargin=\dimen165
 \caption@leftmargin=\dimen166
@@ -324,9 +332,7 @@ Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
 ) (c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2023-07-08 v7.01b Hypertext links for LaTeX
-(c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
-Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
-) (c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
 (c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
@@ -334,8 +340,6 @@ Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-) (c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
-Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 ) (c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
 ) (c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty
@@ -350,11 +354,7 @@ Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 Package: nameref 2023-08-07 v2.53 Cross-referencing by name of section
 (c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-) (c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
-Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
-(c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
-Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
-))
+)
 \c@section@level=\count283
 )
 \@linkdim=\dimen182
@@ -526,7 +526,7 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 Failed to patch abstract.
 Failed to patch title.
 (c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xpatch/xpatch.sty (c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2023-06-30 L3 programming layer (loader) 
+Package: expl3 2023-08-03 L3 programming layer (loader) 
 (c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count306
@@ -575,7 +575,7 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'english'.
-No file KuncelTellegen.aux.
+(./KuncelTellegen.aux)
 \openout1 = `KuncelTellegen.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 205.
@@ -652,6 +652,7 @@ Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
 Package hyperref Info: Link coloring OFF on input line 205.
+(./KuncelTellegen.out) (./KuncelTellegen.out)
 \@outlinefile=\write3
 \openout3 = `KuncelTellegen.out'.
 
@@ -704,53 +705,62 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 ] [2]
-
-LaTeX Warning: Reference `fig:Figure1' on page 3 undefined on input line 243.
-
-<KuncelTellegen_files/figure-latex/Figure1-1.pdf, id=23, 469.755pt x 325.215pt>
+<KuncelTellegen_files/figure-latex/Figure1-1.pdf, id=98, 469.755pt x 325.215pt>
 File: KuncelTellegen_files/figure-latex/Figure1-1.pdf Graphic file (type pdf)
 <use KuncelTellegen_files/figure-latex/Figure1-1.pdf>
 Package pdftex.def Info: KuncelTellegen_files/figure-latex/Figure1-1.pdf  used on input line 249.
 (pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
 [3 <./KuncelTellegen_files/figure-latex/Figure1-1.pdf>]
 
-LaTeX Warning: Reference `fig:Figure1' on page 4 undefined on input line 289.
-
-
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 294.
+(hyperref)                than one, level fixed on input line 296.
 
+[4] [5]
+<KuncelTellegen_files/figure-latex/Figure2-1.pdf, id=149, 794.97pt x 578.16pt>
+File: KuncelTellegen_files/figure-latex/Figure2-1.pdf Graphic file (type pdf)
+<use KuncelTellegen_files/figure-latex/Figure2-1.pdf>
+Package pdftex.def Info: KuncelTellegen_files/figure-latex/Figure2-1.pdf  used on input line 353.
+(pdftex.def)             Requested size: 241.74374pt x 175.81363pt.
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 359.
+(c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
+Overfull \hbox (160.25676pt too wide) in paragraph at lines 361--361
+[]\T1/pcr/m/n/10 ## Warning: Removed 46 rows containing missing values (geom_point).[] 
+ []
 
-LaTeX Warning: Reference `fig:Figure2' on page 4 undefined on input line 294.
+<KuncelTellegen_files/figure-latex/lastone-1.pdf, id=150, 794.97pt x 361.35pt>
+File: KuncelTellegen_files/figure-latex/lastone-1.pdf Graphic file (type pdf)
+<use KuncelTellegen_files/figure-latex/lastone-1.pdf>
+Package pdftex.def Info: KuncelTellegen_files/figure-latex/lastone-1.pdf  used on input line 365.
+(pdftex.def)             Requested size: 241.74374pt x 109.88351pt.
+[6 <./KuncelTellegen_files/figure-latex/Figure2-1.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
+[7 <./KuncelTellegen_files/figure-latex/lastone-1.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Warning: Reference `fig:Figure2' on page 4 undefined on input line 294.
-
-
-LaTeX Warning: Reference `fig:Figure2' on page 4 undefined on input line 296.
-
-[4]
-
-LaTeX Warning: Reference `fig:Figure2' on page 5 undefined on input line 301.
-
-
-LaTeX Warning: Reference `fig:lastone' on page 5 undefined on input line 301.
-
-
-LaTeX Warning: Reference `fig:lastone' on page 5 undefined on input line 301.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.306 ...c term, and only 7.69\% were. \rightarrow
-                                                   FIND THESE ANALYSES (7/29... 
+[8] (./KuncelTellegen.aux)
+ ***********
+LaTeX2e <2023-06-01> patch level 1
+L3 programming layer <2020/03/25>
+ ***********
+Package rerunfilecheck Info: File `KuncelTellegen.out' has not changed.
+(rerunfilecheck)             Checksum: F3C5ADC49FB407FE90DE3C8A567EAD20;2639.
+ ) 
 Here is how much of TeX's memory you used:
- 15461 strings out of 477196
- 252419 string characters out of 5812259
- 1937238 words of memory out of 5000000
- 36136 multiletter control sequences out of 15000+600000
- 620792 words of font info for 129 fonts, out of 8000000 for 9000
+ 15633 strings out of 477147
+ 256005 string characters out of 5811508
+ 1937248 words of memory out of 5000000
+ 36282 multiletter control sequences out of 15000+600000
+ 621713 words of font info for 132 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,9n,79p,3385b,518s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,9n,79p,3385b,550s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on KuncelTellegen.pdf (8 pages, 339620 bytes).
+PDF statistics:
+ 286 PDF objects out of 1000 (max. 8388607)
+ 250 compressed objects within 3 object streams
+ 91 named destinations out of 1000 (max. 500000)
+ 168 words of extra memory for PDF output out of 10000 (max. 10000000)
 
-!  ==> Fatal error occurred, no output PDF file produced!
