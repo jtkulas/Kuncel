@@ -172,7 +172,7 @@ Figure \@ref(fig:Figure2) presents "Kuncel & Tellegen" functional forms for 25 i
 
 ### Approach #2: Functional form (Visual)
 
-Next, the Figure \@ref(fig:Figure2) plots for all 300 items were rated along dimensions of "on the whole, this looks like a straight line" with possible ratings ranging from (1 = not at all, to 5 = definitely), and how much the "line rises and falls" from (1 = not at all, to 5 = a lot). These estimates were added to the first approach (defining each Edwards/Kuncel and Tellegen convergence with ratings of both functional linearity and monotonicity) and the result is presented in Figure \@ref(fig:lastone). Careful inspection of the Figure \@ref(fig:lastone) plot again highlights the location of non-monotonic and nonlinear Kuncel and Tellegen functions - predominantly at moderate (around neutral) Edwards rating locations.
+Next, the Figure \@ref(fig:Figure2) plots for all 300 items were rated along dimensions of "on the whole, this looks like a straight line" with possible ratings ranging from (1 = not at all, to 5 = definitely), and how much the "line rises and falls" from (1 = not at all, to 5 = a lot). These estimates were added to the first approach (defining each Edwards/Kuncel and Tellegen convergence with ratings of both functional linearity and monotonicity) and the result is presented in Figure \@ref(fig:lastone). Careful inspection of the Figure \@ref(fig:lastone) plot again highlights the location of non-monotonic and nonlinear Kuncel and Tellegen functions - predominantly at moderate (around neutral) Edwards rating locations. [NOTE - LOOKS LIKE WE MAY NEED TO REDO THESE ESTIMATES; THERE ARE 96 "NOT AT ALL LOOKS LIKE A STRAIGHT LINE" and 130 "NOT AT ALL RISES AND FALLS"; ALTERNATIVELY GET MORE CREATIVE WITH RESIDUALS ANALYSES (ON DESKTOP)]
 
 ### Approach #3: Functional form (Empirical)
 
@@ -2673,16 +2673,27 @@ paper$linear <- rowMeans(linear, na.rm=TRUE)
 ```{r lastone, fig.cap="Response Category and Mean Rating slope across Edwards' scale values (individual scatterpoints represent items).", fig.height=5, fig.width=11}
 
 paper$nonmono <- rowMeans(nonmono[,c(2,4)], na.rm=TRUE)   ## Emily + Renata (10/22/19)
-paper$linear <- rowMeans(linear[,c(2,4)], na.rm=TRUE)
+paper$linear <- rowMeans(linear[,c(2,4)], na.rm=TRUE)    
 
+## Lots of "1's" for both mono and linear (8/26/23)
 
-b <- ggplot(paper, aes(x=ed.value, y=ID)) +
+paper2 <- paper %>% filter(nonmono > 1)
+
+#b <- ggplot(paper, aes(x=ed.value, y=ID)) +
+#   geom_point(aes(size=linear, color=nonmono), alpha=.5) +
+#   scale_color_continuous(limits=c(1,5)) +
+#   guides(color= guide_legend(), size=guide_legend()) + 
+#   scale_size_continuous(limits=c(1,5))
+
+#b + geom_smooth(method=lm, se=F, col="cyan", size=1.5)
+
+ob <- ggplot(paper, aes(x=ed.value, y=ID)) +
    geom_point(aes(size=linear, color=nonmono), alpha=.5) +
    scale_color_continuous(limits=c(1, 3), breaks=seq(1, 3, by=1)) +
    guides(color= guide_legend(), size=guide_legend()) + 
    scale_size_continuous(limits=c(1, 3), breaks=seq(1, 3, by=1))
 
-b + geom_smooth(method=lm, se=F, col="cyan", size=1.5)
+ob + geom_smooth(method=lm, se=TRUE, col="cyan", size=1.5)
 
 ```
 
