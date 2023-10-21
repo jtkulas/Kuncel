@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.14)  7 OCT 2023 09:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.14)  21 OCT 2023 10:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -743,10 +743,7 @@ File: KuncelTellegen_files/figure-latex/lastone-1.pdf Graphic file (type pdf)
 <use KuncelTellegen_files/figure-latex/lastone-1.pdf>
 Package pdftex.def Info: KuncelTellegen_files/figure-latex/lastone-1.pdf  used on input line 369.
 (pdftex.def)             Requested size: 241.74374pt x 109.88351pt.
-[6 <./KuncelTellegen_files/figure-latex/Figure2-1.pdf> <./KuncelTellegen_files/figure-latex/lastone-1.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[7]
+[6 <./KuncelTellegen_files/figure-latex/Figure2-1.pdf> <./KuncelTellegen_files/figure-latex/lastone-1.pdf>] [7]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [8] (./KuncelTellegen.aux)
@@ -766,7 +763,7 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  72i,9n,79p,3385b,550s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on KuncelTellegen.pdf (8 pages, 340830 bytes).
+Output written on KuncelTellegen.pdf (8 pages, 342251 bytes).
 PDF statistics:
  280 PDF objects out of 1000 (max. 8388607)
  244 compressed objects within 3 object streams

@@ -146,7 +146,7 @@ Seventy-six undergraduate students made ratings of *either* item social desirabi
 
 ## Materials
 
-The IPIP-NEO is a 300-item personality measure intended to assess the Big Five personality dimensions: Conscientiousness, Agreeableness, Extraversion, Openness to Experience, and Neuroticism (Johnson, 2005). For the purposes of the current investigation, we did not collect typical responses to these 300 indicators, but were rather interested in the nature of the items themselves (or, alternatively, the evaluative content associated with differential standing along the construct implied by the item response options).
+The IPIP-NEO is a 300-item personality measure intended to assess the Big Five personality dimensions: Conscientiousness, Agreeableness, Extraversion, Openness to Experience, and Neuroticism (Johnson, 2005). For the purposes of the current investigation, we did not collect typical responses to these 300 indicators, but were rather interested in the evaluative content of the items (or, alternatively, the evaluative content associated with differential standing along the construct implied by the item response options).
 
 ## Procedure
 
@@ -160,7 +160,7 @@ All three approaches focused on the *functional form* of "Kuncel & Tellegen" rat
 
 ### Approach #1: Functional Slope 
 
-One manifestation of similar output across the two procedures would be greater incidences of linearity with extremely desirable (and undesirable) items. For the first investigative approach, we therefore probed for associations between "Edwards"' item ratings and regression slope of "Kuncel & Tellegen" function. 
+One reasonable manifestation of redundancy across the two procedures would be greater incidences of linearity with extremely desirable (and undesirable) items. For the first investigative approach, we therefore probed for associations between "Edwards"' item ratings and *regression slope* of "Kuncel & Tellegen" function. 
 
 We first fit 300 individual regressions retaining the five different rated trait locations as a predictor (e.g., @kuncel_conceptual_2009's "bottom 1%", "bottom 30%", "Average", "top 30%", and "top 1%" - these were treated as a scaled continuum [values of 1, 2, 3, 4, and 5])  and averaged response desirability rating as the criterion. Within each of the 300 regressions, the expectation was that slope magnitude and valence would parallel the classic Edwards ratings of the same items. For example, the expectation was that an item such as "Believe that others have good intentions" would realize negative slope estimates, "Enjoy wild flights of fancy" would exhibit a flat slope, and "Get irritated easily" would return a moderately positive slope. Across all 300 items, the relationship was strong ($R^2 = .58$, $F_{(1,298)} = 412.26$, *p* < .05), suggesting some level of similarity across procedures. 
 
@@ -170,7 +170,7 @@ Figure \@ref(fig:Figure2) presents "Kuncel & Tellegen" functional forms for 25 i
 
 ### Approach #2: Functional form (Visual)
 
-Next, the Figure \@ref(fig:Figure2) plots for all 300 items were rated along dimensions of "on the whole, this looks like a straight line" with possible ratings ranging from (1 = not at all, to 5 = definitely), and how much the "line rises and falls" from (1 = not at all, to 5 = a lot). These estimates were added to the first approach (defining each Edwards/Kuncel and Tellegen convergence with ratings of both functional linearity and monotonicity) and the result is presented in Figure \@ref(fig:lastone). Careful inspection of the Figure \@ref(fig:lastone) plot again highlights the location of non-monotonic and nonlinear Kuncel and Tellegen functions - predominantly at moderate (around neutral) Edwards rating locations. [NOTE - LOOKS LIKE WE MAY NEED TO REDO THESE ESTIMATES; THERE ARE 96 "NOT AT ALL LOOKS LIKE A STRAIGHT LINE" and 130 "NOT AT ALL RISES AND FALLS"; ALTERNATIVELY GET MORE CREATIVE WITH RESIDUALS ANALYSES (ON DESKTOP)]
+Next, the Figure \@ref(fig:Figure2) plots for all 300 items were presented to judges who rated the visual functions along dimensions of "on the whole, this looks like a straight line" with possible ratings ranging from (1 = not at all, to 5 = definitely), and how much the "line rises and falls" from (1 = not at all, to 5 = a lot). These estimates were added to the first approach (defining each Edwards/Kuncel and Tellegen convergence with ratings of both functional linearity and monotonicity) and the result is presented in Figure \@ref(fig:lastone). Careful inspection of the Figure \@ref(fig:lastone) plot again highlights the location of non-monotonic and nonlinear Kuncel and Tellegen functions - predominantly at moderate (around neutral) Edwards rating locations. [NOTE - LOOKS LIKE WE MAY NEED TO REDO THESE ESTIMATES; THERE ARE 96 "NOT AT ALL LOOKS LIKE A STRAIGHT LINE" and 130 "NOT AT ALL RISES AND FALLS"; ALTERNATIVELY GET MORE CREATIVE WITH RESIDUALS ANALYSES (ON DESKTOP)]
 
 >NOTE. Maybe do something with residuals to replace current subjective rating graph - lm object is named, "try" 8/12/23
 
