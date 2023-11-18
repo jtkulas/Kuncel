@@ -2691,6 +2691,8 @@ ob + geom_smooth(method=lm, se=TRUE, col="cyan", size=1.5)
 
 The intercept was `r slope` <- just testing.
 
+Looking at the function plots for the 15 Study 2 items (but retaining Study 1 data to create the functions), a better description (than linear, monotonic, etc) may be: 1) bipolar (good to be on one side, bad to be on the other), 2) moderate (best to be exactly in the middle), and 3) unipolar (good/bad to be on one side, ambivalent regarding other). 
+
 # Discussion
 
 The plurality of findings do support similar information being conveyed through both approaches. Figure 1 captures *some* of this, as functional slopes (even if somewhat nonmonotonic - see, for example, "Seldom Daydream" in Figure 1) tend to be more extreme with Edwards' highly desirable or undesirable items, and more flat with Edwards' moderate items.[^4] Table 1 presents the frequency with which researcher-implicated functional shapes (linear [positive], linear [negative], nonmonotonic [U], and nonmonotonic [inverted U]) were noted within "Edwardian" strata, demonstrating that although the nonmonotonic functions do exist, they are predominantly associated with moderate Edwards items (e.g., yes these functions do occur but perhaps the ambivalence is also associated with aggregate moderation). Figure 2 presents the relationship between: 1) the functional slope relating an item response's rated level of desirability and the "location" of the rating, and 2) Edwards' item stem rating (on the y-axis). This strong relationship (*R*^2 = .67, *p* < .05) suggests some level of similarity across procedures. 
