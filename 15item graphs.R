@@ -6,7 +6,8 @@ library(dplyr)
 library(matrixStats)
 library(tidyverse)
 
-data <- read.csv("C:\\Users\\johns\\OneDrive\\Desktop\\15item.csv")
+#data <- read.csv("C:\\Users\\johns\\OneDrive\\Desktop\\15item.csv")
+data <- readxl::read_excel("15item.xlsx")
 
 names(data) <- gsub("\\.", " ", names(data))
 
