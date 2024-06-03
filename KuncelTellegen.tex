@@ -289,28 +289,57 @@ All ratings were made via paper and pencil in an experimental laboratory. The Ed
 \hypertarget{results}{%
 \section{Results}\label{results}}
 
-All analyses were performed in R version 4.2.2 (R Core Team, 2022). We leveraged three different approaches comparing findings across the two item rating procedures. First, we fit linear regressions to all ``Kuncel \& Tellegen'' functions (as explained below), extracting slope coefficients, then regressed Edwards' ratings on these slopes across items. Secondly, we collected visual estimates of the monotonicity and linearity of these functions, and used these estimates to help inform ranges of Edwards values along which nonlinear item functions tend to be more prominent (e.g., how many ``inverted U-shaped'' functions were noted in items characterized by Edwards' system as \emph{extremely undesirable}, \emph{undesirable}, \emph{average}, \emph{desirable}, and \emph{extremely desirable}). Lastly, we conducted 300 hierarchical polynomial regressions to capture ``U'' or ``inverted-U'' functional forms, and tallied how many items were incrementally characterized by a quadratic (``above and beyond'' the linear) equation.
+All analyses were performed in R version 4.3.1 (R Core Team, 2023). We leveraged three different approaches comparing findings across the two item rating procedures. First, we fit linear regressions to all ``Kuncel \& Tellegen'' functions (as explained below), extracting slope coefficients, then correlated Edwards' ratings with these slopes across items. Secondly, we categorized visual perceptions of the functions, and used these groupings to help inform ranges of Edwards values along which nonlinear item functions tend to be more prominent (e.g., how many ``inverted U-shaped'' functions were noted in items characterized by Edwards' system as \emph{extremely undesirable}, \emph{undesirable}, \emph{average}, \emph{desirable}, and \emph{extremely desirable}). Lastly, we conducted 300 hierarchical polynomial regressions to capture empirical ``U'' or ``inverted-U'' functional forms, and tallied how many items were incrementally characterized by a quadratic (``above and beyond'' the linear) equation.
 
-All three approaches focused on the \emph{functional form} of ``Kuncel \& Tellegen'' ratings. These functions reflect progression across Kuncel \& Tellegen frames of reference (ranging from someone who is ``Extremely High in the characteristic'' to someone who is ``Extremely Low in the characteristic'', again see Figure \ref{fig:Figure1} for exposition). The height of the function at each of these 5 levels is determined by the \emph{average desirability rating} at each of the focal item's 5 response categories.
+All three approaches focused on the \emph{functional form} of ``Kuncel \& Tellegen'' ratings. These functions reflect progression across Kuncel \& Tellegen frames of reference (ranging from someone who is ``Extremely High in the characteristic'' to someone who is ``Extremely Low in the characteristic'', again see Figure \ref{fig:Figure1} for exposition). The height of the function at each of 5 levels is determined by the \emph{average desirability rating} at each of the focal item's 5 response categories.
 
 \hypertarget{approach-1-functional-slope}{%
 \subsubsection{Approach \#1: Functional Slope}\label{approach-1-functional-slope}}
 
-One reasonable manifestation of redundancy across the two procedures would be greater incidences of functional linearity with extremely desirable and undesirable items. For the first investigative approach, we therefore probed for associations between ``Edwards''' item ratings and \emph{regression slope} of ``Kuncel \& Tellegen'' function.
+One reasonable manifestation of similarity across the two procedures would be greater incidences of functional linearity with extremely desirable and undesirable items. For the first investigative approach, we therefore probed for associations between ``Edwards''' item ratings and \emph{regression slope} of ``Kuncel \& Tellegen'' function.
 
-We first fit 300 individual regressions retaining the five different rated trait locations as a predictor (e.g., Kuncel and Tellegen (2009)'s ``bottom 1\%'', ``bottom 30\%'', ``Average'', ``top 30\%'', and ``top 1\%'' - these were treated as a numerical continuum {[}values of 1, 2, 3, 4, and 5{]}) and averaged response desirability rating as the criterion. Within each of the 300 regressions, the expectation was that slope magnitude and valence would parallel the classic Edwards ratings of the same items. For example, the expectation was that an item such as ``Believe that others have good intentions'' would realize negative slope estimates, ``Enjoy wild flights of fancy'' would exhibit a flat slope, and ``Get irritated easily'' would return a moderately positive slope. Across all 300 items, the relationship was strong (\(R^2 = .58\), \(F_{(1,298)} = 412.26\), \emph{p} \textless{} .05), reflecting substantial overlap across procedures. \textbf{Check on desktop - what is this reflecting?}
+We first fit 300 individual regressions retaining the five different rated trait locations as a predictor (e.g., Kuncel and Tellegen (2009)'s ``bottom 1\%'', ``bottom 30\%'', ``Average'', ``top 30\%'', and ``top 1\%'' - these were treated as a numerical continuum {[}values of 1, 2, 3, 4, and 5{]}) and averaged (Edwards) response desirability rating as the criterion. Within each of the 300 individual regressions, the expectation was that slope \emph{magnitude} and \emph{valence} would parallel the classic Edwards ratings of the same items. For example, the expectation was that an item such as ``Believe that others have good intentions'' would realize both a highly desirable Edwards rating and a high magnitude, negatively valenced slope estimate. ``Enjoy wild flights of fancy'' would exhibit a moderate Edwards rating and flat slope, and ``Get irritated easily'' would return an undesirable Edwards rating as well as a moderately positive slope. Across all 300 items, the relationship between Edwards rating and Kuncel \& Tellegen functional slope was indeed revealed to be strong (\emph{r} = -.76, \(R^2 = .58\), \(F_{(1,298)} = 412.26\), \emph{p} \textless{} .001), reflecting substantial overlap across procedures.
 
-Figure \ref{fig:Figure2} presents ``Kuncel \& Tellegen'' functional forms for 25 items. These items were randomly selected from within five categorized Edwards arrays\footnote{Note that these plotted functions progress along only 5 actual x-axis values. The ``connected dots'' do not imply continuous x-axis values but are presented to facilitate observation of linear, monotonic, or non-monotonic functional patterns (e.g., Kuncel \& Tellegen, 2009).}, and the figure \emph{rows} reflect these strata. Note that the functions (even if somewhat non-monotonic - see, for example, ``Seldom Daydream'' in Figure \ref{fig:Figure2}) tend to exhibit ``steeper slope'' with Edwards' highly desirable or undesirable items, and are ``flatter'' with Edwards' moderate items - this first exploration merely confirms a general pattern such that more extreme ``Edwards'' items tend to have steeper ``Kuncel \& Tellegen'' functions, but is not sensitive to functional form (e.g., this exploration is not directly reflective of, for example, nonmonotonicity).
+Edwards arrays were next isolated such that ``Kuncel \& Tellegen'' functional forms could be presented within meaningful groupings. Figure \ref{fig:Figure2} presents Kuncel \& Tellegen functional forms for 25 items. These items were randomly selected from within five categorized Edwards arrays\footnote{Note that these plotted functions progress along only 5 actual x-axis values. The ``connected dots'' do not imply continuous x-axis values but are presented to facilitate observation of linear, monotonic, or non-monotonic functional patterns (e.g., Kuncel \& Tellegen, 2009).}, and the figure \emph{rows} reflect these strata. Note that the functions (even if somewhat non-monotonic - see, for example, ``Seldom Daydream'' in Figure \ref{fig:Figure2}) tend to exhibit ``steeper slope'' with Edwards' highly desirable or undesirable items, and are ``flatter'' with Edwards' moderate items - this first exploration merely confirms a general pattern such that more extreme ``Edwards'' items tend to have steeper ``Kuncel \& Tellegen'' functions, but is not sensitive to functional form (e.g., this exploration is not directly reflective of, for example, nonmonotonicity).
 
 \hypertarget{approach-2-functional-form-visual}{%
 \subsubsection{Approach \#2: Functional form (Visual)}\label{approach-2-functional-form-visual}}
 
-Next, the Figure \ref{fig:Figure2} plots for all 300 items were presented to judges who performed a modified Q-sort -- grouping items by functional similarity. There were 11 total categories identified, and all but 2 item functions fit into one of these 11 categories (items were assigned exclusively to only one category). The result of these sortings is presented in Figure \ref{fig:lastone} (put some example functional forms in here as well -- maybe report correlations within each grouping).
+\textbf{MOVE 295 FROM ``MEH'' TO UNCATEGORIZED \& REDO GRAPH WITHOUT 295}
+
+Next, the Figure \ref{fig:Figure2} plots for all 300 items were presented to judges who performed a modified q-sort -- grouping items by subjective functional similarity. There were 11 total categories identified, and all but 2 item functions fit into one of these 11 categories (items were assigned exclusively to only one category)\footnote{The unclassified items were, ``Am not interested in other peoples' problems'' and ``Readily overcome setbacks''.}. The result of these sortings is presented in Figure \ref{fig:lastone} (put some example functional forms in here as well -- maybe report correlations within each grouping). The average Edwards rating for each category is presented in Table X along with the within-category correlation
+
+\begin{table*}[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:polytable}Polynomial effects, organized by magnitude}
+
+\begin{tabular}{lllll}
+\toprule
+ & \multicolumn{1}{c}{Example Item} & \multicolumn{1}{c}{Value} & \multicolumn{1}{c}{Range} & \multicolumn{1}{c}{Number}\\
+\midrule
+2 & Make friends easily & 0.03 & Below .05 & 152\\
+3 & Would never cheat on my taxes & 0.06 & .05 - .10 & 51\\
+4 & Have a vivid imagination & 0.14 & .10 - .15 & 20\\
+5 & Trust others & 0.2 & .15 - .20 & 15\\
+6 & Experience my emotions intensely & 0.27 & .20 - .40 & 33\\
+7 & Love large parties & 0.6 & .40 - .60 & 15\\
+8 & Am always busy & 0.8 & .60 - .80 & 12\\
+9 & Never splurge & 0.82 & Above .80 & 2\\
+\bottomrule
+\end{tabular}
+
+\end{threeparttable}
+\end{center}
+
+\end{table*}
 
 \hypertarget{approach-3-functional-form-empirical}{%
 \subsubsection{Approach \#3: Functional form (Empirical)}\label{approach-3-functional-form-empirical}}
 
-Our third approach leveraged hierarchical polynomial regressions, with our index of interest being the change in \(R^2\) at the second step, when the polynomial terms were specified. Most items (\(n_k\) = 203) had a very low change in \(R^2\) (see Table 1 ??? for a summary of these results and a specification of our definition of ``low'' or ``very low''). Beyond our subjective categorization, \(F\)-tests indicated that 92.31\% of item ratings were \emph{not} significantly predicted when specifying the quadratic term. These results suggest that, although judges may be able to visually distinguish functional form\footnote{Compare with the \% of ``linear'' and maybe ``egyptian'' that we subjectively categorized - 5/30/24}, empirical estimates are not as sensitive to deviations from linearity \textbf{FIND THESE ANALYSES (7/29/23)}
+Our third approach leveraged hierarchical polynomial regressions, with our index of interest being the change in \(R^2\) associated with the nonlinear association, when the polynomial terms were specified. Most items (\(n_k\) = 203) had a very low change in \(R^2\) (see Table \ref{tab:polytable} for a summary of these results and a specification of our definition of ``low'' or ``very low''). Beyond our subjective categorization, \(F\)-tests indicated that 92.31\% of item ratings were \emph{not} significantly predicted when specifying the quadratic term. These results suggest that, although judges may be able to visually distinguish functional form\footnote{Compare with the \% of ``linear'' and maybe ``egyptian'' that we subjectively categorized - 5/30/24}, empirical estimates are not as sensitive to deviations from linearity \textbf{FIND THESE ANALYSES (7/29/23)}
 
 \hypertarget{results-summary}{%
 \subsection{Results Summary}\label{results-summary}}
@@ -333,7 +362,7 @@ The Study One items were administered via Qualtrics (2014). Participants were ad
 
 In addition to actual ratings, we also recorded latencies, which we interpret as indirect assessments of difficulty.
 
-Because of the tedium and cognitive complexity of the requested task, we computed consecutive non-differentiating responses as well as intra-individual response variability estimates (see, for example, Dunn et al., 2018; Marjanovic et al., 2015) via the \emph{careless} R package (Yentes \& Wilhelm, 2021) in R version 4.2.2 (R Core Team, 2022).
+Because of the tedium and cognitive complexity of the requested task, we computed consecutive non-differentiating responses as well as intra-individual response variability estimates (see, for example, Dunn et al., 2018; Marjanovic et al., 2015) via the \emph{careless} R package (Yentes \& Wilhelm, 2023) in R version 4.3.1 (R Core Team, 2023).
 
 Table to add: ICC's for each condition
 
@@ -354,14 +383,37 @@ Focus on response latencies (Edwards ratings vs.~Kuncel \& Tellegen vs.~revised 
 \caption{\label{fig:lastone}Response Category and Mean Rating slope across Edwards' scale values (individual scatterpoints represent items).}
 \end{figure}
 
-The intercept was -3.08 \textless- just testing.
+All ratings were conducted online using Qualtrics (2014), utilizing the Kuncel \& Tellegen (2009) rating scale. Fifteen of the most decisive items from Study 1 were chosen, focusing on the three functional forms - linear, quasi, and asymmetric.
+
+Due to the observed difficulty and length of the task in Study 1, we implemented carelessness items and additional questions to gauge carelessness and task difficulty. Because of the tedium and cognitive complexity of the requested task, we also computed consecutive non-differentiating responses as well as intra-individual response variability estimates (see, for example, Dunn et al., 2018; Marjanovic et al., 2015) via the careless R package (Yentes \& Wilhelm, 2023) in R version 4.3.1 (R Core Team, 2023).
+
+Inter-rater agreement analysis using Krippendorf's alpha was conducted to understand rater agreement between items for the same trait, as well as the three functional forms found in study 1, for the Kuncel and Tellgen (2009). interrater agreement was calculated for these 15 items and 3 functional forms for study 1 and study 2.
+
+An ordinal method was used when calculating Krippendorf's alpha using an ordinal method. Krippendorf's alpha can range from -1 to 1, where -1 indicates complete disagreement and 1 indicates complete agreement (Krippendorff, 2004).
+
+Individual trait ratings ranged from 0.016 to 0.437 for study 2, and ranged from -0.022 to 0.607 for study 1. The functional form krippendorf alpha was calculated as the average of the 5 trait alphas for each functional form category. \emph{should we do an aggregation or not?} Linear functional forms had the most interrater agreement (study 1: 0.448; study 2: 0.227), with asymmetric (study 1: 0.374; study 2: 0.263) and quasi (study 1: 0.069; study 2: 0.133) following.
+
+\emph{should we calculate some sort of consistency/agreement for edwards and see if those are better}
+
+Krippendorf suggested that 0.667 was the lowest alpha to consider interrater agreement, while it is preferred to have interrateer agreement that is greater than or equal to 0.800. Using these standards, no item had an acceptable interrater agreement alpha coefficient. This indicates that there was little interrater agreement among all ratings.
+
+\emph{this is just a dump of thoughts - definitely needs to be reworded/made more coherent}
+Although no ratings were beyond the threshold for interrater agreement. The linear ratings were more consistent than the asymmetric and quasi ratings. Also note that in study 2, the 3 negatively worded items were less consistent than positive items, bringing the linear average down. Even with 3 negatively worded items (Study 1 having a more positive range of 0.289 to 0.441, while study 2 had a range of 0.084 to 0.113), the mean ratings were still above the other functional form categories, suggesting that linear traits are cognitively easier to understand as well as agree upon.
+
+The asymmetric ratings had one negatively worded item, affecting the overall average. The item ``Worry about things'' had very low agreement for both study 1 (0.176) as well as study 2 (0.016), which was the lowest rating. Based on interrater agreement, both linear and asymmetric items were easier to rate on 5 different levels compared to quasi items.
+
+Quasi items were the lowest overall average and had some of the lowest agreement despite having no negatively worded items. In particular the item `Am Always Busy' had the lowest ratings for any item out of all 15 for both study 1 (0.033) and study 2 (0.057). Based off the functional forms from both studies on this item, it was one of the most archetypal quasi functional form - peaking in the middle and having fairly even tail ends. The quasi ratings suggest that more neutral items are harder to agree upon and be inconsistent among raters.
+
+Between both studies, linear functional forms stayed consistent (see graphs), while asymmetric functions being fairly consistent - some differences, with study 2 creating more linear like graphs in comparison to study 1. However quasi functional forms from study 1, changed quite a bit. The two items ``Am always busy'' and ``Am a creature of habit'' stayed in a quasi form, but flattened out. While the item ``Always on the go'' changed from a quasi form to a more asymmetric form, and the items 'Enjoy wild flights of fantasy'' and ``Relaxed most of the time'' flipped into a more linear functional form. These changes between functional forms could be due to the sample, such as demographic differences (Midwest versus Northeast). \emph{I think there is more to say on this, but need to think about it more} \emph{My point in comparing these is that if the whole purpose of Kuncel/Tellegen is to gather more information/monotonicity, then is it really valid if its not really reproucible? I think the quasi functional forms really bring out validity and consistency issues for monotonicity. The asymmetric forms were honestly mostly linear anyway\ldots{} definitely had some less linear like 2nd study worry about things, but that one also had really poor interrater reliability anyway\ldots{} it seems like more neutral/least linear are posing issues which is basically the bread and butter of their paper in my opinion}
+
+\emph{Inconsistently rating these items could pose issues if using for assessment. Unsure how to move on from here, but a thought.}
 
 Looking at the function plots for the 15 Study 2 items (but retaining Study 1 data to create the functions), a better description (than linear, monotonic, etc) may be: 1) bipolar (good to be on one side, bad to be on the other), 2) moderate (best to be exactly in the middle), and 3) unipolar (good/bad to be on one side, ambivalent regarding other).
 
 \hypertarget{discussion}{%
 \section{Discussion}\label{discussion}}
 
-The plurality of findings do support similar information being conveyed through both approaches. Figure 1 captures \emph{some} of this, as functional slopes (even if somewhat nonmonotonic - see, for example, ``Seldom Daydream'' in Figure 1) tend to be more extreme with Edwards' highly desirable or undesirable items, and more flat with Edwards' moderate items.\footnote{These items were randomly sampled from within Edwards-rating strata. Visuals of all items' functional forms are available from the authors upon request.} Table 1 presents the frequency with which researcher-implicated functional shapes (linear {[}positive{]}, linear {[}negative{]}, nonmonotonic {[}U{]}, and nonmonotonic {[}inverted U{]}) were noted within ``Edwardian'' strata, demonstrating that although the nonmonotonic functions do exist, they are predominantly associated with moderate Edwards items (e.g., yes these functions do occur but perhaps the ambivalence is also associated with aggregate moderation). Figure 2 presents the relationship between: 1) the functional slope relating an item response's rated level of desirability and the ``location'' of the rating, and 2) Edwards' item stem rating (on the y-axis). This strong relationship (\emph{R}\^{}2 = .67, \emph{p} \textless{} .05) suggests some level of similarity across procedures.
+The plurality of findings do support similar information being conveyed through both approaches. Figure 1 captures \emph{some} of this, as functional slopes (even if somewhat nonmonotonic - see, for example, ``Seldom Daydream'' in Figure 1) tend to be more extreme with Edwards' highly desirable or undesirable items, and more flat with Edwards' moderate items.\footnote{These items were randomly sampled from within Edwards-rating strata. Visuals of all items' functional forms are available from the authors upon request.} Table 1 presents the frequency with which researcher-implicated functional shapes (linear {[}positive{]}, linear {[}negative{]}, nonmonotonic {[}U{]}, and nonmonotonic {[}inverted U{]}) were noted within ``Edwardian'' strata, demonstrating that although the nonmonotonic functions do exist, they are predominantly associated with moderate Edwards items (e.g., yes these functions do occur but perhaps the ambivalence is also associated with aggregate moderation). Figure 2 presents the relationship between: 1) the functional slope relating an item response's rated level of desirability and the ``location'' of the rating, and 2) Edwards' item stem rating (on the y-axis). This strong relationship (\emph{r} = -.76) suggests some level of similarity across procedures.
 
 Undoubtedly, the Kuncel and Tellegen (2009) procedure conveys information not contained in the classic Edwards (1957b) approach. The purpose of this investigation, however, was to document overlap between the two procedures. While it is clear nonmonotonic functions do exist for some indicators across scaled ``trait levels,'' the vast majority of such circumstances are located within a range what the Edwards (1957b) procedure labels as merely moderately desirable or undesirable. There is surely additional information contained within these items, but the current investigation suggests that perhaps the more cognitively taxing and time-intensive procedure should be retained only for the items first identified by the cognitively-easier and less time-consuming Edwards (1957b) method. Our recommendation is to therefore retain both procedures, utilizing the cognitively easier and less time-consuming procedure as an initial evaluation and following-up with moderately desirable items to probe for more complex relationships.
 
@@ -429,6 +481,9 @@ Edwards, A. L. (1957a). Social desirability and probability of endorsement of it
 \leavevmode\vadjust pre{\hypertarget{ref-edwards_social_1957}{}}%
 Edwards, A. L. (1957b). \emph{The social desirability variable in personality assessment and research.}
 
+\leavevmode\vadjust pre{\hypertarget{ref-krippendorff2004reliability}{}}%
+Krippendorff, K. (2004). Reliability in content analysis: Some common misconceptions and recommendations. \emph{Human Communication Research}, \emph{30}(3), 411--433.
+
 \leavevmode\vadjust pre{\hypertarget{ref-kuncel_conceptual_2009}{}}%
 Kuncel, N. R., \& Tellegen, A. (2009). A conceptual and empirical reexamination of the measurement of the social desirability of items: Implications for detecting desirable response style and scale development. \emph{Personnel Psychology}, \emph{62}(2), 201--228.
 
@@ -463,7 +518,7 @@ Paulhus, D. L. (1988). Balanced inventory of desirable responding ({BIDR}). \emp
 Qualtrics, L. L. C. (2014). Qualtrics {[}software{]}. \emph{Utah, {USA}: Qualtrics}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-R-base}{}}%
-R Core Team. (2022). \emph{R: A language and environment for statistical computing}. R Foundation for Statistical Computing. \url{https://www.R-project.org/}
+R Core Team. (2023). \emph{R: A language and environment for statistical computing}. R Foundation for Statistical Computing. \url{https://www.R-project.org/}
 
 \leavevmode\vadjust pre{\hypertarget{ref-sedikides_self-enhancement_2012}{}}%
 Sedikides, C., \& Alicke, M. D. (2012). \emph{Self-enhancement and self-protection motives}. Oxford handbook of motivation, ed. R. Ryan. Oxford University Press.{[}{rWvH}{]}.
@@ -478,7 +533,7 @@ Viswesvaran, C., \& Ones, D. S. (1999). Meta-analyses of fakability estimates: I
 Weiss, B., \& Feldman, R. S. (2006). Looking good and lying to do it: Deception as an impression management strategy in job interviews. \emph{Journal of Applied Social Psychology}, \emph{36}(4), 1070--1086.
 
 \leavevmode\vadjust pre{\hypertarget{ref-R-careless}{}}%
-Yentes, R., \& Wilhelm, F. (2021). \emph{Careless: Procedures for computing indices of careless responding}. \url{https://github.com/ryentes/careless/}
+Yentes, R., \& Wilhelm, F. (2023). \emph{Careless: Procedures for computing indices of careless responding}. \url{https://github.com/ryentes/careless/}
 
 \leavevmode\vadjust pre{\hypertarget{ref-ziegler_applicant_2011}{}}%
 Ziegler, M. (2011). Applicant faking: A look into the black box. \emph{The Industrial and Organizational Psychologist}, \emph{49}(1), 29--36.

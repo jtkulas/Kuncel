@@ -2459,3 +2459,20 @@ RSQ_Cat
 ##       .40 - .60     15
 ##       .60 - .80     12
 ##       .80 - 1.00    02
+
+## Write .csv that can pull into papaja - 6/1/24
+
+names <- c("example item", "value", "R2", "k")
+first <- c("Make friends easily", .03, "Below .05", 152)
+second <- c("Would never cheat on my taxes", .06,".05 - .10", 51)
+third <- c("Have a vivid imagination", .14,".10 - .15", 20)
+fourth <- c("Trust others", .20,".15 - .20", 15)
+fifth <- c("Experience my emotions intensely", .27,".20 - .40", 33)
+sixth <- c("Love large parties", .60,".40 - .60", 15)
+seventh <- c("Am always busy", .80,".60 - .80", 12)
+eighth <- c("Never splurge", .82, "Above .80", 2)
+
+polytable <- rbind(names, first, second, third, fourth, fifth, sixth, seventh, eighth)
+
+write.csv(polytable, "polytable.csv", row.names=FALSE)
+
