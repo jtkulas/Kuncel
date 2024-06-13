@@ -109,7 +109,7 @@ For roughly 60 years, the standard investigation of item-level saturation with s
 
 As rightly noted by @kuncel_conceptual_2009, there are plausible characteristics with a *most* desirable standing location that is not located at either extreme (consider, for example, "being quiet" - it is, without additionally provided context, likely most socially desirable to be moderate along the trait continuum for this characteristic). As an explicit alternative to the implicit Edwardian assumption of linear social desirability manifestation, @kuncel_conceptual_2009 proposed that at least four patterns of item social desirability may commonly exist across scaled inventory response options: linear, non-linear monotonic (rate of increase is not constant), weakly non-linear monotonic (flat regions exist), and non-monotonic (pattern reversal).  
 
-These possibilities acknowledge that the two-dimensional functional progression between an x-axis "location of response" (e.g., low, moderate, or high on the trait) and a y-axis "how desirable the location is" could be linear, logarithmic/exponential, flat in regions, or perhaps even "U"-shaped (or invertedly "U"-shaped). The authors even suggested that *most* trait items may be best characterized by nonmonotonic or weakly monotonic relationships with social desirability and that a strictly linear relationship would be dependent on highly valued items or strongly incentivized contexts (for example, applying for a desired job). **NOTE: (Maybe place into 4 categories: linear, exponential, flat, nonmono) - then give table of results coming back to "most" statement**
+These possibilities acknowledge that the two-dimensional functional progression between an x-axis "location of response" (e.g., low, moderate, or high on the trait) and a y-axis "how desirable the location is" could be linear, logarithmic/exponential, flat in regions, or perhaps even "U"-shaped (or invertedly "U"-shaped). The authors even suggested that *most* trait items may be best characterized by nonmonotonic or weakly monotonic relationships with social desirability and that a strictly linear relationship would be dependent on highly valued items or strongly incentivized contexts (for example, applying for a desired job). 
 
 To test their premise, @kuncel_conceptual_2009 constructed an alternative rating system. This approach asks individual judges to rate items on *how desirable* (they deem) *the trait to be at five different levels* of the characteristic: extremely high (top 1%), above average (top 30%), average, below average (bottom 30%), or extremely low (bottom 1%; see Figure \@ref(fig:Figure1), which has been reproduced from the original @kuncel_conceptual_2009 publication). Note here that these five categories parallel the common 5-point rating system frequently encountered in self-report inventories. Applying this rating procedure, @kuncel_conceptual_2009 found support for their premise that not all items demonstrate linear associations with social desirability and that non-monotonic relationships do exist across graded response continua.
 
@@ -154,7 +154,9 @@ All ratings were made via paper and pencil in an experimental laboratory. The @e
 	
 # Results  
 
-All analyses were performed in R version `r paste0(R.Version()[c("major","minor")], collapse = ".")` [@R-base]. We leveraged three different approaches comparing findings across the two item rating procedures. First, we fit linear regressions to all "Kuncel & Tellegen" functions (as explained below), extracting slope coefficients, then correlated Edwards' ratings with these slopes across items. Secondly, we categorized visual perceptions of the functions, and used these groupings to help inform ranges of Edwards values along which nonlinear item functions tend to be more prominent (e.g., how many "inverted U-shaped" functions were noted in items characterized by Edwards' system  as *extremely undesirable*, *undesirable*, *average*, *desirable*, and *extremely desirable*). Lastly, we conducted 300 hierarchical polynomial regressions to capture empirical "U" or "inverted-U" functional forms, and tallied how many items were incrementally characterized by a quadratic ("above and beyond" the linear) equation.
+All analyses were performed in R version `r paste0(R.Version()[c("major","minor")], collapse = ".")` [@R-base]. We leveraged three different approaches comparing findings across the two item rating procedures. First, we fit linear regressions to all "Kuncel & Tellegen" functions (as explained below), extracting slope coefficients, then correlated Edwards' ratings with these slopes across items. Secondly, we categorized visual perceptions of the functions, and used these groupings to help inform ranges of Edwards values along which nonlinear item functions tend to be more prominent (e.g., how many "inverted U-shaped" functions were noted in items characterized by Edwards' system  as *extremely undesirable*, *undesirable*, *average*, *desirable*, and *extremely desirable*).[^comeback] Lastly, we conducted 300 hierarchical polynomial regressions to capture empirical "U" or "inverted-U" functional forms, and tallied how many items were incrementally characterized by a quadratic ("above and beyond" the linear) regression term.
+
+[^comeback]: Need to revisit this statement after procedure #2 is complete - would need to at least report Edwards' values within each of our currently displayed Figure 3 columns - 6/13/24
 
 All three approaches focused on the *functional form* of "Kuncel & Tellegen" ratings. These functions reflect progression across Kuncel & Tellegen frames of reference (ranging from someone who is "Extremely High in the characteristic" to someone who is "Extremely Low in the characteristic", again see Figure \@ref(fig:Figure1) for exposition). The height of the function at each of 5 levels is determined by the *average desirability rating* at each of the focal item's 5 response categories.  
 
@@ -2718,7 +2720,23 @@ paper2 <- paper %>% filter(nonmono > 1)
 #
 #ob + geom_smooth(method=lm, se=TRUE, col="cyan", size=1.5)
 
-cats <- ggplot(paper, aes(x=ed.value, y=ID)) + geom_point() + facet_grid(. ~ category) + ylab("function slope") + xlab("Edwards rating value")
+forcatplot <- paper             ## 6/13/24 at Dunn Bros with Emily - want to omit "uncategorized"
+
+forcatplot <- forcatplot[which(forcatplot$category != 'Uncategorizable'),]
+
+forcatplot$category <- factor(forcatplot$category, levels = c("Linear..positive.slope.", 
+                                                        "Egyptian",
+                                                        "opposite.hook",
+                                                        "moderate.hook",
+                                                        "extreme.hook", 
+                                                        "Witches.hat", 
+                                                        "Flat", 
+                                                        "extreme.hook.1",
+                                                        "moderate.hump..hook.more.toward.center.",
+                                                        "Egyptian.R.",  
+                                                        "Linear..negative.slope."))  ## rearrange by "closeness to linearity" at Dunn Bros with Emily 6/13/24
+
+cats <- ggplot(forcatplot, aes(x=ed.value, y=ID)) + geom_point() + facet_grid(. ~ category) + ylab("function slope") + xlab("Edwards rating value")
 cats
 
 
@@ -2733,6 +2751,16 @@ paper$strat[paper$ed.value >= -.9 & paper$ed.value < .9 ] <- "-1 to 1"
 paper$strat[paper$ed.value >= .9 & paper$ed.value < 1.9 ] <- "1 to 2"  
 paper$strat[paper$ed.value >= 1.9 & paper$ed.value < 2.9 ] <- "2 to 3"  
 paper$strat[paper$ed.value >= 2.9 ] <- "greater than 3"  
+
+############################################
+############################################
+############################################ Within category correlations - 6/13/24
+
+library(dplyr)
+
+correlations <- forcatplot %>%                         ## one positive corr - double check
+  dplyr::group_by(category) %>%
+  dplyr::summarise(correlation=cor(ID,ed.value))
 
 ```
 
@@ -2762,6 +2790,8 @@ Between both studies, linear functional forms stayed consistent (see graphs), wh
 
 *Inconsistently rating these items could pose issues if using for assessment. Unsure how to move on from here, but a thought.*
 
+As mentioned in the introduction, @kuncel_conceptual_2009 considered the possibility that trait items may be best characterized by nonmonotonic or weakly monotonic relationships rather than with social desirability. Our qualitative sorting identified 8 categories... **NOTE: (Maybe place into 4 categories: linear, exponential, flat, nonmono) - then give table of results coming back to "most" statement**
+
 Looking at the function plots for the 15 Study 2 items (but retaining Study 1 data to create the functions), a better description (than linear, monotonic, etc) may be: 1) bipolar (good to be on one side, bad to be on the other), 2) moderate (best to be exactly in the middle), and 3) unipolar (good/bad to be on one side, ambivalent regarding other). 
 
 # Discussion
@@ -2779,6 +2809,8 @@ Certainly the @kuncel_conceptual_2009 procedure conveys information not containe
 Our task was likely too long - in retrospect a shorter measure should have been pursued.
 
 > **Redundant with previous paragraph** $\rightarrow$ In order to capture the extremity of function across @kuncel_conceptual_2009 values, several regressions were fit using the average (across respondents) rating as a predictor (e.g., @kuncel_conceptual_2009's "Lower 1%", "Lower 30%", "Median", "Upper 30%", and "Upper 1%" were treated as a scaled continuum) and average Edwards' desirability rating as the criterion. Slopes were retained for each function, with the expectation that slope magnitude and valence would parallel the classic Edwards ratings. 
+
+Our analytical methodology is atypical - the focus of @kuncel_conceptual_2009 was visual functions. Our approach therefore also focused on these functions - extracting regression coefficients as an (imperfect) empirical index. Follow-up analyses retained slope coefficients as meaningful representations of the @kuncel_conceptual_2009 functions. Some of our descriptive correlations are essentially correlations of "correlations", and distal indices such as these are not ideal (for example, for anticipated replication). We chose to retain and present these analyses as descriptive, but acknowledge that alternative methodologies should be pursued in future investigations.  
 
 # References
 
