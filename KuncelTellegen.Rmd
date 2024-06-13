@@ -170,11 +170,9 @@ Edwards arrays were next isolated such that "Kuncel & Tellegen" functional forms
 
 ### Approach #2: Functional form (Visual)
 
-**MOVE 295 FROM "MEH" TO UNCATEGORIZED & REDO GRAPH WITHOUT 295**
+Next, the Figure \@ref(fig:Figure2) plots for all 300 items were presented to judges who performed an inductive content analysis [@miles1994qualitative] -- grouping items by subjective functional similarity. There were 11 total categories identified, and all but 3 item functions fit into one of these 11 categories (items were assigned exclusively to only one category)[^omitteditems]. The result of these sortings is presented in Figure \@ref(fig:lastone) (put some example functional forms in here as well -- maybe report correlations within each grouping). The average Edwards rating for each category is presented in Table X along with the within-category correlation 
 
-Next, the Figure \@ref(fig:Figure2) plots for all 300 items were presented to judges who performed a modified q-sort -- grouping items by subjective functional similarity. There were 11 total categories identified, and all but 2 item functions fit into one of these 11 categories (items were assigned exclusively to only one category)[^omitteditems]. The result of these sortings is presented in Figure \@ref(fig:lastone) (put some example functional forms in here as well -- maybe report correlations within each grouping). The average Edwards rating for each category is presented in Table X along with the within-category correlation 
-
-[^omitteditems]: The unclassified items were, "Am not interested in other peoples' problems" and "Readily overcome setbacks".
+[^omitteditems]: The unclassified items were, "Am not interested in other peoples' problems", "Postpone decisions", and "Readily overcome setbacks".
 
 ```{r polytable}
 
@@ -187,6 +185,7 @@ colnames(polytable)[4] <- "Number" #"$\\n_k$"
 papaja::apa_table(polytable, # apa contains the data.frame needed for apa_table
                   caption = "Polynomial effects, organized by magnitude",
 #                  landscape = TRUE,
+                  row.names=FALSE,
                   escape = FALSE) 
 
 ```
@@ -2694,7 +2693,7 @@ paper$category <- newcat_sorted$form
 
 ```
 
-```{r lastone, fig.cap="Response Category and Mean Rating slope across Edwards' scale values (individual scatterpoints represent items).", fig.height=5, fig.width=11}
+```{r lastone, fig.cap="Response Category and Mean Rating slope across Edwards' scale values (individual scatterpoints represent items) NOTE: 1. RENAME, 2. ADD VISUAL EXAMPLES, AND 3. R.", fig.height=5, fig.width=11}
 
 paper$nonmono <- rowMeans(nonmono[,c(2,4)], na.rm=TRUE)   ## Emily + Renata (10/22/19)
 paper$linear <- rowMeans(linear[,c(2,4)], na.rm=TRUE)    
