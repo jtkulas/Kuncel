@@ -154,25 +154,29 @@ All ratings were made via paper and pencil in an experimental laboratory. The @e
 	
 # Results  
 
-All analyses were performed in R version `r paste0(R.Version()[c("major","minor")], collapse = ".")` [@R-base]. We leveraged three different approaches comparing findings across the two item rating procedures. First, we fit linear regressions to all "Kuncel & Tellegen" functions (as explained below), extracting slope coefficients, then correlated Edwards' ratings with these slopes across items. Secondly, we categorized visual perceptions of the functions, and used these groupings to help inform ranges of Edwards values along which nonlinear item functions tend to be more prominent (e.g., how many "inverted U-shaped" functions were noted in items characterized by Edwards' system  as *extremely undesirable*, *undesirable*, *average*, *desirable*, and *extremely desirable*).[^comeback] Lastly, we conducted 300 hierarchical polynomial regressions to capture empirical "U" or "inverted-U" functional forms, and tallied how many items were incrementally characterized by a quadratic ("above and beyond" the linear) regression term.
+All analyses were performed in R version `r paste0(R.Version()[c("major","minor")], collapse = ".")` [@R-base]. We leveraged three different approaches comparing findings across the two item rating procedures. First, we fit linear regressions to all "Kuncel & Tellegen" functions (as explained below), extracting slope coefficients, then correlated Edwards' ratings with these slopes across items. Secondly, we categorized visual perceptions of the functions, and revisited the above correlations within *differently categorized functional forms*. 
+
+>NOTE. Old but maye revisit: used these groupings to help inform ranges of Edwards values along which nonlinear item functions tend to be more prominent (e.g., how many "inverted U-shaped" functions were noted in items characterized by Edwards' system  as *extremely undesirable*, *undesirable*, *average*, *desirable*, and *extremely desirable*).[^comeback]
+
+Lastly, we conducted 300 hierarchical *polynomial* regressions to capture empirical "U" or "inverted-U" functional forms, and tallied how many items were incrementally characterized by a quadratic ("above and beyond" the linear) regression term.
 
 [^comeback]: Need to revisit this statement after procedure #2 is complete - would need to at least report Edwards' values within each of our currently displayed Figure 3 columns - 6/13/24
 
-All three approaches focused on the *functional form* of "Kuncel & Tellegen" ratings. These functions reflect progression across Kuncel & Tellegen frames of reference (ranging from someone who is "Extremely High in the characteristic" to someone who is "Extremely Low in the characteristic", again see Figure \@ref(fig:Figure1) for exposition). The height of the function at each of 5 levels is determined by the *average desirability rating* at each of the focal item's 5 response categories.  
+All three approaches focused on the *functional form* of "Kuncel & Tellegen" ratings, and relied upon either: 1) regression analyses to provide an empirical estimate of the form, or 2) judge categorizations to provide a subjective interpretation of the form. These functions all reflect progression across Kuncel & Tellegen frames of reference (ranging from someone who is "Extremely High in the characteristic (top 1%)" to someone who is "Extremely Low in the characteristic (below 1%)", again see Figure \@ref(fig:Figure1) for exposition). The "height" of the function at each of five rated frames of reference is determined by the *average desirability rating* at each of these points of normative consideration.  
 
 ### Approach #1: Functional Slope 
 
-One reasonable manifestation of similarity across the two procedures would be greater incidences of functional linearity with extremely desirable and undesirable items. For the first investigative approach, we therefore probed for associations between "Edwards"' item ratings and *regression slope* of "Kuncel & Tellegen" function. 
+One reasonable manifestation of similarity across the two procedures would be stronger incidences of functional linearity with extremely desirable and undesirable items (and correspondingly weaker linear associations with moderate items). For the first investigative approach, we therefore probed for associations between "Edwards"' item ratings and *regression slope* of "Kuncel & Tellegen" function. 
 
-We first fit 300 individual regressions retaining the five different rated trait locations as a predictor (e.g., @kuncel_conceptual_2009's "bottom 1%", "bottom 30%", "Average", "top 30%", and "top 1%" - these were treated as a numerical continuum [values of 1, 2, 3, 4, and 5])  and averaged (Edwards) response desirability rating as the criterion. Within each of the 300 individual regressions, the expectation was that slope *magnitude* and *valence* would parallel the classic Edwards ratings of the same items. For example, the expectation was that an item such as "Believe that others have good intentions" would realize both a highly desirable Edwards rating and a high magnitude, negatively valenced slope estimate. "Enjoy wild flights of fancy" would exhibit a moderate Edwards rating and flat slope, and "Get irritated easily" would return an undesirable Edwards rating as well as a moderately positive slope. Across all 300 items, the relationship between Edwards rating and Kuncel & Tellegen functional slope was indeed revealed to be strong (*r* = -.76, $R^2 = .58$, $F_{(1,298)} = 412.26$, *p* < .001), reflecting substantial overlap across procedures. 
+We first fit 300 individual regressions retaining the five different rated trait locations as a predictor (e.g., @kuncel_conceptual_2009's "bottom 1%", "bottom 30%", "Average", "top 30%", and "top 1%" - these were treated as a numerical continuum [values of 1, 2, 3, 4, and 5])  and averaged (Edwards) response desirability rating as the criterion. Within each of the 300 individual regressions, the expectation was that slope *magnitude* and *valence* would parallel the classic Edwards ratings of the same items. For example, the expectation was that an item such as "Believe that others have good intentions" would realize both a highly desirable Edwards rating and a high magnitude, negatively valenced slope estimate. "Enjoy wild flights of fancy" would exhibit a moderate Edwards rating and flat slope, and "Get irritated easily" would return an undesirable Edwards rating as well as a moderately positive slope. Across all 300 items, the relationship between Edwards rating and Kuncel & Tellegen functional slope was indeed revealed to be strong (*r* = -.76, $R^2 = .58$, $F_{(1,298)} = 412.26$, *p* < .001), reflecting a moderately strong relationship between procedures. 
 
-Edwards arrays were next isolated such that "Kuncel & Tellegen" functional forms could be presented within meaningful groupings. Figure \@ref(fig:Figure2) presents Kuncel & Tellegen functional forms for 25 items. These items were randomly selected from within five categorized Edwards arrays[^yabut], and the figure *rows* reflect these strata.  Note that the functions (even if somewhat non-monotonic - see, for example, "Seldom Daydream" in Figure \@ref(fig:Figure2)) tend to exhibit "steeper slope" with Edwards' highly desirable or undesirable items, and are "flatter" with Edwards' moderate items - this first exploration merely confirms a general pattern such that more extreme "Edwards" items tend to have steeper "Kuncel & Tellegen" functions, but is not sensitive to functional form (e.g., this exploration is not directly reflective of, for example, nonmonotonicity).  
+For visual exposition, Edwards arrays were next categorized such that "Kuncel & Tellegen" functional forms could be organized within meaningful groupings. Figure \@ref(fig:Figure2) presents Kuncel & Tellegen functional forms for 25 grouped items. These items were randomly selected from within five categorized Edwards arrays[^yabut], and the figure *rows* reflect these strata.  Note that the functions (even if somewhat non-monotonic - see, for example, "Seldom Daydream" in Figure \@ref(fig:Figure2)) tend to exhibit "steeper slope" with Edwards' highly desirable or undesirable items, and are "flatter" with Edwards' moderate items - this first exploration merely confirms a general pattern such that more extreme "Edwards" items tend to have steeper "Kuncel & Tellegen" functions, but is not sensitive to functional form (e.g., this exploration is not directly reflective of, for example, nonmonotonicity).  
 
 [^yabut]: Note that these plotted functions progress along only 5 actual x-axis values. The "connected dots" do not imply continuous x-axis values but are presented to facilitate observation of linear, monotonic, or non-monotonic functional patterns [e.g.,  @kuncel_conceptual_2009].
 
 ### Approach #2: Functional form (Visual)
 
-Next, the Figure \@ref(fig:Figure2) plots for all 300 items were presented to judges who performed an inductive content analysis [@miles1994qualitative] -- grouping items by subjective functional similarity. There were 11 total categories identified, and all but 3 item functions fit into one of these 11 categories (items were assigned exclusively to only one category)[^omitteditems]. The result of these sortings is presented in Figure \@ref(fig:lastone) (put some example functional forms in here as well -- maybe report correlations within each grouping). The average Edwards rating for each category is presented in Table X along with the within-category correlation 
+Next, the Figure \@ref(fig:Figure2) plots for all 300 items were presented to judges who performed an inductive content analysis [@miles1994qualitative] -- grouping item functions by *perceived functional similarity* without further instruction. There were 11 total categories identified, and all but three item functions fit into one of these 11 categories (item functions were assigned exclusively to only one category)[^omitteditems]. Figure \@ref(fig:lastone) presents an example function for each of the 11 categories as well as panel scatterplots and correlations executed within each of the 11 categories. The average Edwards rating for each category is presented in Table X along with the within-category correlation 
 
 [^omitteditems]: The unclassified items were, "Am not interested in other peoples' problems", "Postpone decisions", and "Readily overcome setbacks".
 
@@ -2695,7 +2699,7 @@ paper$category <- newcat_sorted$form
 
 ```
 
-```{r lastone, fig.cap="Response Category and Mean Rating slope across Edwards' scale values (individual scatterpoints represent items) NOTE: 1. RENAME, 2. ADD VISUAL EXAMPLES, AND 3. R.", fig.height=5, fig.width=11}
+```{r lastone, fig.cap="Response Category and Mean Rating slope across Edwards' scale values (individual scatterpoints represent items) NOTE: 1. RENAME, 2. ADD VISUAL EXAMPLES, AND 3. R.", fig.height=5, fig.width=11, warning=FALSE, message=FALSE}
 
 paper$nonmono <- rowMeans(nonmono[,c(2,4)], na.rm=TRUE)   ## Emily + Renata (10/22/19)
 paper$linear <- rowMeans(linear[,c(2,4)], na.rm=TRUE)    
@@ -2726,11 +2730,13 @@ forcatplot <- forcatplot[which(forcatplot$category != 'Uncategorizable'),]
 
 forcatplot$category <- factor(forcatplot$category, levels = c("Linear..positive.slope.", 
                                                         "Egyptian",
-                                                        "opposite.hook",
+                                                        
                                                         "moderate.hook",
                                                         "extreme.hook", 
-                                                        "Witches.hat", 
+                                                        "opposite.hook",   ## moved 6/26
                                                         "Flat", 
+                                                        "Witches.hat", 
+
                                                         "extreme.hook.1",
                                                         "moderate.hump..hook.more.toward.center.",
                                                         "Egyptian.R.",  
@@ -2762,17 +2768,18 @@ cats <- ggplot(forcatplot, aes(x=ed.value, y=ID)) + geom_point() + facet_grid(. 
 #############################################
 
 
-exampleitems <- rbind(i61, i1, i274, i11, i197, i268, i264, i13, i55, i22, i73)
+exampleitems <- rbind(i61, i1, i274, i232, i249, i268, i264, i13, i55, i22, i73) ## changed from i11 to i232 and i197 to i249 (6/26/24)
 
 exampleitems$cat <- rep(c("linear(p)", "xtreme hook(p)", "egyptian(p)", "mod hook(p)", "opposite hook/ladle", "witches hat", "flat", "mod hook", "egyptian", "xtreme hook", "linear"), each=5)
 
 exampleitems$cat <- factor(exampleitems$cat, levels = c("linear(p)", 
                                                         "egyptian(p)",
-                                                        "opposite hook/ladle",
+                                                      
                                                         "mod hook(p)",
                                                         "xtreme hook(p)", 
-                                                        "witches hat", 
+                                                        "opposite hook/ladle",   ## Moved 6/26
                                                         "flat", 
+                                                        "witches hat", 
                                                         "xtreme hook",
                                                         "mod hook",
                                                         "egyptian",  
@@ -2784,15 +2791,17 @@ addto3 <- ggplot(exampleitems, aes(x=level, y=mean, colour=Edwards, group=1)) +
          scale_x_discrete(limits=c("Extremely High", "Above Average", "Average", "Below Average", "Extremely Low")) + 
          facet_wrap(~ cat, nrow=1) +
          ylab("mean rating") +
-          theme(legend.position="none",
-                axis.title.x=element_blank(),
-                axis.text.x = element_text(angle=45, vjust=1, hjust=1)) +
+         theme(axis.title.x=element_blank(),        
+            axis.text.x=element_blank(),
+            axis.ticks.x=element_blank(),
+            legend.position="none") +
+#                axis.text.x = element_text(angle=45, vjust=1, hjust=1)) +
           scale_y_continuous(
           labels = scales::number_format(accuracy = 0.1))
 
 library(ggpubr)
 
-ggarrange(cats,addto3,
+ggarrange(addto3, cats,                     ## switched top and bottom & labels 6/15/24
           ncol=1,
           nrow=2)
 
@@ -2845,6 +2854,8 @@ As mentioned in the introduction, @kuncel_conceptual_2009 considered the possibi
 Looking at the function plots for the 15 Study 2 items (but retaining Study 1 data to create the functions), a better description (than linear, monotonic, etc) may be: 1) bipolar (good to be on one side, bad to be on the other), 2) moderate (best to be exactly in the middle), and 3) unipolar (good/bad to be on one side, ambivalent regarding other). 
 
 # Discussion
+
+>Note. Anecdotally the functions appeared more pronounced on one side versus the other - look at Figure 3 and some "hooks" tended to be stronger (more gentle slopes with the other side)
 
 The plurality of findings do support similar information being conveyed through both approaches. Figure 1 captures *some* of this, as functional slopes (even if somewhat nonmonotonic - see, for example, "Seldom Daydream" in Figure 1) tend to be more extreme with Edwards' highly desirable or undesirable items, and more flat with Edwards' moderate items.[^4] Table 1 presents the frequency with which researcher-implicated functional shapes (linear [positive], linear [negative], nonmonotonic [U], and nonmonotonic [inverted U]) were noted within "Edwardian" strata, demonstrating that although the nonmonotonic functions do exist, they are predominantly associated with moderate Edwards items (e.g., yes these functions do occur but perhaps the ambivalence is also associated with aggregate moderation). Figure 2 presents the relationship between: 1) the functional slope relating an item response's rated level of desirability and the "location" of the rating, and 2) Edwards' item stem rating (on the y-axis). This strong relationship (*r* = -.76) suggests some level of similarity across procedures. 
 
