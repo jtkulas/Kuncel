@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.12.21)  26 JUN 2024 12:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.7.13)  14 AUG 2024 10:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -708,14 +708,14 @@ Package pdftex.def Info: KuncelTellegen_files/figure-latex/Figure1-1.pdf  used o
 <KuncelTellegen_files/figure-latex/Figure2-1.pdf, id=89, 794.97pt x 578.16pt>
 File: KuncelTellegen_files/figure-latex/Figure2-1.pdf Graphic file (type pdf)
 <use KuncelTellegen_files/figure-latex/Figure2-1.pdf>
-Package pdftex.def Info: KuncelTellegen_files/figure-latex/Figure2-1.pdf  used on input line 380.
+Package pdftex.def Info: KuncelTellegen_files/figure-latex/Figure2-1.pdf  used on input line 383.
 (pdftex.def)             Requested size: 241.74374pt x 175.81363pt.
 <KuncelTellegen_files/figure-latex/lastone-1.pdf, id=90, 794.97pt x 361.35pt>
 File: KuncelTellegen_files/figure-latex/lastone-1.pdf Graphic file (type pdf)
 <use KuncelTellegen_files/figure-latex/lastone-1.pdf>
-Package pdftex.def Info: KuncelTellegen_files/figure-latex/lastone-1.pdf  used on input line 386.
+Package pdftex.def Info: KuncelTellegen_files/figure-latex/lastone-1.pdf  used on input line 389.
 (pdftex.def)             Requested size: 241.74374pt x 109.88351pt.
-[6 <./KuncelTellegen_files/figure-latex/Figure2-1.pdf>] [7 <./KuncelTellegen_files/figure-latex/lastone-1.pdf>] [8]
+[6] [7 <./KuncelTellegen_files/figure-latex/Figure2-1.pdf> <./KuncelTellegen_files/figure-latex/lastone-1.pdf>] [8]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [9]
@@ -728,18 +728,18 @@ L3 programming layer <2020/03/25>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 15872 strings out of 476140
- 261108 string characters out of 5793653
+ 15875 strings out of 476140
+ 261177 string characters out of 5793654
  1948460 words of memory out of 5000000
- 37527 multiletter control sequences out of 15000+600000
+ 37530 multiletter control sequences out of 15000+600000
  621092 words of font info for 130 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 77i,11n,79p,3385b,579s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on KuncelTellegen.pdf (10 pages, 343103 bytes).
+ 77i,11n,79p,3385b,577s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/symbol/usyr.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on KuncelTellegen.pdf (10 pages, 346085 bytes).
 PDF statistics:
- 292 PDF objects out of 1000 (max. 8388607)
- 256 compressed objects within 3 object streams
+ 297 PDF objects out of 1000 (max. 8388607)
+ 259 compressed objects within 3 object streams
  98 named destinations out of 1000 (max. 500000)
  160 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -154,17 +154,43 @@ All ratings were made via paper and pencil in an experimental laboratory. The @e
 	
 # Results  
 
-All analyses were performed in R version `r paste0(R.Version()[c("major","minor")], collapse = ".")` [@R-base]. We leveraged three different approaches comparing findings across the two item rating procedures. First, we fit linear regressions to all "Kuncel & Tellegen" functions (as explained below), extracting slope coefficients, then correlated Edwards' ratings with these slopes across items. Secondly, we categorized visual perceptions of the functions, and revisited the above correlations within *differently categorized functional forms*. 
+All analyses were performed in R version `r paste0(R.Version()[c("major","minor")], collapse = ".")` [@R-base]. We leveraged three different approaches comparing findings across the two item rating procedures. First, we conducted 300 hierarchical *polynomial* regressions to all "Kuncel & Tellegen" functions (as explained below) in an attempt to capture empirical "U" or "inverted-U" functional forms, and tallied how many items were incrementally characterized by a quadratic ("above and beyond" the linear) regression term. Secondly we applied linear regressions to each function, extracting slope coefficients, and then correlated Edwards' ratings with these slopes across items. Lastly, we categorized visual perceptions of the functions, and revisited the above noted associations within *differently categorized functional forms*.  
 
 >NOTE. Old but maye revisit: used these groupings to help inform ranges of Edwards values along which nonlinear item functions tend to be more prominent (e.g., how many "inverted U-shaped" functions were noted in items characterized by Edwards' system  as *extremely undesirable*, *undesirable*, *average*, *desirable*, and *extremely desirable*).[^comeback]
 
-Lastly, we conducted 300 hierarchical *polynomial* regressions to capture empirical "U" or "inverted-U" functional forms, and tallied how many items were incrementally characterized by a quadratic ("above and beyond" the linear) regression term.
-
 [^comeback]: Need to revisit this statement after procedure #2 is complete - would need to at least report Edwards' values within each of our currently displayed Figure 3 columns - 6/13/24
 
-All three approaches focused on the *functional form* of "Kuncel & Tellegen" ratings, and relied upon either: 1) regression analyses to provide an empirical estimate of the form, or 2) judge categorizations to provide a subjective interpretation of the form. These functions all reflect progression across Kuncel & Tellegen frames of reference (ranging from someone who is "Extremely High in the characteristic (top 1%)" to someone who is "Extremely Low in the characteristic (below 1%)", again see Figure \@ref(fig:Figure1) for exposition). The "height" of the function at each of five rated frames of reference is determined by the *average desirability rating* at each of these points of normative consideration.  
+All three approaches focused on the *functional form* of "Kuncel & Tellegen" ratings, and relied upon either regression analyses to provide an empirical estimate of the function form and/or judge categorizations to provide a subjective interpretation of the function form. These functions all reflect progression across Kuncel & Tellegen frames of reference (ranging from someone who is "Extremely High in the characteristic (top 1%)" to someone who is "Extremely Low in the characteristic (below 1%)", again see Figure \@ref(fig:Figure1) for exposition). The "height" of the function at each of five rated frames of reference is determined by the *average desirability rating* at each of these points of normative consideration.  
 
-### Approach #1: Functional Slope 
+```{r polytable}
+
+polytable <- read.csv("polytable.csv")[-1,]
+
+polytable$V2 <- formatC( round(as.numeric(polytable$V2), 3 ), format='f', digits=2 )
+
+colnames(polytable)[1] <- "Example Item"
+colnames(polytable)[2] <- "$\\Delta R^2$"
+colnames(polytable)[3] <- "$\\Delta R^2 Range$"
+colnames(polytable)[4] <- "$n_k$"
+
+
+
+papaja::apa_table(polytable, # apa contains the data.frame needed for apa_table
+                  caption = "Polynomial effects, organized by magnitude",
+#                  landscape = TRUE,
+                  row.names=FALSE,
+                  note = "$\\Delta R^2$ refers to the incremental second-order polynomial effect estimated via hierarchical regression.",
+                  escape = FALSE) 
+
+```
+
+### Approach #1: Functional form (Empirical)
+
+Our first approach leveraged hierarchical polynomial regressions, with the index of interest being the change in $R^2$ associated with nonlinear association, as operationalized as a singly specified (second degree) polynomial term. Most items ($n_k$ = 203) had a very low change in $R^2$ (see Table \@ref(tab:polytable) for a summary of these results and an explicit articulation of our subjective classification of "low" or "very low"). Beyond our subjective categorization, $F$-tests indicated that 92.31% of item ratings were *not* significantly predicted when specifying the quadratic term. These results suggest that, although judges may be able to visually distinguish functional form[^addthis], empirical estimates are not as sensitive to deviations from linearity **FIND THESE ANALYSES (7/29/23)**
+
+[^addthis]: Compare with the % of "linear" and maybe "egyptian" that we subjectively categorized - 5/30/24
+
+### Approach #2: Functional Slope 
 
 One reasonable manifestation of similarity across the two procedures would be stronger incidences of functional linearity with extremely desirable and undesirable items (and correspondingly weaker linear associations with moderate items). For the first investigative approach, we therefore probed for associations between "Edwards"' item ratings and *regression slope* of "Kuncel & Tellegen" function. 
 
@@ -174,34 +200,11 @@ For visual exposition, Edwards arrays were next categorized such that "Kuncel & 
 
 [^yabut]: Note that these plotted functions progress along only 5 actual x-axis values. The "connected dots" do not imply continuous x-axis values but are presented to facilitate observation of linear, monotonic, or non-monotonic functional patterns [e.g.,  @kuncel_conceptual_2009].
 
-### Approach #2: Functional form (Visual)
+### Approach #3: Functional form (Visual)
 
 Next, the Figure \@ref(fig:Figure2) plots for all 300 items were presented to judges who performed an inductive content analysis [@miles1994qualitative] -- grouping item functions by *perceived functional similarity* without further instruction. There were 11 total categories identified, and all but three item functions fit into one of these 11 categories (item functions were assigned exclusively to only one category)[^omitteditems]. Figure \@ref(fig:lastone) presents an example function for each of the 11 categories as well as panel scatterplots and correlations executed within each of the 11 categories. The average Edwards rating for each category is presented in Table X along with the within-category correlation 
 
 [^omitteditems]: The unclassified items were, "Am not interested in other peoples' problems", "Postpone decisions", and "Readily overcome setbacks".
-
-```{r polytable}
-
-polytable <- read.csv("polytable.csv")[-1,]
-colnames(polytable)[1] <- "Example Item"
-colnames(polytable)[2] <- "Value" #"$\\Delta R^2$"
-colnames(polytable)[3] <- "Range" #"$\\Delta R^2$ Range"
-colnames(polytable)[4] <- "Number" #"$\\n_k$"
-
-papaja::apa_table(polytable, # apa contains the data.frame needed for apa_table
-                  caption = "Polynomial effects, organized by magnitude",
-#                  landscape = TRUE,
-                  row.names=FALSE,
-                  escape = FALSE) 
-
-```
-
-
-### Approach #3: Functional form (Empirical)
-
-Our third approach leveraged hierarchical polynomial regressions, with our index of interest being the change in $R^2$ associated with the nonlinear association, when the polynomial terms were specified. Most items ($n_k$ = 203) had a very low change in $R^2$ (see Table \@ref(tab:polytable) for a summary of these results and a specification of our definition of "low" or "very low"). Beyond our subjective categorization, $F$-tests indicated that 92.31% of item ratings were *not* significantly predicted when specifying the quadratic term. These results suggest that, although judges may be able to visually distinguish functional form[^addthis], empirical estimates are not as sensitive to deviations from linearity **FIND THESE ANALYSES (7/29/23)**
-
-[^addthis]: Compare with the % of "linear" and maybe "egyptian" that we subjectively categorized - 5/30/24
 
 ## Results Summary  
 
@@ -2699,7 +2702,7 @@ paper$category <- newcat_sorted$form
 
 ```
 
-```{r lastone, fig.cap="Response Category and Mean Rating slope across Edwards' scale values (individual scatterpoints represent items) NOTE: 1. RENAME, 2. ADD VISUAL EXAMPLES, AND 3. R.", fig.height=5, fig.width=11, warning=FALSE, message=FALSE}
+```{r lastone, fig.cap="Response Category and Mean Rating slope across Edwards' scale values (individual scatterpoints represent items)", fig.height=5, fig.width=11, warning=FALSE, message=FALSE}
 
 paper$nonmono <- rowMeans(nonmono[,c(2,4)], na.rm=TRUE)   ## Emily + Renata (10/22/19)
 paper$linear <- rowMeans(linear[,c(2,4)], na.rm=TRUE)    
@@ -2742,17 +2745,33 @@ forcatplot$category <- factor(forcatplot$category, levels = c("Linear..positive.
                                                         "Egyptian.R.",  
                                                         "Linear..negative.slope."))  ## rearrange by "closeness to linearity" at Dunn Bros with Emily 6/13/24
 
+forcatplot$category <- recode(forcatplot$category, "Linear..positive.slope." = "linear (p)",
+                          "Egyptian" = "non-mono (s)",
+                          "moderate.hook" = "non-mono (hook mp)",
+                          "extreme.hook" = "non-mono (hook ep)",
+                          "opposite.hook" = "non-mono (j)",
+                          "Flat" = "non-mono (flat)",
+                          "Witches.hat" = "non-mono (peaked)",
+                          "extreme.hook.1" = "non-mono (hook en)",
+                          "moderate.hump..hook.more.toward.center." = "non-mono (hook mn)",
+                          "Egyptian.R." = "non-mono (z)",
+                          "Linear..negative.slope." = "linear (n)")
+
 library(dplyr)
 
 correlations <- forcatplot %>%                         ## one positive corr - double check
   dplyr::group_by(category) %>%
   dplyr::summarise(correlation=cor(ID,ed.value))
 
+wgmeans <- forcatplot %>%                         ## average Edwards value
+  dplyr::group_by(category) %>%
+  dplyr::summarise(mean=mean(ed.value))
+
 dat_text <- data.frame(
   label= paste("r=",round(correlations$correlation,2)) , 
   category=correlations$category,
   x=c(0,0,0,0,0,0,0,0,0,0,0),
-  y=c(-.1,-.07,-.07,-.1,-.3,-.8,-.4,.2,.2,.2,.2))
+  y=c(-.1,-.07,-.07,-.2,-.1,-.3,-.8,.2,.2,.2,.2))
 
 
 cats <- ggplot(forcatplot, aes(x=ed.value, y=ID)) + geom_point() + facet_grid(. ~ category) + ylab("function slope") + xlab("Edwards rating value")  +
@@ -2761,7 +2780,7 @@ cats <- ggplot(forcatplot, aes(x=ed.value, y=ID)) + geom_point() + facet_grid(. 
             axis.ticks.x=element_blank(),
             legend.position="none") +
             geom_text(data=dat_text, mapping=aes(x=x, y=y, label=label))
-# cats
+#cats
 
 #############################################
 #############################################
@@ -2784,7 +2803,23 @@ exampleitems$cat <- factor(exampleitems$cat, levels = c("linear(p)",
                                                         "mod hook",
                                                         "egyptian",  
                                                         "linear"))  ## rearrange by "closeness to linearity" at Dunn Bros with Emily 6/13/24
+exampleitems$cat <- recode(exampleitems$cat, "linear(p)" = "linear (p)",
+                                             "egyptian(p)" = "non-mono (s)",
+                                             "mod hook(p)" = "non-mono (hook mp)",
+                                             "xtreme hook(p)" = "non-mono (hook ep)",
+                                             "opposite hook/ladle" = "non-mono (j)",
+                                             "flat" = "non-mono (flat)",
+                                             "witches hat" = "non-mono (peaked)",
+                                             "xtreme hook" = "non-mono (hook en)",
+                                             "mod hook" = "non-mono (hook mn)",
+                                             "egyptian" = "non-mono (z)",
+                                             "linear" = "linear (n)")
 
+dat_text2 <- data.frame(
+  label= paste("m=",round(wgmeans$mean,2)), 
+  category=wgmeans$category,
+  x=rep("Average",11),
+  y=rep(4,11))
 
 addto3 <- ggplot(exampleitems, aes(x=level, y=mean, colour=Edwards, group=1)) + 
          geom_line(linewidth=1) +  
@@ -2797,7 +2832,8 @@ addto3 <- ggplot(exampleitems, aes(x=level, y=mean, colour=Edwards, group=1)) +
             legend.position="none") +
 #                axis.text.x = element_text(angle=45, vjust=1, hjust=1)) +
           scale_y_continuous(
-          labels = scales::number_format(accuracy = 0.1))
+          labels = scales::number_format(accuracy = 0.1)) 
+# + geom_text(data=dat_text2, mapping=aes(x=x, y=y, label=label))
 
 library(ggpubr)
 
