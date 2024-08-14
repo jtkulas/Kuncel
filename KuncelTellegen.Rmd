@@ -2861,6 +2861,22 @@ paper$strat[paper$ed.value >= 2.9 ] <- "greater than 3"
 
 All ratings were conducted online using Qualtrics (2014), utilizing the Kuncel & Tellegen (2009) rating scale. Fifteen of the most decisive items from Study 1 were chosen, focusing on the three functional forms - linear, quasi, and asymmetric. 
 
+```{r qsorttable}
+
+dat_text3 <- data.frame(
+  label= paste("m=",round(wgmeans$mean,2)), 
+  category=wgmeans$category,
+  n=c(21,46,16,22,15,11,46,39,17,38,26))
+
+
+papaja::apa_table(dat_text3, 
+                  caption = "Average Edwards rating and number of functional classifications",
+                  row.names=FALSE,
+                  escape = FALSE) 
+
+```
+
+
 Due to the observed difficulty and length of the task in Study 1, we implemented carelessness items and additional questions to gauge carelessness and task difficulty. Because of the tedium and cognitive complexity of the requested task, we also computed consecutive non-differentiating responses as well as intra-individual response variability estimates (see, for example, Dunn et al., 2018; Marjanovic et al., 2015) via the careless R package (Yentes & Wilhelm, 2023) in R version 4.3.1 (R Core Team, 2023).
 
 Inter-rater agreement analysis using Krippendorf's alpha was conducted to understand rater agreement between items for the same trait, as well as the three functional forms found in study 1, for the Kuncel and Tellgen (2009). interrater agreement was calculated for these 15 items and 3 functional forms for study 1 and study 2.
