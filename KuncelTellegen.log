@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.7.13)  14 AUG 2024 10:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.7.13)  14 AUG 2024 11:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -705,17 +705,20 @@ File: KuncelTellegen_files/figure-latex/Figure1-1.pdf Graphic file (type pdf)
 Package pdftex.def Info: KuncelTellegen_files/figure-latex/Figure1-1.pdf  used on input line 252.
 (pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
 [3 <./KuncelTellegen_files/figure-latex/Figure1-1.pdf>] [4] [5]
-<KuncelTellegen_files/figure-latex/Figure2-1.pdf, id=89, 794.97pt x 578.16pt>
+<KuncelTellegen_files/figure-latex/Figure2-1.pdf, id=90, 794.97pt x 578.16pt>
 File: KuncelTellegen_files/figure-latex/Figure2-1.pdf Graphic file (type pdf)
 <use KuncelTellegen_files/figure-latex/Figure2-1.pdf>
 Package pdftex.def Info: KuncelTellegen_files/figure-latex/Figure2-1.pdf  used on input line 383.
 (pdftex.def)             Requested size: 241.74374pt x 175.81363pt.
-<KuncelTellegen_files/figure-latex/lastone-1.pdf, id=90, 794.97pt x 361.35pt>
+<KuncelTellegen_files/figure-latex/lastone-1.pdf, id=91, 794.97pt x 361.35pt>
 File: KuncelTellegen_files/figure-latex/lastone-1.pdf Graphic file (type pdf)
 <use KuncelTellegen_files/figure-latex/lastone-1.pdf>
 Package pdftex.def Info: KuncelTellegen_files/figure-latex/lastone-1.pdf  used on input line 389.
 (pdftex.def)             Requested size: 241.74374pt x 109.88351pt.
-[6] [7 <./KuncelTellegen_files/figure-latex/Figure2-1.pdf> <./KuncelTellegen_files/figure-latex/lastone-1.pdf>] [8]
+[6] [7 <./KuncelTellegen_files/figure-latex/Figure2-1.pdf> <./KuncelTellegen_files/figure-latex/lastone-1.pdf>]
+Underfull \vbox (badness 2671) has occurred while \output is active []
+
+[8]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [9]
@@ -736,7 +739,7 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  77i,11n,79p,3385b,577s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/symbol/usyr.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on KuncelTellegen.pdf (10 pages, 346085 bytes).
+Output written on KuncelTellegen.pdf (10 pages, 347091 bytes).
 PDF statistics:
  297 PDF objects out of 1000 (max. 8388607)
  259 compressed objects within 3 object streams
