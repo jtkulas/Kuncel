@@ -241,9 +241,9 @@ Kuncel and Tellegen (2009) revisited the Edwardian item rating protocol, proposi
 
 As rightly noted by Kuncel and Tellegen (2009), there are plausible characteristics with a \emph{most} desirable standing location that is not located at either extreme (consider, for example, ``being quiet'' - it is, without additionally provided context, likely most socially desirable to be moderate along the trait continuum for this characteristic). As an explicit alternative to the implicit Edwardian assumption of linear social desirability manifestation, Kuncel and Tellegen (2009) proposed that at least four patterns of item social desirability may commonly exist across scaled inventory response options: linear, non-linear monotonic (rate of increase is not constant), weakly non-linear monotonic (flat regions exist), and non-monotonic (pattern reversal).
 
-These possibilities acknowledge that the two-dimensional functional progression between an x-axis ``location of response'' (e.g., low, moderate, or high on the trait) and a y-axis ``how desirable the location is'' could be linear, logarithmic/exponential, flat in regions, or perhaps even ``U''-shaped (or invertedly ``U''-shaped). The authors even suggested that \emph{most} trait items may be best characterized by nonmonotonic or weakly monotonic relationships with social desirability and that a strictly linear relationship would be dependent on highly valued items or strongly incentivized contexts (for example, applying for a desired job).
+These possibilities acknowledge that the two-dimensional functional progression between an x-axis ``location of response'' (e.g., low, moderate, or high on the trait) and a y-axis ``how desirable the location is'' could be linear, logarithmic/exponential, flat in regions, or perhaps even ``U''- or inverted ``U''-shaped. The authors even suggested that \emph{most} trait items may be best characterized by nonmonotonic or weakly monotonic relationships with social desirability and that a strictly linear relationship would be dependent on highly valued items or strongly incentivized contexts (for example, applying for a desired job).
 
-To test their premise, Kuncel and Tellegen (2009) constructed an alternative rating system. This approach asks individual judges to rate items on \emph{how desirable} (they deem) \emph{the trait to be at five different levels} of the characteristic: extremely high (top 1\%), above average (top 30\%), average, below average (bottom 30\%), or extremely low (bottom 1\%; see Figure \ref{fig:Figure1}, which has been reproduced from the original Kuncel and Tellegen (2009) publication). Note here that these five categories parallel the common 5-point rating system frequently encountered in self-report inventories. Applying this rating procedure, Kuncel and Tellegen (2009) found support for their premise that not all items demonstrate linear associations with social desirability and that non-monotonic relationships do exist across graded response continua.
+To test their premise, Kuncel and Tellegen (2009) constructed an alternative rating system. This approach asks individual judges to rate items on \emph{how desirable} (they deem) \emph{the trait to be at five different levels} of the characteristic: extremely high (top 1\%), above average (top 30\%), average, below average (bottom 30\%), or extremely low (bottom 1\%; see Figure \ref{fig:Figure1}, which has been reproduced from the original Kuncel and Tellegen (2009) publication). Note here that these five categories parallel the ubiquitous 5-point rating system often retained in self-report inventories. Applying this rating procedure, Kuncel and Tellegen (2009) found support for their premise that not all items demonstrate linear associations with social desirability and that non-monotonic relationships do exist across graded response continua.
 
 Kuncel and Tellegen (2009)'s second study was designed to approximate real-world contexts. Here, participants were asked to act as if though they were in a pre-employment assessment situation and to explain their rationale when an extreme response was \emph{not} chosen on the assessment. This design was intended to provide insight regarding the lack of linear manifestations of social desirability. Kuncel and Tellegen (2009) found that, across administrations, over 60\% of participants did in fact choose the most extreme response options. Some of the participants who opted out of endorsing the extreme responses, however, noted that the extreme response might be poorly perceived by an evaluator (i.e., too inaccurate, bragging, too good). Taken collectively, these investigations supported the notion that trait characteristics do not necessarily manifest only strictly linear associations with social desirability.
 
@@ -253,12 +253,12 @@ Kuncel and Tellegen (2009)'s second study was designed to approximate real-world
 \caption{\label{fig:Figure1}Kuncel and Tellegen (2009) protocol for determining socially desirable saturation at the item response level.}
 \end{figure}
 
-Although there is both theoretical and empirical support for Kuncel and Tellegen (2009)'s procedure, it also quite substantially more time- and (we propose) cognitive effort-intensive than is the traditional item-rating approach (Edwards, 1953, 1957b). As technically specified, the traditional Edwards procedure requires one evaluation per item (albeit that evaluation is made across nine gradiated social desirability strata). The contemporary ``Kuncel and Tellegen'' procedure requires (in the case of 5-point Likert-type indicators) five evaluations across five levels of desirability per item. In addition to the greater \emph{number} of evaluations required in the contemporary approach, we propose that the contemporary approach is also likely more cognitively demanding due to shifting objects of attendance (the referent of appraisal shifts across ratings - top 1\%, top 30\%, etc.).
+Although there is both theoretical and empirical support for Kuncel and Tellegen (2009)'s procedure, it also quite substantially more time- and (we propose) cognitive effort-intensive than is the traditional item-rating approach (Edwards, 1953, 1957b). As technically specified, the traditional Edwards procedure requires one evaluation per item (albeit that evaluation is made across nine gradiated social desirability strata). The contemporary ``Kuncel and Tellegen'' procedure requires (in the case of 5-point Likert-type indicators) five evaluations across five levels of desirability per item. In addition to the greater \emph{number} of evaluations required in the contemporary approach, we propose that the contemporary approach is also likely more cognitively demanding due to shifting objects of reference (the referent of appraisal shifts across ratings - top 1\%, top 30\%, etc.).
 
-Given the greater time and resource commitments required of the contemporary approach relative to the traditional, we aim to gauge to what extent these two approaches in fact capture similar versus unique pieces of information. The goal of the present investigation is therefore to directly compare these two methodologies with an ``additional information'' orientation - that is, is the new approach truly unique, or rather does it at least with some indicators convey somewhat redundant information as the classic, less cognitively taxing and more time-efficient approach?
+Given the greater time and resource commitments required of the contemporary approach relative to the traditional, we aim to gauge to what extent these two approaches in fact capture similar versus unique pieces of information. The goal of the present investigation is therefore to directly compare these two methodologies with an ``additional information'' orientation - that is, is the new approach truly unique, or rather does it at least with some indicators convey similar information as the classic, less cognitively taxing and more time-efficient approach?
 
 \begin{quote}
-\emph{Research Question 1}: Do the contemporary and traditional rating procedures capture redundant or unique information regarding social desirability saturation?
+\emph{Research Question 1}: Do the contemporary and traditional rating procedures capture unique information regarding social desirability saturation?
 \end{quote}
 
 \begin{quote}
@@ -289,7 +289,7 @@ All ratings were made via paper and pencil in an experimental laboratory. The Ed
 \hypertarget{results}{%
 \section{Results}\label{results}}
 
-All analyses were performed in R version 4.3.1 (R Core Team, 2023). We leveraged three different approaches comparing findings across the two item rating procedures. First, we applied simple linear regressions to all ``Kuncel \& Tellegen'' functions (as explained below), extracting slope coefficients, and then correlated Edwards' ratings with these slopes across items. Secondly we conducted 300 hierarchical \emph{polynomial} regressions to each function in an attempt to capture empirical ``U'' or ``inverted-U'' functional forms, and tallied how many items were incrementally (``above and beyond'' the linear) characterized by a quadratic regression term. Lastly, we categorized visual perceptions of the functions, and revisited the above noted associations within \emph{differently categorized functional forms}.
+All analyses were performed in R version 4.3.1 (R Core Team, 2023). We leveraged three different approaches comparing findings across the two item rating procedures. First, we applied simple linear regressions to all ``Kuncel \& Tellegen'' functions (as explained below), extracting slope coefficients, and then correlated Edwards' ratings with these slope coefficients across items. Secondly we conducted 300 hierarchical \(2^{nd}\) degree \emph{polynomial} regressions to each function in an attempt to capture empirical ``U'' or ``inverted-U'' functional forms, and tallied how many items were incrementally (``above and beyond'' the linear) characterized by the quadratic regression term. Lastly, we categorized visual perceptions of the functions, and revisited the above noted associations within \emph{differently categorized functional forms}.
 
 \begin{quote}
 NOTE. Old but maye revisit: used these groupings to help inform ranges of Edwards values along which nonlinear item functions tend to be more prominent (e.g., how many ``inverted U-shaped'' functions were noted in items characterized by Edwards' system as \emph{extremely undesirable}, \emph{undesirable}, \emph{average}, \emph{desirable}, and \emph{extremely desirable}).
@@ -341,7 +341,7 @@ For added visual exposition, items were also categorized within arrays of values
 \hypertarget{approach-2-functional-form-empirical}{%
 \subsubsection{Approach \#2: Functional form (Empirical)}\label{approach-2-functional-form-empirical}}
 
-Our second approach leveraged hierarchical polynomial regressions, with the index of interest being the change in \(R^2\) associated with nonlinear association, as operationalized as a singly specified (second degree) polynomial term. Most item functions (\(n_k\) = 203) exhibited a very low change in \(R^2\) (see Table \ref{tab:polytable} for a summary of these results and explicit articulations of our subjective classifications of ``low'' or ``very low''). \(F\)-tests associated with the \(\Delta R^2\) indicated that 92.31\% of item functions were not \emph{significantly} improved when specifying the quadratic term (\(\alpha\) = .05; note that critical values are very large in these atypical applications of regression). These results suggest that, although judges may be able to visually distinguish functional form\footnote{Compare with the \% of ``linear'' and maybe ``egyptian'' that we subjectively categorized - 5/30/24}, empirical estimates are not as sensitive to deviations from linearity.
+Our second approach leveraged hierarchical polynomial regressions, with the index of interest being the change in \(R^2\) associated with nonlinear association, as operationalized as a quadratic (second degree) polynomial term. Most item functions (\(n_k\) = 203) exhibited a very low change in \(R^2\) (see Table \ref{tab:polytable} for a summary of these results and explicit articulations of our subjective classifications of ``low'' or ``very low'').\footnote{\(F\)-tests associated with the \(\Delta R^2\) indicated that 92.31\% of item functions were not \emph{significantly} improved when specifying the quadratic term (\(\alpha\) = .05). This information is being presented for completeness, although it should be noted that \(F\) critical values are very large in this atypical application of regression and effect sizes are more appropriately informative.} These results suggest that, although subjective judgements may be able to visually distinguish functional form\footnote{Compare with the \% of ``linear'' and maybe ``egyptian'' that we subjectively categorized - 5/30/24. Also add to discussion -- there is a blurry line between a function being ``linear'' and ``non-linear''. Subjectively allowances are given that can be mutually agreed upon. There comes a point, however, where one judge deems a function ``linear'' and another disagrees. Similarly, there comes a point where both judges agree that the function exhibits non-linearity. Indeed, humans in general may not be very good at dissociating curved and straight lines (Bales \& Follansbee, 1935; Gibson, 1933; Ogilvie \& Daicar, 1967; Watt et al., 1987).}, empirical estimates are not as sensitive to deviations from linearity.
 
 \hypertarget{approach-3-functional-form-visual}{%
 \subsubsection{Approach \#3: Functional form (Visual)}\label{approach-3-functional-form-visual}}
@@ -351,7 +351,7 @@ Next, the Figure \ref{fig:Figure2} plots for all 300 items were presented to jud
 \hypertarget{results-summary}{%
 \subsection{Results Summary}\label{results-summary}}
 
-Across approaches, results tended to converge on similar conclusions. The preponderance of our results first suggest that, in general (at least with our focal 300-item measure), linear or ``close-to'' linear relationships with social desirability (across response options) may be commonplace and in fact fairly well represent the plurarity of assessment item functions. Additionally, similar information seems to be available through both the traditional and contemporary measurement approaches. Although meaningful deviations from linear functions do exist, they are predominantly associated with \emph{moderately rated} Edwards items. Although not exhaustively confirmatory, consultation of the 25 randomly sampled item functions (Figure \ref{fig:Figure2}) also reflects this pattern of non-monotonicity.\footnote{A full list of all 300 item functions are available in this paper's online resources.} It is quite plausible that ``U'' or ``inverted U'' shaped functions, when they occur, are reflective of some ambiguous or contextually primed desirability, and that this ambiguity or contextual moderation results in ``middle ground'' evaluation via the Edwards method.
+Across approaches, results tended to converge on similar patterns. The preponderance of our results first suggest that, in general (at least with our focal 300-item measure), linear or ``close-to'' linear relationships with social desirability (across response options) may be commonplace and in fact fairly well represent the plurarity of assessment item functions. Additionally, similar information seems to be available through both the traditional and contemporary measurement approaches. Although meaningful deviations from linear functions do exist, they are predominantly associated with \emph{moderately rated} Edwards items. Although not exhaustively confirmatory, consultation of the 25 randomly sampled item functions (Figure \ref{fig:Figure2}) also reflects this pattern of non-monotonicity.\footnote{A full list of all 300 item functions are available in this paper's online resources.} It is quite plausible that ``U'' or ``inverted U'' shaped functions, when they occur, are reflective of some ambiguous or contextually primed desirability, and that this ambiguity or contextual moderation results in ``middle ground'' evaluation via the Edwards method.
 
 \hypertarget{study-two}{%
 \section{Study Two}\label{study-two}}
@@ -360,7 +360,9 @@ Across approaches, results tended to converge on similar conclusions. The prepon
 put in some references regarding response latencies
 \end{quote}
 
-One of our observations across the two item rating procedures has been that the Kuncel and Tellegen (2009) approach appears to be more cognitively taxing for raters than does the Edwards (1953) rating task. Study Two therefore collected ratings via computer, with response latencies recorded as well as direct self-reported estimates of difficulty. The same indicators were retained for Study Two.
+One of our suppositions across the two item rating procedures has been that the Kuncel and Tellegen (2009) approach is more cognitively taxing for raters than is the Edwards (1953) rating task. Study Two therefore collected ratings via computer, with response latencies recorded as estimates of difficulty. The same indicators were retained for Study Two.
+
+We screened out total survey durations less than 500 seconds and longer than 2000 seconds (n=46) as well as individuals who had total response latencies less than 20 seconds across the final 20 items (on average less than 1 second per item response; n=8). These conservative screens were applied based on observations from experiment proctors that several participants were not fully engaged in their responses.
 
 \hypertarget{procedure-1}{%
 \subsection{Procedure}\label{procedure-1}}
@@ -390,7 +392,7 @@ Focus on response latencies (Edwards ratings vs.~Kuncel \& Tellegen vs.~revised 
 \caption{\label{fig:lastone}Response Category and Mean Rating slope across Edwards' scale values (individual scatterpoints represent items)}
 \end{figure}
 
-All ratings were conducted online using Qualtrics (2014), utilizing the Kuncel \& Tellegen (2009) rating scale. Fifteen of the most decisive items from Study 1 were chosen, focusing on the three functional forms - linear, quasi, and asymmetric.
+All ratings were conducted via Qualtrics (2014), utilizing the Kuncel and Tellegen (2009) rating scale. Fifteen of the most decisive items from Study 1 were chosen, focusing on the three functional forms - linear, quasi, and asymmetric.
 
 \begin{table*}[tbp]
 
@@ -493,6 +495,9 @@ Alicke, M. D., \& Sedikides, C. (2011). \emph{Handbook of self-enhancement and s
 \leavevmode\vadjust pre{\hypertarget{ref-R-papaja}{}}%
 Aust, F., \& Barth, M. (2023). \emph{Papaja: Prepare american psychological association journal articles with r markdown}. \url{https://github.com/crsh/papaja}
 
+\leavevmode\vadjust pre{\hypertarget{ref-bales1935after}{}}%
+Bales, J. F., \& Follansbee, G. L. (1935). The after-effect of the perception of curved lines. \emph{Journal of Experimental Psychology}, \emph{18}(4), 499.
+
 \leavevmode\vadjust pre{\hypertarget{ref-barrick_what_2009}{}}%
 Barrick, M. R., Shaffer, J. A., \& DeGrassi, S. W. (2009). What you see may not be what you get: Relationships among self-presentation tactics and ratings of interview and job performance. \emph{Journal of Applied Psychology}, \emph{94}(6), 1394.
 
@@ -526,6 +531,9 @@ Edwards, A. L. (1957a). Social desirability and probability of endorsement of it
 \leavevmode\vadjust pre{\hypertarget{ref-edwards_social_1957}{}}%
 Edwards, A. L. (1957b). \emph{The social desirability variable in personality assessment and research.}
 
+\leavevmode\vadjust pre{\hypertarget{ref-gibson1933adaptation}{}}%
+Gibson, J. J. (1933). Adaptation, after-effect and contrast in the perception of curved lines. \emph{Journal of Experimental Psychology}, \emph{16}(1), 1--31.
+
 \leavevmode\vadjust pre{\hypertarget{ref-krippendorff2004reliability}{}}%
 Krippendorff, K. (2004). Reliability in content analysis: Some common misconceptions and recommendations. \emph{Human Communication Research}, \emph{30}(3), 411--433.
 
@@ -556,6 +564,9 @@ Miles, M. B., \& Huberman, A. M. (1994). \emph{Qualitative data analysis: An exp
 \leavevmode\vadjust pre{\hypertarget{ref-morgeson_reconsidering_2007}{}}%
 Morgeson, F. P., Campion, M. A., Dipboye, R. L., Hollenbeck, J. R., Murphy, K., \& Schmitt, N. (2007). Reconsidering the use of personality tests in personnel selection contexts. \emph{Personnel Psychology}, \emph{60}(3), 683--729.
 
+\leavevmode\vadjust pre{\hypertarget{ref-ogilvie1967perception}{}}%
+Ogilvie, J., \& Daicar, E. (1967). The perception of curvature. \emph{Canadian Journal of Psychology/Revue Canadienne de Psychologie}, \emph{21}(6), 521.
+
 \leavevmode\vadjust pre{\hypertarget{ref-ones_role_1996}{}}%
 Ones, D. S., Viswesvaran, C., \& Reiss, A. D. (1996). Role of social desirability in personality testing for personnel selection: The red herring. \emph{Journal of Applied Psychology}, \emph{81}(6), 660--679.
 
@@ -576,6 +587,9 @@ Taylor, S. E., \& Brown, J. D. (1988). Illusion and well-being: A social psychol
 
 \leavevmode\vadjust pre{\hypertarget{ref-viswesvaran_meta-analyses_1999}{}}%
 Viswesvaran, C., \& Ones, D. S. (1999). Meta-analyses of fakability estimates: Implications for personality measurement. \emph{Educational and Psychological Measurement}, \emph{59}(2), 197--210.
+
+\leavevmode\vadjust pre{\hypertarget{ref-watt1987detection}{}}%
+Watt, R., Ward, R., \& Casco, C. (1987). The detection of deviation from straightness in lines. \emph{Vision Research}, \emph{27}(9), 1659--1678.
 
 \leavevmode\vadjust pre{\hypertarget{ref-weiss_looking_2006}{}}%
 Weiss, B., \& Feldman, R. S. (2006). Looking good and lying to do it: Deception as an impression management strategy in job interviews. \emph{Journal of Applied Social Psychology}, \emph{36}(4), 1070--1086.
