@@ -1,0 +1,1134 @@
+---
+title: "Social Desirability Study 2 Methodology/Results"
+author: "X"
+date: "2023-10-07"
+output:
+  html_document:
+    df_print: paged
+editor_options:
+  markdown:
+    wrap: sentence
+---
+# Study 2
+
+# Methods 
+## Participants
+
+One hundred and thirty one undergraduate students from two universities participated in item ratings. After data cleaning, 87 students ratings were analyzed. 
+
+## Procedure
+
+All ratings and response latencies were gathered online using Qualtrics (2014), utilizing the Kuncel and Tellegen (2009) rating scale. The ratings included fifteen of the most archetypal items from Study 1, focusing on the three functional forms: asymmetric, linear, and quasisymmetric.
+
+Due to the observed difficulty and length of the task in Study 1, participants that completed the questionnaire in 5 minutes or less, or if participants had response latencies in the last 20 ratings that had an average rating of 1 second per rating, were removed.
+
+Additionally, questions were implemented to gauge carelessness and task difficulty. Computation of consecutive non-differentiating responses as well as intra-individual response variability estimates was done due to tedium and cognitive complexity of the task (see, for example, Dunn et al., 2018; Marjanovic et al., 2015) via the careless R package (Yentes & Wilhelm, 2023) in R version 4.3.1 (R Core Team, 2023). 
+
+
+# Results
+
+## Response Latencies
+ 
+  All latencies were taken and compiled into one list so that outliers could be removed. Any latencies that were 0 were first removed, and afterwards and any time below the 10th percentile and above 90th percentile, from the remaining times, were removed. Afterwards, mean latencies were gathered for four conditions: the item (e.g., Worry about things), the level (e.g., Extremely High), the type (e.g., linear), as well as if the item was negatively worded or not. 
+  
+  Latency data had some differences in type with quasisymmetric taking the least amount of time (*M* = 2.8 seconds) and asymmetric taking the most time (*M* = 3.5 seconds). Negatively worded items took on average 0.5 seconds longer than non-negatively worded items. Extremely High had the largest latency time at 6.0 seconds, while the other levels ranged from 2.0 to 3.0. However, this is likely due to Extremely High levels always being the first rating after reading the item characteristic, rather than it being harder to rate. 
+  
+  
+  
+## Interrater Reliability
+
+ICC(2,1) was used for interrater reliability for Study 1 and Study 2 comparisons on the Edwards (1957b) as well as Kuncel and Tellegen (2009) methodologies. For Edwards, the ICC(2,1) was run for the three functional forms, and then all ratings were combined to obtain an overall ICC. However, for the Kuncel and Tellgen method, interrater reliability was first run on the item itself, and then all interrater reliabilities were averaged to obtain the three functional form types for Study 1 and Study 2. 
+
+The Edwards interrater reliability had moderate reliability was moderate for linear functional forms (ICC = 0.525), and had no interrater reliability for asymmetric (ICC = 0.001) or quasisymmetric (ICC = 0.000) items. Overall reliability, of all 15 items, was poor (ICC = 0.277). The Kuncel and Tellegen functional form interrater reliability for study 1 was moderate for linear (ICC = 0.503), and poor  for asymmetric (ICC = 0.445) and quasisymmetric (ICC = 0.099).Study 2, however, had poor interrater reliability for all function forms: linear (ICC = 0.324), asymmetric (ICC = 0.303), quasisymmetric (ICC = 0.141). 
+
+Aggregated ICC is presented in Figure 4. Individual items for Kuncel and Tellegen (2009) interrater reliabilities are shown in Figures 5 and 6. ALL ICC is compiled in table 3. 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+##STUDY 2 - Interrater Reliabilities (FINAL SCRIPT)
+
+##PACKAGES NEEDED
+library(dplyr)
+library(irr)
+library(psych)
+library(careless)
+library(splitstackshape)
+library(stringr)
+library(readr)
+#library(naniar)
+library(tidyverse)
+
+##Dataset outside of github
+raw <- read.csv("15ItemCSV_manipcolheaders.csv")
+
+##NOTE 133 Observations to start with. Need to further clean data. 
+
+##Remove preview responses. Leaves 131 observations.
+Cleaned <- raw %>%
+  filter(Response.Type != 'Survey Preview')
+
+##Removing where people answered that they basically did not do the task. 129 observations.
+Cleaned <- Cleaned %>%
+  filter(Q613 != 'Not at All Carefully') 
+
+##removing total duration for those that took too long and too little time (5 minutes).
+Cleaned <- Cleaned %>%  
+  filter(Duration..in.seconds.>300) 
+
+
+#look at last 20 items and determine if any should be removed due to giving up.
+Cleaned$giveup <- rowSums(Cleaned[c("Timing...Last.Click.84",
+                                "Timing...Last.Click.83",
+                                "Timing...Last.Click.82",
+                                "Timing...Last.Click.81",
+                                "Timing...Last.Click.80",
+                                "Timing...Last.Click.79",
+                                "Timing...Last.Click.78",
+                                "Timing...Last.Click.77",
+                                "Timing...Last.Click.76",
+                                "Timing...Last.Click.75",
+                                "Timing...Last.Click.74",
+                                "Timing...Last.Click.73",
+                                "Timing...Last.Click.72",
+                                "Timing...Last.Click.71",
+                                "Timing...Last.Click.70",
+                                "Timing...Last.Click.69",
+                                "Timing...Last.Click.68",
+                                "Timing...Last.Click.67",
+                                "Timing...Last.Click.66",
+                                "Timing...Last.Click.65")], na.rm=TRUE)
+
+#removed 20 - average of 1 second per item for the last 20 items (roughly bottom 10%)
+Cleaned <- Cleaned %>%
+  filter(giveup>20) 
+
+
+###CARELESSNESS ITEMS NOTES:
+
+#Q659 = What do you put on your feet?
+#Q660 = How many days are in a week?
+#Q661 = Which animal is the biggest?
+#Q662 = Which of the following animals lives in the ocean?
+#Q663 = What state is Montclair State University in?
+#Q664 = Which one of the following is the highest degree of education?
+#Q665 = Which one of the following animals is smallest?
+#Q666 = Which of the following animals is a carnivore?
+#Q667 = Which one of the following is NOT a winter sport?
+#Q668 = Which of the following is a fruit?
+#Q669 = Which of the following do you put on your hands?
+#Q670 = The Empire State building is in:
+#Q671 = Which is not a social media platform?
+
+careless_items <- Cleaned %>% select(c(Q659,Q660,Q661,Q662,Q663,Q664,Q665,Q666,Q667,Q668,
+                                       Q669,Q670,Q671))
+
+table(careless_items$Q671)
+
+#Q665 -- my guess is people didn't know what a Sugar Glider was.
+#Q670 -- were any of these people from the MN uni?
+
+##decided to keep all due to carelessness items above. There wasn't enough to exclude anyone.
+rm(careless_items) ## remove dataframe as it's no longer needed.
+
+##Get row IDs for carelessness indices
+Cleaned <- mutate(Cleaned, ID = row_number())
+
+##Carelessness -- parsing down the dataset
+RM <- Cleaned %>% dplyr:: select(contains("Desirability"))
+ID <- Cleaned %>% dplyr:: select("ID")
+RM <- as.data.frame(cbind(RM, ID))
+
+##Removing the first two items as they were not part of the 15
+RM <- RM[,11:86]
+
+##Removing no or 1 response -- 11 removed - left with 118
+RM[RM == ""] <- NA
+RM$NAs <- rowSums(is.na(RM))
+
+RM <- RM %>%
+  filter(NAs < 74) 
+
+RM <- as.data.frame(RM$ID)
+colnames(RM) <- "ID"
+
+Cleaned <- merge(Cleaned,RM,by="ID", all.x = FALSE, all.y = FALSE) 
+
+rm(RM,ID)
+
+##Now looking at only the items again with 
+Only_Items <- Cleaned %>% dplyr:: select(contains("Desirability"))
+
+##Only_Items <- Only_Items[!apply(Only_Items == "", 1, all),]
+Only_Items[Only_Items == "Very Undesirable"] <-1
+Only_Items[Only_Items == "Undesirable"] <-2
+Only_Items[Only_Items == "Neutral"] <-3
+Only_Items[Only_Items == "Desirable"] <-4
+Only_Items[Only_Items == "Very Desirable"] <-5
+
+##Remove first two variables
+Only_Items <- Only_Items [,11:85]
+
+##Make the responses numeric instead of string
+Only_Items <- as.data.frame(lapply(Only_Items,as.numeric))
+
+##saving a dataframe as wide format
+unt_only_items <- Only_Items
+
+##wide to tall dataset
+Only_Items <- as.data.frame(t(Only_Items))
+
+##Determine if any have only 1 or 2 responses. Observations = 129 (none removed)
+Only_One_Answer <- Only_Items %>% select(where(~n_distinct(.) <2)) 
+Two_Answers <- Only_Items %>% select(where(~n_distinct(.) <3)) 
+
+##Patterns in data (e.g., 1...2...3...4..5...1..2..3..4..5 etc.)
+##Start with longest consecutive length of one answer. ##Need to determine how many responses in a row is okay.
+Consecutive <- as.data.frame(longstring(unt_only_items, avg=FALSE))
+table(Consecutive) ##Quite a few with consecutive responses - what should be the cutoff for this?
+
+##IRV (Intra-Indiavidiual Response Variability) ##Need to determine what an appropriate variability is for this.
+IRV <- as.data.frame(irv(unt_only_items, na.rm = TRUE, split = FALSE, num.split = 3)) ##this is a more random approach
+
+##combine the datasets
+Investigate <- as.data.frame(cbind(Consecutive, IRV))
+
+##CLEANED DATA
+##Participants to Remove + Why
+##Participants that have >10 consecutive answers will be removed.
+Data <- (cbind(Cleaned, Investigate))
+
+##Removed 8 values from the Long String Index (below)
+Data  <-Data %>%
+ filter(`longstring(unt_only_items, avg = FALSE)` <= 10) 
+
+##Mean after consecutive items = 1.22 ---> SD = 0.17 ---> 1 SDs below mean = 1.05 --> 2 SDs below = 0.88
+describe <- describe(Data$`irv(unt_only_items, na.rm = TRUE, split = FALSE, num.split = 3)`)
+
+
+##This removed 2 participants for IRV; determined by the standard deviation
+Data <-Data %>%
+  filter(`irv(unt_only_items, na.rm = TRUE, split = FALSE, num.split = 3)` >= 0.88) 
+
+##Just grabbing ID to match onto dataset
+Data <- as.data.frame(Data$ID)
+colnames(Data) <- "ID"
+
+
+##Official Cleaned Data
+Cleaned <- inner_join(Cleaned,Data, by = "ID")
+Cleaned <- as.data.frame(Cleaned[,18:459])
+
+##Removing unneeded dataframes
+rm(Data,Investigate,IRV,Only_Items, Only_One_Answer,Two_Answers,unt_only_items,Consecutive, describe)
+
+
+#latencies
+Latency <- Cleaned %>% dplyr:: select(contains("Last.Click"))
+Latency <- Latency[,11:85] ##removing test items
+colSums(is.na(Latency))
+
+##if 0 then NA
+Latency [Latency == 0.000] <- NA
+colSums(is.na(Latency))
+
+##get bottom and top values @ 5% to remove from Latency data frame
+Lat_unlist <- Latency
+
+Lat_unlist <- data.frame(x=unlist(Lat_unlist))
+Lat_unlist <- Lat_unlist %>% drop_na()
+
+quantile(Lat_unlist$x, 0.05) ##anything below 0.63
+quantile(Lat_unlist$x, 0.95) #anything above 12.5544
+
+##NA from bottom and top 5% from above
+
+Latency <- pmin(Latency, 12.5544)
+Latency [Latency == 12.5544] <- NA
+colSums(is.na(Latency))
+
+###
+
+Latency <-pmax(Latency, 0.63)
+Latency [Latency == 0.63] <- NA
+colSums(is.na(Latency))
+
+min(Latency, na.rm = TRUE)
+max(Latency, na.rm = TRUE)
+
+##Latency Descriptives##
+
+des <- describe(Latency)
+
+#MEAN
+means <- as.data.frame(des$mean)
+
+means$level <- NA 
+level <- c("EH", "AA", "A", "BA", "EL")
+means$level <- rep(level, each = 1)
+
+means$type <- NA
+type <- c("asym","linear","asym","linear", "linear", "asym","quasi", "asym","asym", "linear","quasi","linear","quasi","quasi","quasi")
+means$type <- rep(type, each=5) 
+
+means$item <- NA
+item <- c("Worry", "Friends","Trust", "Angry", "Blue", "Charge", "Busy", "Sat", "Excite", "Symp","fant","irr","go","relax","habit")
+means$item <- rep(item, each=5) 
+
+means$neg <- NA
+neg <- c("Y", "N", "N", "Y", "Y", "N","N","N","N","N","N","Y","N","N","N")
+means$neg <- rep(neg, each=5) 
+
+rm(item,level,neg,type)
+
+
+#Latency Mean by Level
+level_avg <- means %>% 
+  group_by(level) %>% 
+  summarise(mean_level = mean(`des$mean`, na.rm = TRUE))
+
+type_avg <- means %>% 
+  group_by(type) %>% 
+  summarise(mean_type = mean(`des$mean`, na.rm = TRUE))
+
+item_avg <- means %>% 
+  group_by(item) %>% 
+  summarise(mean_item = mean(`des$mean`, na.rm = TRUE))
+
+neg_avg <- means %>% 
+  group_by(neg) %>% 
+  summarise(mean_neg = mean(`des$mean`, na.rm = TRUE))
+
+rm(des,Lat_unlist,means,level_avg,neg_avg,type_avg)
+
+
+##Going Back to Only Items in the dataset
+Cleaned <- Cleaned %>% dplyr:: select(contains("Desirability"))
+Cleaned[Cleaned == "Very Undesirable"] <-1
+Cleaned[Cleaned == "Undesirable"] <-2
+Cleaned[Cleaned == "Neutral"] <-3
+Cleaned[Cleaned == "Desirable"] <-4
+Cleaned[Cleaned == "Very Desirable"] <-5
+Cleaned[Cleaned == ""] <-NA
+
+Cleaned <- as.data.frame(lapply(Cleaned,as.numeric))
+
+
+#### INTERRATER RELIABILITY ###
+library(irr)
+
+##WORRY
+Worry <- Cleaned[,11:15]
+Worry <- t(Worry)
+Worry <- Worry[ , colSums(is.na(Worry)) == 0]
+
+##Run ICC 
+Worry_f <- icc(Worry, model = "twoway", type = "agreement")
+Worry_f <- Worry_f$value
+
+rm(Worry)
+
+
+
+##FRIENDS
+Friends <- Cleaned[,16:20]
+Friends <- t(Friends)
+Friends <- Friends[ , colSums(is.na(Friends)) == 0]
+
+##Run ICC 
+Friends_f <- icc(Friends,model = "twoway", type = "agreement")
+Friends_f <- Friends_f$value
+
+rm(Friends)
+
+##TRUST
+Trust <- Cleaned[,21:25]
+Trust <- t(Trust)
+Trust <- Trust[ , colSums(is.na(Trust)) == 0]
+
+##Run ICC 
+Trust_f <- icc(Trust, model = "twoway", type = "agreement")
+Trust_f <- Trust_f$value
+
+rm(Trust)
+
+##ANGRY
+Angry <- Cleaned[,26:30]
+Angry <- t(Angry)
+Angry <- Angry[ , colSums(is.na(Angry)) == 0]
+
+##Run ICC 
+Angry_f <- icc(Angry, model = "twoway", type = "agreement")
+Angry_f <- Angry_f$value
+
+rm(Angry)
+
+##BLUE
+Blue <- Cleaned[,31:35]
+Blue <- t(Blue)
+Blue <- Blue[ , colSums(is.na(Blue)) == 0]
+
+##Run ICC 
+Blue_f <- icc(Blue, model = "twoway", type = "agreement")
+Blue_f <- Blue_f$value
+
+rm(Blue)
+
+##TAKE CHARGE
+Charge <- Cleaned[,36:40]
+Charge <- t(Charge)
+Charge <- Charge[ , colSums(is.na(Charge)) == 0]
+
+##Run ICC 
+Charge_f <- icc(Charge, model = "twoway", type = "agreement")
+Charge_f <- Charge_f$value
+
+rm(Charge)
+
+##AM BUSY
+Busy <- Cleaned[,41:45]
+Busy <- t(Busy)
+Busy <- Busy[ , colSums(is.na(Busy)) == 0]
+
+##Run ICC 
+Busy_f <- icc(Busy, model = "twoway", type = "agreement")
+Busy_f <- Busy_f$value
+
+rm(Busy)
+
+##SATISFY
+Sat <- Cleaned[,46:50]
+Sat <- t(Sat)
+Sat <- Sat[ , colSums(is.na(Sat)) == 0]
+
+##Run ICC 
+Sat_f <- icc(Sat, model = "twoway", type = "agreement")
+Sat_f <- Sat_f$value
+
+rm(Sat)
+
+##EXCITE
+Excite <- Cleaned[,51:55]
+Excite <- t(Excite)
+Excite <- Excite[ , colSums(is.na(Excite)) == 0]
+
+##Run ICC 
+Excite_f <- icc(Excite, model = "twoway", type = "agreement")
+Excite_f <- Excite_f$value
+
+rm(Excite)
+
+##SYMPATHY
+Symp <- Cleaned[,56:60]
+Symp <- t(Symp)
+Symp <- Symp[ , colSums(is.na(Symp)) == 0]
+
+##Run ICC 
+Symp_f <- icc(Symp, model = "twoway", type = "agreement")
+Symp_f <- Symp_f$value
+
+rm(Symp)
+
+##FANTASY
+fant <- Cleaned[,61:65]
+fant <- t(fant)
+fant <- fant[ , colSums(is.na(fant)) == 0]
+
+##Run ICC 
+fant_f <- icc(fant, model = "twoway", type = "agreement")
+fant_f <- fant_f$value
+
+rm(fant)
+
+##IRRITATED
+irr <- Cleaned[,66:70]
+irr <- t(irr)
+irr <- irr[ , colSums(is.na(irr)) == 0]
+
+##Run ICC 
+irr_f <- icc(irr, model = "twoway", type = "agreement")
+irr_f <- irr_f$value
+
+rm(irr)
+
+##ON THE GO
+go <- Cleaned[,71:75]
+go <- t(go)
+go <- go[ , colSums(is.na(go)) == 0]
+
+##Run ICC 
+go_f <- icc(go, model = "twoway", type = "agreement")
+go_f <- go_f$value
+
+rm(go)
+
+##RELAX
+relax <- Cleaned[,76:80]
+relax <- t(relax)
+relax <- relax[ , colSums(is.na(relax)) == 0]
+
+##Run ICC 
+relax_f <- icc(relax, model = "twoway", type = "agreement")
+relax_f <- relax_f$value
+
+rm(relax)
+
+##HABITS
+habit <- Cleaned[,81:85]
+habit <- t(habit)
+habit <- habit[ , colSums(is.na(habit)) == 0]
+
+##Run ICC 
+habit_f <- icc(habit, model = "twoway", type = "agreement")
+habit_f <- habit_f$value
+
+rm(habit)
+
+##ALL
+all <- Cleaned[,11:85]
+all <- t(all)
+all <- all[ , colSums(is.na(all)) == 0]
+
+##Run ICC 
+all_f <- icc(all, model = "twoway", type = "agreement")
+all_f <- all_f$value
+
+rm(all)
+
+###MERGE
+
+ICC_all <- as.data.frame(cbind(Worry_f, Trust_f, Charge_f, Sat_f, Excite_f, Friends_f, Angry_f, Blue_f,Symp_f, irr_f, Busy_f, fant_f, go_f, relax_f,habit_f,all_f))
+
+ICC_all$Asymmetric.mean <- rowMeans(ICC_all[,1:5]) ##Asymmetric mean = 0.263
+ICC_all$Linear.mean <- rowMeans(ICC_all[,6:10]) ##Linear mean = 0.227
+ICC_all$Quasi.mean <- rowMeans(ICC_all[,11:15]) ##Quasi mean = 0.13
+
+ICC_all <- round(ICC_all, digits=3)
+
+rm(all_f,Angry_f,Blue_f,Busy_f,Charge_f,Excite_f,fant_f,Friends_f,go_f,habit_f,irr_f,relax_f,Sat_f,Symp_f,Trust_f,Worry_f)
+
+#write_csv(Kripp_alpha, "E:/SD Research/Social Desirability/Krippalpha.csv")
+
+
+##Grab Kripp from Study 1 (Confirmed Correct Data)
+studyone <- read.csv("Study1CompareData.csv")
+
+
+##WORRY
+Worry <- studyone[,27:31]
+Worry <- t(Worry)
+Worry <- Worry[ , colSums(is.na(Worry)) == 0]
+
+##Run ICC 
+Worry_f <- icc(Worry, model = "twoway", type = "agreement")
+Worry_f <- Worry_f$value
+
+rm(Worry)
+
+
+
+##FRIENDS
+Friends <- studyone[2:6]
+Friends <- t(Friends)
+Friends <- Friends[ , colSums(is.na(Friends)) == 0]
+
+##Run ICC 
+Friends_f <- icc(Friends, model = "twoway", type = "agreement")
+Friends_f <- Friends_f$value
+
+rm(Friends)
+
+##TRUST
+Trust <- studyone[,32:36]
+Trust <- t(Trust)
+Trust <- Trust[ , colSums(is.na(Trust)) == 0]
+
+##Run ICC 
+Trust_f <- icc(Trust, model = "twoway", type = "agreement")
+Trust_f <- Trust_f$value
+
+rm(Trust)
+
+##ANGRY
+Angry <- studyone[,7:11]
+Angry <- t(Angry)
+Angry <- Angry[ , colSums(is.na(Angry)) == 0]
+
+##Run ICC 
+Angry_f <- icc(Angry, model = "twoway", type = "agreement")
+Angry_f <- Angry_f$value
+
+rm(Angry)
+
+##BLUE
+Blue <- studyone[,12:16]
+Blue <- t(Blue)
+Blue <- Blue[ , colSums(is.na(Blue)) == 0]
+
+##Run ICC 
+Blue_f <- icc(Blue, model = "twoway", type = "agreement")
+Blue_f <- Blue_f$value
+
+rm(Blue)
+
+##TAKE CHARGE
+Charge <- studyone[,37:41]
+Charge <- t(Charge)
+Charge <- Charge[ , colSums(is.na(Charge)) == 0]
+
+##Run ICC 
+Charge_f <- icc(Charge, model = "twoway", type = "agreement")
+Charge_f <- Charge_f$value
+
+rm(Charge)
+
+##AM BUSY
+Busy <- studyone[,52:56]
+Busy <- t(Busy)
+Busy <- Busy[ , colSums(is.na(Busy)) == 0]
+
+##Run ICC 
+Busy_f <- icc(Busy, model = "twoway", type = "agreement")
+Busy_f <- Busy_f$value
+
+rm(Busy)
+
+##SATISFY
+Sat <- studyone[,44:46]
+Sat <- t(Sat)
+Sat <- Sat[ , colSums(is.na(Sat)) == 0]
+
+##Run ICC 
+Sat_f <- icc(Sat, model = "twoway", type = "agreement")
+Sat_f <- Sat_f$value
+
+rm(Sat)
+
+##EXCITE
+Excite <- studyone[,47:51]
+Excite <- t(Excite)
+Excite <- Excite[ , colSums(is.na(Excite)) == 0]
+
+##Run ICC 
+Excite_f <- icc(Excite, model = "twoway", type = "agreement")
+Excite_f <- Excite_f$value
+
+rm(Excite)
+
+##SYMPATHY
+Symp <- studyone[,17:21]
+Symp <- t(Symp)
+Symp <- Symp[ , colSums(is.na(Symp)) == 0]
+
+##Run ICC 
+Symp_f <- icc(Symp, model = "twoway", type = "agreement")
+Symp_f <- Symp_f$value
+
+rm(Symp)
+
+##FANTASY
+fant <- studyone[,57:61]
+fant <- t(fant)
+fant <- fant[ , colSums(is.na(fant)) == 0]
+
+##Run ICC 
+fant_f <- icc(fant, model = "twoway", type = "agreement")
+fant_f <- fant_f$value
+
+rm(fant)
+
+##IRRITATED
+irr <- studyone[,22:26]
+irr <- t(irr)
+irr <- irr[ , colSums(is.na(irr)) == 0]
+
+##Run ICC 
+irr_f <- icc(irr, model = "twoway", type = "agreement")
+irr_f <- irr_f$value
+
+rm(irr)
+
+##ON THE GO
+go <- studyone[,62:66]
+go <- t(go)
+go <- go[ , colSums(is.na(go)) == 0]
+
+##Run ICC 
+go_f <- icc(go, model = "twoway", type = "agreement")
+go_f <- go_f$value
+
+rm(go)
+
+##RELAX
+relax <- studyone[,67:71]
+relax <- t(relax)
+relax <- relax[ , colSums(is.na(relax)) == 0]
+
+##Run ICC 
+relax_f <- icc(relax, model = "twoway", type = "agreement")
+relax_f <- relax_f$value
+
+rm(relax)
+
+##HABITS
+habit <- studyone[,72:76]
+habit <- t(habit)
+habit <- habit[ , colSums(is.na(habit)) == 0]
+
+##Run ICC 
+habit_f <- icc(habit, model = "twoway", type = "agreement")
+habit_f <- habit_f$value
+
+rm(habit)
+
+##ALL
+all <- studyone[,2:76]
+all <- t(all)
+all <- all[ , colSums(is.na(all)) == 0]
+
+##Run ICC 
+all_f <- icc(all, model = "twoway", type = "agreement")
+all_f <- all_f$value
+
+rm(all)
+
+###MERGE
+
+studyone_all <- as.data.frame(cbind(Worry_f, Trust_f, Charge_f, Sat_f, Excite_f, Friends_f, Angry_f, Blue_f,Symp_f, irr_f, Busy_f, fant_f, go_f, relax_f,habit_f,all_f))
+
+studyone_all$Asymmetric.mean <- rowMeans(studyone_all[,1:5]) 
+studyone_all$Linear.mean <- rowMeans(studyone_all[,6:10]) 
+studyone_all$Quasi.mean <- rowMeans(studyone_all[,11:15]) 
+
+studyone_all <- round(studyone_all, digits=3)
+
+rm(all_f,Angry_f,Blue_f,Busy_f,Charge_f,Excite_f,fant_f,Friends_f,go_f,habit_f,irr_f,relax_f,Sat_f,Symp_f,Trust_f,Worry_f)
+
+##STUDY 1 EDWARDS ICC
+
+edwards <- read.csv("Edwards_15_Isolated_reduced.csv")
+
+
+des <- describe(edwards)
+
+linear <- edwards[,2:6]
+tlinear<- t(linear)
+lineara <- tlinear[,colSums(is.na(tlinear))<nrow(tlinear)]
+##Run ICC 
+lineara_f <- icc(lineara, model = "twoway", type = "agreement")
+lineara_f <- lineara_f$value
+
+quasi <- edwards[,7:11]
+tquasi<- t(quasi)
+quasia <- tquasi[,colSums(is.na(tquasi))<nrow(tquasi)]
+##Run ICC 
+quasia_f <- icc(quasia, model = "twoway", type = "agreement")
+quasia_f <- quasia_f $value
+
+
+asym <- edwards[,12:16]
+tasym<- t(asym)
+asyma <- tasym[,colSums(is.na(tasym))<nrow(tasym)]
+##Run ICC 
+asyma_f <- icc(asyma, model = "twoway", type = "agreement")
+asyma_f <- asyma_f$value
+
+all <- edwards[,2:16]
+tall<- t(all)
+all<- tall[,colSums(is.na(tall))<nrow(tall)]
+##Run ICC 
+all_f <- icc(all, model = "twoway", type = "agreement")
+all_f <- all_f$value
+
+
+edwards_alpha <- as.data.frame(cbind(lineara_f,quasia_f,asyma_f,all_f))
+rm(lineara,quasia,asyma)
+
+edwards_alpha <- edwards_alpha %>% 
+  mutate_if(is.numeric, round, digits=3)
+
+rm(asyma_f,tasym,tlinear,tquasi,lineara_f,quasia_f,linear,quasi,des,asym,all_f,tall,all)
+
+
+###MERGE
+
+
+##COMBINE ICC from STUDY 1 and 2 
+
+ICC_all$Study <- 'Study 2'
+studyone_all$Study <- 'Study 1'
+
+All_ICC <- as.data.frame(rbind(ICC_all,studyone_all))
+
+tALL_ICC <- as.data.frame(t(All_ICC))
+
+rownames(tALL_ICC) <- c("Worry about things","Trust others","Take charge","Am easy to satisfy", "Love excitement", "Make friends easily", "Get angry easily", "Often feel blue", "Sympathize with the homeless", "Get irritated easily", "Am always busy", "Enjoy wild flights of fantasy", "Am always on the go", "Am relaxed most of the time", "Am a creature of habit", "All items", "Asymmetric Mean", "Linear Mean", "Quasi Mean", "Study") 
+
+colnames(tALL_ICC) <- c("Study 2", "Study 1")
+
+#tALL_ICC <- as.data.frame(cbind(tALL_ICC[,2], tALL_ICC[,1]))
+
+
+##GET ITEM GRAPHS && OVERLAY KRIPP VALUES?? (Look at those categories from the 
+##paper groupings too to see if there is anything there)
+
+
+#install.packages("papaja")
+#library(papaja)
+#papaja::apa_table(tALL_ICC)
+```
+
+```{r Table 3}
+
+#papaja::apa_table(tALL_ICC, caption = "Individual ICC",row.names=TRUE)
+
+```
+```
+
+
+
+```{r,echo=FALSE, include = FALSE}
+
+ind_icc <- tALL_ICC[17:19,]
+level <- c("Asymmetric","Linear", "Quasisymmetric")
+ind_icc$level <- rep(level, each=1) 
+
+study1 <- ind_icc[,2:3]
+study1$study <- "Study 1"
+names(study1)[names(study1) == 'Study 1'] <- 'value'
+
+study2 <- subset(ind_icc, select=c("Study 2","level"))
+study2$study <- "Study 2"
+names(study2)[names(study2) == 'Study 2'] <- 'value'
+
+tedwards <- t(edwards_alpha)
+tedwards <- as.data.frame(tedwards[1:3,])
+names(tedwards)[names(tedwards) == 'tedwards[1:3, ]'] <- 'value'
+tedwards$level <- rep(level, each=1) 
+tedwards$study <- "Edwards"
+
+ind_icc <- rbind(tedwards,study1,study2)
+
+describe(studyone_all)
+describe(ICC_all)
+
+ind_icc$min <- c(0,0,0,0.21,0.35,0.00,0.055,0.191,0.012)
+ind_icc$max <- c(0,0,0,0.62,0.66,0.18,0.490,0.540,0.373)
+
+##Needed to make value a numeric to get the study values to go in order of study rather than by low to high
+ind_icc$value <- as.numeric(ind_icc$value)
+str(ind_icc)
+
+p <- ggplot(data=ind_icc, aes(x=level, y=value, fill=study)) + 
+geom_bar(stat="identity", position=position_dodge())  + 
+  geom_errorbar(aes(ymin = min, ymax = max), width = .2, position=position_dodge(.9))
+
+```
+
+```{r Figure 4,echo=FALSE,fig.cap=" Mean ICC by Item Type", fig.width=8, fig.height=6}
+p + labs(x="Type", y="Mean ICC", fill = "Study")
+```
+
+
+
+```{r Graph Comparison_Study 2 Code, include=FALSE, echo = FALSE, results ='hide', fig.show='hide',warning=FALSE}
+###GRAPHS
+##install.packages("matrixStats")
+library(ggplot2)
+library(matrixStats)
+library(tidyverse)
+
+##Make Friends; Get Angry; Feel blue; homeless; irritated
+
+
+linear <- as.data.frame((c((Cleaned[,16:20]), (Cleaned[,26:30]),
+                           (Cleaned[,31:35]), (Cleaned[,56:60]),
+                           (Cleaned[,66:70]))))
+
+####worry about things, trust others, take charge, am easy to satisfy, love excitement
+
+##worry about things AA and EH needed to switch position - the first three parsers are for worry about things
+
+worry <- as.data.frame(cbind(Cleaned[,12],Cleaned[,11]))
+
+asym <- as.data.frame((c((worry[,1:2]), (Cleaned[13:15]), (Cleaned[,21:25]), 
+                         (Cleaned[,36:40]), (Cleaned[,46:50]), (Cleaned[,51:55]))))
+
+##am always busy, enjoy wild flights of fantasy, am always on the go, am relaxed most of the time, am a creature of habit
+quasi <- as.data.frame((c((Cleaned[,41:45]), (Cleaned[,61:65]),
+                          (Cleaned[,71:75]), (Cleaned[,76:80]),
+                          (Cleaned[,81:85])))) 
+
+linear[linear == ""] <- NA
+linear$NAs <- rowSums(is.na(linear))
+linear <- linear %>%
+  filter(NAs < 25)
+linear <- linear[,1:25]
+
+linear_des <- describe(linear)
+linear <- as.data.frame(t(linear))
+
+
+asym[asym == ""] <- NA
+asym$NAs <- rowSums(is.na(asym))
+asym <- asym %>%
+  filter(NAs < 25)
+asym <- asym[,1:25]
+asym_des <- describe(asym)
+asym <- as.data.frame(t(asym))
+
+
+quasi[quasi == ""] <- NA
+quasi$NAs <- rowSums(is.na(quasi))
+quasi <- quasi %>%
+  filter(NAs < 25) 
+quasi <- quasi[,1:25]
+quasi_des <- describe(quasi)
+quasi <- as.data.frame(t(quasi))
+
+
+##to use in a plot
+linear$level <- NA 
+linear$item <- NA
+level <- c("EH", "AA", "A", "BA", "EL")
+item <- c("Make Friends Easily", "Get Angry Easily", "Often Feel Blue", "Sympathize with Homeless", "Get Irritated Easily")
+linear$level <- rep(level, each = 1)
+linear$item <- rep(item, each=5) 
+
+asym$level <- NA 
+asym$item <- NA
+level <- c("EH", "AA", "A", "BA", "EL")
+item <- c("Worry About Things", "Trust Others", "Take Charge", "Am Easy to Satisfy", "Love Excitement")
+asym$level <- rep(level, each = 1)
+asym$item <- rep(item, each=5)   
+
+quasi$level <- NA 
+quasi$item <- NA
+level <- c("EH", "AA", "A", "BA", "EL")
+item <- c("Am Always Busy", "Enjoy Wild Flights-Fantasy", "Am Always on the Go", "Relaxed Most of the Time", "Creature of Habit")
+quasi$level <- rep(level, each = 1)
+quasi$item <- rep(item, each=5)   
+
+
+linear <- cbind(linear, linear_des$mean, linear_des$sd)
+asym <- cbind(asym , asym_des$mean, asym_des$sd)
+quasi <- cbind(quasi, quasi_des$mean, quasi_des$sd)
+
+
+str(linear$`linear_des$mean`)
+
+L <- as.data.frame(cbind(ICC_all$Friends_f, ICC_all$Angry_f, ICC_all$Blue_f, ICC_all$Symp_f, ICC_all$irr_f))
+
+Ldat_text <- data.frame(cbind(item = unique(linear$item),
+  label= paste("ICC = ",format(round(L,digits=3),nsmall=3))))
+
+
+L_plot <- ggplot(linear, aes(x=level, y=`linear_des$mean`, group=1)) + geom_line() +
+  scale_x_discrete(limits=c("EH", "AA", "A", "BA", "EL")) +
+  facet_wrap(~ item, nrow = 1) +
+  scale_colour_brewer() + theme_dark() + theme(axis.text.x = element_text(angle=60, hjust=1, size = 9), axis.title.x = element_blank(), 
+  strip.text.x = element_text(size=7, face = "bold")) +
+  ylim(1,5) +
+  ylab("Linear") +
+  geom_text(data= Ldat_text, aes(x=4.2, y=4.5, label=label), size = 3)
+
+L_plot 
+
+A <- as.data.frame(cbind(ICC_all$Worry_f, ICC_all$Trust_f, ICC_all$Charge_f, ICC_all$Sat_f, ICC_all$Excite_f))
+
+Adat_text <- data.frame(cbind(item = unique(asym$item),
+  label= paste("ICC = ",format(round(A,digits=3),nsmall=3))))
+
+A_plot <- ggplot(asym, aes(x=level, y=`asym_des$mean`, group=1)) + geom_line() +
+  scale_x_discrete(limits=c("EH", "AA", "A", "BA", "EL")) +
+  facet_wrap(~ item, nrow = 1) +
+ scale_colour_brewer() + theme_dark() + theme(axis.text.x = element_text(angle=60, hjust=1, size = 9), axis.title.x = element_blank(),
+                                               strip.text.x = element_text(size=7, face = "bold")) +
+  ylim(1,5) +
+  ylab("Asymmetric") +
+  xlab("Social Desirability Level") +
+  geom_text(data= Adat_text, aes(x=4.2, y=4.5, label=label), size = 3)
+
+A_plot
+
+
+Q <- as.data.frame(cbind(ICC_all$Busy_f, ICC_all$fant_f, ICC_all$go_f, ICC_all$relax_f, ICC_all$habit_f))
+
+Qdat_text <- data.frame(cbind(item = unique(quasi$item),
+  label= paste("ICC = ",format(round(Q,digits=3),nsmall=3))))
+
+Q_plot <- ggplot(quasi, aes(x=level, y=`quasi_des$mean`, group=1)) + geom_line() +
+  scale_x_discrete(limits=c("EH", "AA", "A", "BA", "EL")) +
+  facet_wrap(~ item, nrow = 1) +
+ scale_colour_brewer() + theme_dark() + theme(axis.text.x = element_text(angle=60, hjust=1, size = 9), axis.title.x = element_blank(),
+                                               strip.text.x = element_text(size=7, face = "bold")) +
+  ylim(1,5) +
+  ylab("Quasisymmetric") +
+  geom_text(data= Qdat_text, aes(x=4.2, y=4.5, label=label), size = 3)
+
+Q_plot
+
+##install.packages("gridExtra")
+library(gridExtra)
+
+study2plots <- grid.arrange(L_plot,Q_plot, A_plot)
+
+
+##use code right of ":" to reset if graphic error comes up : dev.off()
+
+rm(asym,asym_des,linear,linear_des,quasi,quasi_des,Qdat_text,Adat_text,Ldat_text,worry,L,A,Q)
+
+
+
+```
+
+
+```{r Figure 5, fig.cap="Study 2: Functional Form and ICC by Item", echo=FALSE, fig.width=9, fig.height=6}
+study2plots <- grid.arrange(L_plot,Q_plot, A_plot)
+
+rm(A_plot,L_plot,Q_plot)
+```
+
+
+```{r Grpahs Study 1, echo = FALSE, include = FALSE, fig.show='hide'}
+###GRAPHS
+
+##Make Friends; Get Angry; Feel blue; homeless; irritated
+linear <- as.data.frame((c((studyone[,2:6]), (studyone[,7:11]),
+                           (studyone[,12:16]), (studyone[,17:21]),
+                           (studyone[,22:26]))))
+
+####worry about things, trust others, take charge, am easy to satisfy, love excitement
+
+##worry about things AA and EH need to switch position 
+asym <- as.data.frame((c((studyone[,27:31]), (studyone[,32:36]),
+                      (studyone[,37:41]), (studyone[,42:46]),
+                      (studyone[,47:51]))))
+
+##am always busy, enjoy wild flights of fantasy, am always on the go, am relaxed most of the time, am a creature of habit
+quasi <- as.data.frame((c((studyone[,52:56]), (studyone[,57:61]),
+                          (studyone[,62:66]), (studyone[,67:71]),
+                          (studyone[,71:76])))) 
+
+linear[linear == ""] <- NA
+linear$NAs <- rowSums(is.na(linear))
+linear <- linear %>%
+  filter(NAs < 25)
+linear <- linear[,1:25]
+
+linear_des <- describe(linear)
+linear <- as.data.frame(t(linear))
+
+
+asym[asym == ""] <- NA
+asym$NAs <- rowSums(is.na(asym))
+asym <- asym %>%
+  filter(NAs < 25)
+asym <- asym[,1:25]
+asym_des <- describe(asym)
+asym <- as.data.frame(t(asym))
+
+
+quasi[quasi == ""] <- NA
+quasi$NAs <- rowSums(is.na(quasi))
+quasi <- quasi %>%
+  filter(NAs < 25) 
+quasi <- quasi[,1:25]
+quasi_des <- describe(quasi)
+quasi <- as.data.frame(t(quasi))
+
+
+##to use in a plot
+linear$level <- NA 
+linear$item <- NA
+level <- c("EH", "AA", "A", "BA", "EL")
+item <- c("Make Friends Easily", "Get Angry Easily", "Often Feel Blue", "Sympathize with Homeless", "Get Irritated Easily")
+linear$level <- rep(level, each = 1)
+linear$item <- rep(item, each=5) 
+
+asym$level <- NA 
+asym$item <- NA
+level <- c("EH", "AA", "A", "BA", "EL")
+item <- c("Worry About Things", "Trust Others", "Take Charge", "Am Easy to Satisfy", "Love Excitement")
+asym$level <- rep(level, each = 1)
+asym$item <- rep(item, each=5)   
+
+quasi$level <- NA 
+quasi$item <- NA
+level <- c("EH", "AA", "A", "BA", "EL")
+item <- c("Am Always Busy", "Enjoy Wild Flights-Fantasy", "Am Always on the Go", "Relaxed Most of the Time", "Creature of Habit")
+quasi$level <- rep(level, each = 1)
+quasi$item <- rep(item, each=5)   
+
+
+linear <- cbind(linear, linear_des$mean, linear_des$sd)
+asym <- cbind(asym , asym_des$mean, asym_des$sd)
+quasi <- cbind(quasi, quasi_des$mean, quasi_des$sd)
+
+#library(ggplot2)
+str(linear$`linear_des$mean`)
+
+L <- as.data.frame(cbind(studyone_all$Friends_f, studyone_all$Angry_f, studyone_all$Blue_f, studyone_all$Symp_f, studyone_all$irr_f))
+
+Ldat_text <- data.frame(cbind(item = unique(linear$item),
+  label= paste("ICC = ",format(round(L,digits=3),nsmall=3))))
+
+
+L_plot <- ggplot(linear, aes(x=level, y=`linear_des$mean`, group=1)) + geom_line() +
+  scale_x_discrete(limits=c("EH", "AA", "A", "BA", "EL")) +
+  facet_wrap(~ item, nrow = 1) +
+  scale_colour_brewer() + theme_dark() + theme(axis.text.x = element_text(angle=60, hjust=1, size = 9), axis.title.x = element_blank(),
+                                               strip.text.x = element_text(size=7, face = "bold")) +
+  ylim(1,5) +
+  ylab("Linear") +
+  geom_text(data= Ldat_text, aes(x=4.2, y=4.5, label=label), size = 3)
+
+L_plot 
+
+A <- as.data.frame(cbind(studyone_all$Worry_f, studyone_all$Trust_f, studyone_all$Charge_f, studyone_all$Sat_f, studyone_all$Excite_f))
+
+Adat_text <- data.frame(cbind(item = unique(asym$item),
+  label= paste("ICC = ",format(round(A,digits=3),nsmall=3))))
+
+A_plot <- ggplot(asym, aes(x=level, y=`asym_des$mean`, group=1)) + geom_line() +
+  scale_x_discrete(limits=c("EH", "AA", "A", "BA", "EL")) +
+  facet_wrap(~ item, nrow = 1) +
+ scale_colour_brewer() + theme_dark() + theme(axis.text.x = element_text(angle=60, hjust=1, size = 9), axis.title.x = element_blank(),
+                                               strip.text.x = element_text(size=7, face = "bold")) +
+  ylim(1,5) +
+  ylab("Asymmetric") +
+  xlab("Social Desirability Level") +
+  geom_text(data= Adat_text, aes(x=4.2, y=4.5, label=label), size = 3)
+
+A_plot
+
+
+Q <- as.data.frame(cbind(studyone_all$Busy_f, studyone_all$fant_f, studyone_all$go_f, studyone_all$relax_f, studyone_all$habit_f))
+
+Qdat_text <- data.frame(cbind(item = unique(quasi$item),
+  label= paste("ICC = ",format(round(Q,digits=3),nsmall=3))))
+
+Q_plot <- ggplot(quasi, aes(x=level, y=`quasi_des$mean`, group=1)) + geom_line() +
+  scale_x_discrete(limits=c("EH", "AA", "A", "BA", "EL")) +
+  facet_wrap(~ item, nrow = 1) +
+ scale_colour_brewer() + theme_dark() + theme(axis.text.x = element_text(angle=60, hjust=1, size = 9), axis.title.x = element_blank(),
+                                               strip.text.x = element_text(size=7, face = "bold")) +
+  ylim(1,5) +
+  ylab("Quasisymmetric") +
+  geom_text(data= Qdat_text, aes(x=4.2, y=4.5, label=label), size = 3)
+
+Q_plot
+
+##use code right of ":" to reset if graphic error comes up : dev.off()
+
+rm(asym,asym_des,linear,linear_des,quasi,quasi_des,Qdat_text,Adat_text,Ldat_text,worry,L,A,Q,item, level)
+```
+
+
+
+```{r Figure 6, fig.cap="Study 1: Functional Form and ICC by Item", echo=FALSE, fig.width=9, fig.height=6}
+#study1 graph
+study1plots <- grid.arrange(L_plot,Q_plot, A_plot)
+
+rm(A_plot,L_plot,Q_plot)
+```
+
