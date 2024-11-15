@@ -156,7 +156,7 @@ All ratings were made via paper and pencil in an experimental laboratory. The @e
 
 All analyses were performed in R version `r paste0(R.Version()[c("major","minor")], collapse = ".")` [@R-base]. We leveraged three different approaches comparing findings across the two item rating procedures. First, we applied simple linear regressions to  all "Kuncel & Tellegen" functions (as explained below), extracting slope coefficients, and then correlated Edwards' ratings with these slope coefficients across items. Secondly we conducted 300 hierarchical $2^{nd}$ degree *polynomial* regressions to each function in an attempt to capture empirical "U" or "inverted-U" functional forms, and tallied how many items were incrementally ("above and beyond" the linear) characterized by the quadratic regression term. Lastly, we categorized visual perceptions of the functions, and revisited the above noted associations within *differently categorized functional forms*.  
 
->NOTE. Old but maye revisit: used these groupings to help inform ranges of Edwards values along which nonlinear item functions tend to be more prominent (e.g., how many "inverted U-shaped" functions were noted in items characterized by Edwards' system  as *extremely undesirable*, *undesirable*, *average*, *desirable*, and *extremely desirable*).
+>NOTE. Old but maybe revisit: used these groupings to help inform ranges of Edwards values along which nonlinear item functions tend to be more prominent (e.g., how many "inverted U-shaped" functions were noted in items characterized by Edwards' system  as *extremely undesirable*, *undesirable*, *average*, *desirable*, and *extremely desirable*).
 
 All three approaches focused on the *functional form* of "Kuncel & Tellegen" ratings, and relied upon either regression analyses to provide an empirical estimate of the function form and/or judge categorizations to provide a subjective interpretation of the function form. These functions all reflect progression across Kuncel & Tellegen frames of reference (ranging from someone who is "Extremely High in the characteristic (top 1%)" to someone who is "Extremely Low in the characteristic (below 1%)", again see Figure \@ref(fig:Figure1) for exposition). The "height" of the function at each of five rated frames of reference is determined by the *average desirability rating* at each of these points of normative consideration.  
 
@@ -2895,7 +2895,7 @@ All ratings were conducted via @qualtrics_qualtrics_2014, utilizing the @kuncel_
 ```{r qsorttable}
 
 dat_text3 <- data.frame(
-  label= paste("m=",round(wgmeans$mean,2)), 
+  label= paste("M=",round(wgmeans$mean,2)), 
   category=wgmeans$category,
   n=c(21,46,16,22,15,11,46,39,17,38,26))
 
@@ -2906,6 +2906,50 @@ papaja::apa_table(dat_text3,
                   escape = FALSE) 
 
 ```
+
+```{r Edwardstable}
+
+ed.high     <- forcatplot[(forcatplot$ed.value <= -3),]
+ed.somehigh <- forcatplot[(forcatplot$ed.value > -3) & (forcatplot$ed.value <=-2),]
+ed.modhigh  <- forcatplot[(forcatplot$ed.value > -2) & (forcatplot$ed.value <=-1),]
+ed.zerohigh     <- forcatplot[(forcatplot$ed.value > -1) & (forcatplot$ed.value < 0),]
+ed.zero      <- forcatplot[(forcatplot$ed.value == 0),]
+ed.zerolow      <- forcatplot[(forcatplot$ed.value > 0) & (forcatplot$ed.value < 1),]
+ed.modlow   <- forcatplot[(forcatplot$ed.value >= 1) & (forcatplot$ed.value < 2),]
+ed.somelow  <- forcatplot[(forcatplot$ed.value >= 2) & (forcatplot$ed.value < 3),]
+ed.low      <- forcatplot[(forcatplot$ed.value >= 3),]
+
+ed.high$edcat      <- "-3 and Below"
+ed.somehigh$edcat  <- "-3 to -2"
+ed.modhigh$edcat   <- "-2 to -1"
+ed.zerohigh$edcat  <- "-1 to 0"
+ed.zero$edcat      <- "0"
+ed.zerolow$edcat   <- "0 to 1"
+ed.modlow$edcat    <- "1 to 2"
+ed.somelow$edcat   <- "2 to 3"
+ed.low$edcat       <- "3 and Above"
+
+newtable <- rbind(ed.high,ed.somehigh,ed.modhigh,ed.zerohigh,ed.zero,ed.zerolow,ed.modlow,ed.somelow,ed.low)
+
+newtable$edcat <- factor(newtable$edcat, levels = c("-3 and Below", 
+                                                        "-3 to -2",
+                                                        "-2 to -1",
+                                                        "-1 to 0", 
+                                                        "0",  
+                                                        "0 to 1", 
+                                                        "1 to 2", 
+                                                        "2 to 3",
+                                                        "3 and Above"))
+
+write.csv(table(newtable$edcat,newtable$category),"EdwardsCategories.csv")
+
+# table(newtable$edcat,newtable$category)     ## make a heatmap of this table (11/9/24)
+                                              ## should be percentage within edwards array
+
+fields::image.plot(table(newtable$edcat,newtable$category))
+  
+```
+
 
 
 Due to the observed difficulty and length of the task in Study 1, we implemented carelessness items and additional questions to gauge carelessness and task difficulty. Because of the tedium and cognitive complexity of the requested task, we also computed consecutive non-differentiating responses as well as intra-individual response variability estimates (see, for example, Dunn et al., 2018; Marjanovic et al., 2015) via the careless R package (Yentes & Wilhelm, 2023) in R version 4.3.1 (R Core Team, 2023).
