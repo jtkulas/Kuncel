@@ -3,7 +3,7 @@
 \PassOptionsToPackage{hyphens}{url}
 %
 \documentclass[
-  ,ama]{apa6}
+  ,jou]{apa6}
 \usepackage{amsmath,amssymb}
 \usepackage{iftex}
 \ifPDFTeX
@@ -183,9 +183,9 @@
   }
 {}{\PatchFailed}
 \keywords{Social desirability, response bias, personality assessment, content validation}
-\usepackage{lineno}
+\usepackage{dblfloatfix}
 
-\linenumbers
+
 \usepackage{csquotes}
 \usepackage{pdflscape}
 \newcommand{\blandscape}{\begin{landscape}}
@@ -330,7 +330,7 @@ For added visual exposition, items were also categorized within arrays of values
 
 Our second approach leveraged hierarchical polynomial regressions, with the index of interest being the change in \(R^2\) associated with nonlinear association, as operationalized as a quadratic (second degree) polynomial term. Most item functions (\(n_k\) = 203) exhibited a very low change in \(R^2\) (see Table \ref{tab:polytable} for a summary of these results and explicit articulations of our subjective classifications of ``low'' or ``very low'').\footnote{\(F\)-tests associated with the \(\Delta R^2\) indicated that 92.31\% of item functions were not \emph{significantly} improved when specifying the quadratic term (\(\alpha\) = .05). This information is being presented for completeness, although it should be noted that \(F\) critical values are very large in this atypical application of regression and effect sizes are more appropriately informative.} These results suggest that, although subjective judgements may be able to visually distinguish functional form\footnote{Compare with the \% of ``linear'' and maybe ``egyptian'' that we subjectively categorized - 5/30/24. Also add to discussion -- there is a blurry line between a function being ``linear'' and ``non-linear''. Subjectively allowances are given that can be mutually agreed upon. There comes a point, however, where one judge deems a function ``linear'' and another disagrees. Similarly, there comes a point where both judges agree that the function exhibits non-linearity. Indeed, humans in general may not be very good at dissociating curved and straight lines (Bales \& Follansbee, 1935; Gibson, 1933; Ogilvie \& Daicar, 1967; Watt et al., 1987).}, empirical estimates are not as sensitive to deviations from linearity.
 
-\begin{table}[tbp]
+\begin{table*}[tbp]
 
 \begin{center}
 \begin{threeparttable}
@@ -360,7 +360,7 @@ Never splurge & 0.82 & Above .80 & 2\\
 \end{threeparttable}
 \end{center}
 
-\end{table}
+\end{table*}
 
 \subsubsection{Approach \#3: Functional form (Visual)}\label{approach-3-functional-form-visual}
 
@@ -372,7 +372,7 @@ Next, the Figure \ref{fig:Figure2} plots for all 300 items were presented to jud
 \caption{\label{fig:lastone}Response Category and Mean Rating slope across Edwards' scale values (individual scatterpoints represent items)}
 \end{figure}
 
-\begin{table}[tbp]
+\begin{table*}[tbp]
 
 \begin{center}
 \begin{threeparttable}
@@ -400,7 +400,7 @@ m= 1.86 & linear (n) & 26.00\\
 \end{threeparttable}
 \end{center}
 
-\end{table}
+\end{table*}
 
 \subsection{Study 1 Discussion}\label{study-1-discussion}
 
@@ -434,11 +434,11 @@ Latency data had some differences in type with quasisymmetric taking the least a
 
 \subsubsection{Interrater Reliability}\label{interrater-reliability}
 
-ICC(2,1) was used for interrater reliability ((\textbf{shroutfleiss?})) for Study 1 and Study 2 comparisons on the Edwards (1957b) as well as Kuncel and Tellegen (2009) methodologies. For Edwards, the ICC(2,1) was run for the three functional forms, and then all ratings were combined to obtain an overall ICC. However, for the Kuncel and Tellgen method, interrater reliability was first run on the item itself, and then all interrater reliabilities were averaged to obtain the three functional form types for Study 1 and Study 2. All ICCs are shown in Table 3.
+ICC(2,1) was used for interrater reliability (BIB REF) for Study 1 and Study 2 comparisons on the Edwards (1957b) as well as Kuncel and Tellegen (2009) methodologies. For Edwards, the ICC(2,1) was run for the three functional forms, and then all ratings were combined to obtain an overall ICC. However, for the Kuncel and Tellgen method, interrater reliability was first run on the item itself, and then all interrater reliabilities were averaged to obtain the three functional form types for Study 1 and Study 2. All ICCs are shown in Table 3.
 
 The Edwards interrater reliability was moderate for linear functional forms (ICC = 0.525), and had no interrater reliability for asymmetric (ICC = 0.001) or quasisymmetric (ICC = 0.000) items. Overall reliability, of all 15 items, was poor (ICC = 0.277). The Kuncel and Tellegen functional form interrater reliability for study 1 was moderate for linear (ICC = 0.503), and poor for asymmetric (ICC = 0.445) and quasisymmetric (ICC = 0.099). Study 2, however, had poor interrater reliability for all function forms: linear (ICC = 0.324), asymmetric (ICC = 0.303), quasisymmetric (ICC = 0.141).
 
-\begin{table}[tbp]
+\begin{table*}[tbp]
 
 \begin{center}
 \begin{threeparttable}
@@ -474,14 +474,14 @@ Quasi Mean & 0.14 & 0.10\\
 \end{threeparttable}
 \end{center}
 
-\end{table}
+\end{table*}
 
 Averaged ICC by functional form and condition are presented in Figure 4 via bars. In addition, the Kuncel Tellegen conditions include error terms related to the item with the lowest and highest ICCs in each functional form category. Error terms were highest for asymmetric forms in both Study 1 (error bar span = 0.41) and Study 2 (0.44), with linear in both studies, and quasisymmetric in study 2 were in the 0.30s range (study 1 linear: 0.31, study 2 linear: 0.35, study 2 quasi: 0.36). The lowest error was the quasisymmetric form in study 1 at 0.18 units.
 
 \begin{figure}
 \centering
-\includegraphics{FullStudy_files/figure-latex/Figure4-1.pdf}
-\caption{\label{fig:Figure4} Mean ICC by Item Type}
+\includegraphics{FullStudy_files/figure-latex/Figure 4-1.pdf}
+\caption{(\#fig:Figure 4) Mean ICC by Item Type}
 \end{figure}
 
 \subsubsection{Functional Forms}\label{functional-forms}
@@ -490,14 +490,14 @@ Figure 5 and 6 represent individual ICCs with their functional forms in the Kunc
 
 \begin{figure}
 \centering
-\includegraphics{FullStudy_files/figure-latex/Figure5-1.pdf}
-\caption{\label{fig:Figure5}Study 2: Functional Form and ICC by Item}
+\includegraphics{FullStudy_files/figure-latex/Figure 5-1.pdf}
+\caption{(\#fig:Figure 5)Study 2: Functional Form and ICC by Item}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics{FullStudy_files/figure-latex/Figure6-1.pdf}
-\caption{\label{fig:Figure6}Study 1: Functional Form and ICC by Item}
+\includegraphics{FullStudy_files/figure-latex/Figure 6-1.pdf}
+\caption{(\#fig:Figure 6)Study 1: Functional Form and ICC by Item}
 \end{figure}
 
 \section{Discussion}\label{discussion}
