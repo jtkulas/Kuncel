@@ -2838,6 +2838,8 @@ dat_text3 <- data.frame(
 
 papaja::apa_table(dat_text3, 
                   caption = "Average Edwards rating and number of functional classifications",
+                  note = "(p) = positive; (s) = 's' shaped; (hook mp) = positive moderate hook shaped; (hook ep) = positive extreme hook shaped ; (j) = 'j' shaped; (flat) = lays horizonally; (peaked) =  peaks near the middle; (hook en) = negative extreme hook shaped; (hook mn) = negative moderate hook shaped; (z) = 'z' shaped; (n) = negative
+",
                   row.names=FALSE,
                   escape = FALSE) 
 
@@ -2865,9 +2867,9 @@ One hundred and thirty one undergraduate students from two universities particip
 
 ## Procedure
 
-All ratings and response latencies (measured in seconds 's') were gathered online using @qualtrics_qualtrics_2014, utilizing the Kuncel and Tellegen (2009) rating scale. The ratings included fifteen of the most archetypal items from Study 1, focusing on the three functional forms: asymmetric, linear, and quasisymmetric.
+All ratings and response latencies (measured in seconds 's') were gathered online using @qualtrics_qualtrics_2014, utilizing the Kuncel and Tellegen (2009) rating scale. The ratings included fifteen of the most archetypal items from Study 1, focusing on the three functional forms: asymmetric, linear, and quasisymmetric.The assessment also included two practice questions at the beginning so students could be familiar with the scales. 
 
-During data cleaning, we screened out total survey durations less than 500 seconds and longer than 2000 seconds (n=46) as well as individuals who had total response latencies less than 20 seconds across the final 20 items (on average less than 1 second per item response; n=8). These conservative screens were applied based on observations from experiment proctors that several participants were not fully engaged in their responses. Additionally, questions were implemented to gauge carelessness and task difficulty. Computation of consecutive non-differentiating responses as well as intra-individual response variability estimates was done due to tedium and cognitive complexity of the task [see, for example, @dunn_intra-individual_2018; @marjanovic_inter-item_2015] via the *careless* R package [@R-careless] in R version `r as.character(getRversion())` [@R-base].
+During data cleaning, we screened out total survey durations less than 500 seconds and longer than 2000 seconds (n=46) as well as individuals who had total response latencies less than 20 seconds across the final 20 items (on average less than 1 second per item response; n=8). These conservative screens were applied based on observations from experiment proctors that several participants were not fully engaged in their responses. Additionally, questions were implemented to gauge task difficulty and carelessness - no data was removed utilizing these questions. However, carelessness analyses continuted with the computation of consecutive non-differentiating responses as well as intra-individual response variability estimates was done due to tedium and cognitive complexity of the task [see, for example, @dunn_intra-individual_2018; @marjanovic_inter-item_2015] via the *careless* R package [@R-careless] in R version `r as.character(getRversion())` [@R-base].
 
 
 # Results
@@ -3605,15 +3607,15 @@ colnames(tALL_ICC) <- c("Study 2", "Study 1")
 
 ### Response Latencies
  
-  All latencies were taken and compiled into one list so that outliers could be removed. Any latencies that were 0 were first removed, and afterwards and any time below the 10th percentile and above 90th percentile, from the remaining times, were removed. Afterwards, mean latencies were gathered for four conditions: the item (e.g., Worry about things), the level (e.g., extremely high), the type (e.g., linear), as well as if the item was negatively worded or not. 
+  All latencies were taken and compiled into one list so that outliers could be removed. Any latencies that were 0 were first removed, then any time below the 10th percentile and above 90th percentile, from the remaining times, were removed. Afterwards, mean latencies were gathered for four conditions: the item (e.g., worry about things), the level (e.g., extremely high), the type (e.g., linear), and negatively worded items.  
   
-  Latency data had some differences in type with quasisymmetric taking the least amount of time (*M* = 2.8 seconds) and asymmetric taking the most time (*M* = 3.5 seconds). Negatively worded items took on average 0.5s longer than non-negatively worded items. The extremely High had the largest latency time at 6.0 seconds, while the other levels ranged from 2.0s to 3.0s. However, this is likely an artifact due to extremely high levels always being the first rating after reading the item characteristic, rather than it being harder to rate. 
+  Latency data had some differences in type with quasisymmetric taking the least amount of time (*M* = 2.8 seconds) and asymmetric taking the most time (*M* = 3.5 seconds). Negatively worded items took on average 0.5s longer than non-negatively worded items. The extremely high level had the largest latency time at 6.0 seconds, while the other levels ranged from 2.0s to 3.0s. However, this is likely an artifact due to extremely high levels being the first rating after reading the item characteristic, rather than it being harder to rate. 
   
 ### Interrater Reliability
 
-ICC(2,1) was used for interrater reliability (BIB REF) for Study 1 and Study 2 comparisons on the Edwards (1957b) as well as Kuncel and Tellegen (2009) methodologies. For Edwards, the ICC(2,1) was run for the three functional forms, and then all ratings were combined to obtain an overall ICC. However, for the Kuncel and Tellgen method, interrater reliability was first run on the item itself, and then all interrater reliabilities were averaged to obtain the three functional form types for Study 1 and Study 2. All ICCs are shown in Table 3.
+ICC(2,1) was used for interrater reliability (BIB REF) for Study 1 and Study 2 comparisons on the Edwards (1957b) as well as Kuncel and Tellegen (2009) methodologies. For Edwards, the ICC(2,1) was run for the three functional forms, and then all ratings were combined to obtain an overall ICC. However, for the Kuncel and Tellgen method, interrater reliability was first run on the item itself, and then all interrater reliabilities were averaged to obtain the three functional form types for Study 1 and Study 2. Kuncel and Tellegen method ICCs are shown in Table 3.
 
-The Edwards interrater reliability was moderate for linear functional forms (ICC = 0.525), and had no interrater reliability for asymmetric (ICC = 0.001) or quasisymmetric (ICC = 0.000) items. Overall reliability, of all 15 items, was poor (ICC = 0.277). The Kuncel and Tellegen functional form interrater reliability for study 1 was moderate for linear (ICC = 0.503), and poor  for asymmetric (ICC = 0.445) and quasisymmetric (ICC = 0.099). Study 2, however, had poor interrater reliability for all function forms: linear (ICC = 0.324), asymmetric (ICC = 0.303), quasisymmetric (ICC = 0.141). 
+The Edwards interrater reliability was moderate for linear functional forms (ICC = 0.525), and had no interrater reliability for asymmetric (ICC = 0.001) or quasisymmetric (ICC = 0.000) items. Overall reliability of all 15 items was poor (ICC = 0.277). The Kuncel and Tellegen functional form interrater reliability for study 1 was moderate for linear (ICC = 0.503), and poor  for asymmetric (ICC = 0.445) and quasisymmetric (ICC = 0.099). Study 2, however, had poor interrater reliability for all function forms: linear (ICC = 0.324), asymmetric (ICC = 0.303), quasisymmetric (ICC = 0.141). 
 
 
 ```{r Table 3}
@@ -3622,7 +3624,7 @@ papaja::apa_table(tALL_ICC, caption = "Individual ICC",row.names=TRUE)
 
 ```
 
-Averaged ICC by functional form and condition are presented in Figure 4 via bars. In addition, the Kuncel Tellegen conditions include error terms related to the item with the lowest and highest ICCs in each functional form category. Error terms were highest for asymmetric forms in both Study 1 (error bar span = 0.41) and Study 2 (0.44), with linear in both studies, and quasisymmetric in study 2 were in the 0.30s range (study 1 linear: 0.31, study 2 linear: 0.35, study 2 quasi: 0.36). The lowest error was the quasisymmetric form in study 1 at 0.18 units. 
+Averaged ICC by functional form and condition are presented in Figure 4 via bars. In addition, the Kuncel Tellegen conditions include error terms related to the items in their category with the lowest and highest ICCs. Error terms were highest for asymmetric forms in both Study 1 (error bar span = 0.41) and Study 2 (0.44), with linear in both studies, and quasisymmetric in study 2 were in the 0.30s range (study 1 linear: 0.31, study 2 linear: 0.35, study 2 quasi: 0.36). The lowest error was the quasisymmetric form in study 1 at 0.18 units. 
 
 ```{r,echo=FALSE, include = FALSE}
 
@@ -3659,7 +3661,7 @@ ind_icc$max <- c(0.005,0.05,-0.001,0.62,0.66,0.18,0.490,0.540,0.373)
 ind_icc$value <- as.numeric(ind_icc$value)
 str(ind_icc)
 
-p <- ggplot(data=ind_icc, aes(x=reorder(level), y=value, fill=study)) + 
+p <- ggplot(data=ind_icc, aes(x=level, y=value, fill=study)) + 
 geom_bar(stat="identity", position=position_dodge())  + 
   scale_fill_manual(values=c("black", "darkgray", "lightgray")) +
   geom_errorbar(aes(ymin = min, ymax = max), width = .2, position=position_dodge(.9))
@@ -3671,7 +3673,7 @@ p + labs(x="Type", y="Mean ICC", fill = "Study")
 ```
 
 ### Functional Forms 
-Figure 5 and 6 represent individual ICCs with their functional forms in the Kuncel and Tellegen conditions for both study 2 and study 1 for comparison. Visually, linear functional forms stayed consistent between study 1 and study 2. Concerning asymmetric forms, study 1 had more extreme visuals in comparison to study 2, going from ep to mp (but these would still be classified as asymmetric forms). Quasisymmetric forms had two items that visually switched functional forms: "Enjoy Wild Flights of Fantasy" (to linear), and "Relaxed Most of the Time" (to asymmetric). 
+Figures 5 and 6 represent individual ICCs with their functional forms in the Kuncel and Tellegen conditions for both study 2 and study 1 for comparison. Visually, linear functional forms stayed consistent between study 1 and study 2. Concerning asymmetric forms, study 1 had more extreme visuals in comparison to study 2, going from ep to mp (but these would still be classified as asymmetric forms). Quasisymmetric forms had two items that visually switched functional forms: "Enjoy Wild Flights of Fantasy" (to linear), and "Relaxed Most of the Time" (to asymmetric). 
 
 
 
