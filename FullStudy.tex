@@ -54,14 +54,28 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 % Make \paragraph and \subparagraph free-standing
+\makeatletter
 \ifx\paragraph\undefined\else
   \let\oldparagraph\paragraph
-  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
 \fi
 \ifx\subparagraph\undefined\else
   \let\oldsubparagraph\subparagraph
-  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
+\makeatother
 % definitions for citeproc citations
 \NewDocumentCommand\citeproctext{}{}
 \NewDocumentCommand\citeproc{mm}{%
@@ -290,13 +304,13 @@ All ratings were made via paper and pencil in an experimental laboratory. The Ed
 
 \section{Results}\label{results}
 
-All analyses were performed in R version 4.2.2 (R Core Team, 2022). Three different approaches were applied to compare findings across the two item rating procedures. First, simple linear regressions was applied to all ``Kuncel \& Tellegen'' functions (as explained below), extracting slope coefficients, with Edwards' ratings being correlated with these slope coefficients across items. Secondly, 300 hierarchical \(2^{nd}\) degree \emph{polynomial} regressions were applied to each function in an attempt to capture empirical ``U'' or ``inverted-U'' functional forms, and the number of items characterized by the quadratic regression term (incrementally ``above and beyond'' the linear) were noted. Lastly, visual perceptions of the functions were categorized, and the above noted associations were revisited within \emph{differently categorized functional forms}. \footnote{NOTE. Old but maye revisit: used these groupings to help inform ranges of Edwards values along which nonlinear item functions tend to be more prominent (e.g., how many ``inverted U-shaped'' functions were noted in items characterized by Edwards' system as \emph{extremely undesirable}, \emph{undesirable}, \emph{average}, \emph{desirable}, and \emph{extremely desirable}).}
+All analyses were performed in R version 4.4.1 (R Core Team, 2024). Three different approaches were applied to compare findings across the two item rating procedures. First, simple linear regressions was applied to all ``Kuncel \& Tellegen'' functions (as explained below), extracting slope coefficients, with Edwards' ratings being correlated with these slope coefficients across items. Secondly, 300 hierarchical \(2^{nd}\) degree \emph{polynomial} regressions were applied to each function in an attempt to capture empirical ``U'' or ``inverted-U'' functional forms, and the number of items characterized by the quadratic regression term (incrementally ``above and beyond'' the linear) were noted. Lastly, visual perceptions of the functions were categorized, and the above noted associations were revisited within \emph{differently categorized functional forms}. \footnote{NOTE. Old but maye revisit: used these groupings to help inform ranges of Edwards values along which nonlinear item functions tend to be more prominent (e.g., how many ``inverted U-shaped'' functions were noted in items characterized by Edwards' system as \emph{extremely undesirable}, \emph{undesirable}, \emph{average}, \emph{desirable}, and \emph{extremely desirable}).}
 
 All three approaches focused on the \emph{functional form} of ``Kuncel \& Tellegen'' ratings, and relied upon either regression analyses to provide an empirical estimate of the function form and/or judge categorizations to provide a subjective interpretation of the function form. These functions all reflect progression across Kuncel \& Tellegen frames of reference (ranging from someone who is ``Extremely High in the characteristic (top 1\%)'' to someone who is ``Extremely Low in the characteristic (below 1\%)'', again see Figure \ref{fig:Figure1} for exposition). The ``height'' of the function at each of five rated frames of reference is determined by the \emph{average desirability rating} at each of these points of normative evaluation.
 
 \subsubsection{Approach \#1: Functional Slope (Empirical)}\label{approach-1-functional-slope-empirical}
 
-One reasonable manifestation of similarity across the two procedures would be stronger incidences of functional linearity with extremely desirable and undesirable items (and correspondingly weaker linear associations with moderate items). For the first investigative approach, we therefore probed for associations between ``Edwards''' item ratings and \emph{regression slope} of ``Kuncel \& Tellegen'' function.
+One reasonable manifestation of similarity across the two procedures would be stronger incidences of functional linearity with extremely desirable and undesirable items (and correspondingly weaker linear associations with moderate items). For the first investigative approach, we therefore probed for associations between ``Edwards''\,' item ratings and \emph{regression slope} of ``Kuncel \& Tellegen'' function.
 
 We first fit 300 individual regressions retaining the five different rated trait locations as a predictor (e.g., Kuncel and Tellegen (2009)'s ``bottom 1\%'', ``bottom 30\%'', ``Average'', ``top 30\%'', and ``top 1\%'' - these were treated as representing an equal-interval numerical continuum {[}values of 1, 2, 3, 4, and 5{]}) and averaged (Edwards) response desirability rating as the criterion. Within each of the 300 individual regressions, the expectation was that slope \emph{magnitude} and \emph{valence} would parallel the classic Edwards ratings of the same items. For example, the expectation was that an item such as ``Believe that others have good intentions'' would realize a highly desirable Edwards rating as well as a high magnitude, negatively valenced slope estimate across sequential Kuncel \& Tellegen categories. ``Enjoy wild flights of fancy'' would exhibit a moderate Edwards rating and flat slope, and ``Get irritated easily'' would return an undesirable Edwards rating as well as a moderately positive slope. Across all 300 items, the relationship between Edwards rating and Kuncel \& Tellegen functional slope was indeed revealed to be strong (\emph{r} = -.76, \(R^2 = .58\), \(F_{(1,298)} = 412.26\), \emph{p} \textless{} .001), suggesting a non-trivial association between procedures.
 
@@ -410,7 +424,7 @@ One hundred and thirty one undergraduate students from two universities particip
 
 All ratings and response latencies (measured in seconds `s') were gathered online using Qualtrics (2014), utilizing the Kuncel and Tellegen (2009) rating scale. The ratings included fifteen of the most archetypal items from Study 1, focusing on the three functional forms: asymmetric, linear, and quasisymmetric.
 
-During data cleaning, we screened out total survey durations less than 500 seconds and longer than 2000 seconds (n=46) as well as individuals who had total response latencies less than 20 seconds across the final 20 items (on average less than 1 second per item response; n=8). These conservative screens were applied based on observations from experiment proctors that several participants were not fully engaged in their responses. Additionally, questions were implemented to gauge carelessness and task difficulty. Computation of consecutive non-differentiating responses as well as intra-individual response variability estimates was done due to tedium and cognitive complexity of the task (see, for example, Dunn et al., 2018; Marjanovic et al., 2015) via the \emph{careless} R package (Yentes \& Wilhelm, 2021) in R version 4.2.2 (R Core Team, 2022).
+During data cleaning, we screened out total survey durations less than 500 seconds and longer than 2000 seconds (n=46) as well as individuals who had total response latencies less than 20 seconds across the final 20 items (on average less than 1 second per item response; n=8). These conservative screens were applied based on observations from experiment proctors that several participants were not fully engaged in their responses. Additionally, questions were implemented to gauge carelessness and task difficulty. Computation of consecutive non-differentiating responses as well as intra-individual response variability estimates was done due to tedium and cognitive complexity of the task (see, for example, Dunn et al., 2018; Marjanovic et al., 2015) via the \emph{careless} R package (Yentes \& Wilhelm, 2023) in R version 4.4.1 (R Core Team, 2024).
 
 \section{Results}\label{results-1}
 
@@ -468,8 +482,8 @@ Averaged ICC by functional form and condition are presented in Figure 4 via bars
 
 \begin{figure}
 \centering
-\includegraphics{FullStudy_files/figure-latex/Figure 4-1.pdf}
-\caption{(\#fig:Figure 4) Mean ICC by Item Type}
+\includegraphics{FullStudy_files/figure-latex/Figure4-1.pdf}
+\caption{\label{fig:Figure4} Mean ICC by Item Type}
 \end{figure}
 
 \subsubsection{Functional Forms}\label{functional-forms}
@@ -478,14 +492,14 @@ Figure 5 and 6 represent individual ICCs with their functional forms in the Kunc
 
 \begin{figure}
 \centering
-\includegraphics{FullStudy_files/figure-latex/Figure 5-1.pdf}
-\caption{(\#fig:Figure 5)Study 2: Functional Form and ICC by Item}
+\includegraphics{FullStudy_files/figure-latex/Figure5-1.pdf}
+\caption{\label{fig:Figure5}Study 2: Functional Form and ICC by Item}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics{FullStudy_files/figure-latex/Figure 6-1.pdf}
-\caption{(\#fig:Figure 6)Study 1: Functional Form and ICC by Item}
+\includegraphics{FullStudy_files/figure-latex/Figure6-1.pdf}
+\caption{\label{fig:Figure6}Study 1: Functional Form and ICC by Item}
 \end{figure}
 
 \section{Discussion}\label{discussion}
@@ -616,7 +630,7 @@ Paulhus, D. L. (1988). Balanced inventory of desirable responding ({BIDR}). \emp
 Qualtrics, L. L. C. (2014). Qualtrics {[}software{]}. \emph{Utah, {USA}: Qualtrics}.
 
 \bibitem[\citeproctext]{ref-R-base}
-R Core Team. (2022). \emph{R: A language and environment for statistical computing}. R Foundation for Statistical Computing. \url{https://www.R-project.org/}
+R Core Team. (2024). \emph{R: A language and environment for statistical computing}. R Foundation for Statistical Computing. \url{https://www.R-project.org/}
 
 \bibitem[\citeproctext]{ref-sedikides_self-enhancement_2012}
 Sedikides, C., \& Alicke, M. D. (2012). \emph{Self-enhancement and self-protection motives}. Oxford handbook of motivation, ed. R. Ryan. Oxford University Press.{[}{rWvH}{]}.
@@ -634,7 +648,7 @@ Watt, R., Ward, R., \& Casco, C. (1987). The detection of deviation from straigh
 Weiss, B., \& Feldman, R. S. (2006). Looking good and lying to do it: Deception as an impression management strategy in job interviews. \emph{Journal of Applied Social Psychology}, \emph{36}(4), 1070--1086.
 
 \bibitem[\citeproctext]{ref-R-careless}
-Yentes, R., \& Wilhelm, F. (2021). \emph{Careless: Procedures for computing indices of careless responding}. \url{https://github.com/ryentes/careless/}
+Yentes, R., \& Wilhelm, F. (2023). \emph{Careless: Procedures for computing indices of careless responding}. \url{https://github.com/ryentes/careless/}
 
 \bibitem[\citeproctext]{ref-ziegler_applicant_2011}
 Ziegler, M. (2011). Applicant faking: A look into the black box. \emph{The Industrial and Organizational Psychologist}, \emph{49}(1), 29--36.

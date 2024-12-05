@@ -3659,14 +3659,14 @@ ind_icc$max <- c(0.005,0.05,-0.001,0.62,0.66,0.18,0.490,0.540,0.373)
 ind_icc$value <- as.numeric(ind_icc$value)
 str(ind_icc)
 
-p <- ggplot(data=ind_icc, aes(x=level, y=value, fill=study)) + 
+p <- ggplot(data=ind_icc, aes(x=reorder(level), y=value, fill=study)) + 
 geom_bar(stat="identity", position=position_dodge())  + 
   scale_fill_manual(values=c("black", "darkgray", "lightgray")) +
   geom_errorbar(aes(ymin = min, ymax = max), width = .2, position=position_dodge(.9))
 
 ```
 
-```{r Figure 4,echo=FALSE,fig.cap=" Mean ICC by Item Type", fig.width=8, fig.height=6}
+```{r Figure4,echo=FALSE,fig.cap=" Mean ICC by Item Type", fig.width=8, fig.height=6}
 p + labs(x="Type", y="Mean ICC", fill = "Study")
 ```
 
@@ -3827,8 +3827,8 @@ rm(asym,asym_des,linear,linear_des,quasi,quasi_des,Qdat_text,Adat_text,Ldat_text
 ```
 
 
-```{r Figure 5, fig.cap="Study 2: Functional Form and ICC by Item", echo=FALSE, fig.width=9, fig.height=6}
-study2plots <- grid.arrange(L_plot,Q_plot, A_plot)
+```{r Figure5, fig.cap="Study 2: Functional Form and ICC by Item", echo=FALSE, fig.width=9, fig.height=6}
+study2plots <- grid.arrange(A_plot,L_plot,Q_plot)
 
 rm(A_plot,L_plot,Q_plot)
 ```
@@ -3971,9 +3971,9 @@ rm(asym,asym_des,linear,linear_des,quasi,quasi_des,Qdat_text,Adat_text,Ldat_text
 
 
 
-```{r Figure 6, fig.cap="Study 1: Functional Form and ICC by Item", echo=FALSE, fig.width=9, fig.height=6}
+```{r Figure6, fig.cap="Study 1: Functional Form and ICC by Item", echo=FALSE, fig.width=9, fig.height=6}
 #study1 graph
-study1plots <- grid.arrange(L_plot,Q_plot, A_plot)
+study1plots <- grid.arrange(A_plot,L_plot,Q_plot)
 
 rm(A_plot,L_plot,Q_plot)
 ```
