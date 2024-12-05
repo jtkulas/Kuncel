@@ -2827,7 +2827,6 @@ paper$strat[paper$ed.value >= 2.9 ] <- "greater than 3"
 
 ```
 
-
 ```{r qsorttable}
 
 dat_text3 <- data.frame(
@@ -2844,6 +2843,100 @@ papaja::apa_table(dat_text3,
                   escape = FALSE) 
 
 ```
+
+```{r Edwardstable}
+
+
+ed.high     <- forcatplot[(forcatplot$ed.value <= -3),]
+ed.somehigh <- forcatplot[(forcatplot$ed.value > -3) & (forcatplot$ed.value <=-2),]
+ed.modhigh  <- forcatplot[(forcatplot$ed.value > -2) & (forcatplot$ed.value <=-1),]
+ed.zerohigh     <- forcatplot[(forcatplot$ed.value > -1) & (forcatplot$ed.value < 0),]
+ed.zero      <- forcatplot[(forcatplot$ed.value == 0),]
+ed.zerolow      <- forcatplot[(forcatplot$ed.value > 0) & (forcatplot$ed.value < 1),]
+ed.modlow   <- forcatplot[(forcatplot$ed.value >= 1) & (forcatplot$ed.value < 2),]
+ed.somelow  <- forcatplot[(forcatplot$ed.value >= 2) & (forcatplot$ed.value < 3),]
+ed.low      <- forcatplot[(forcatplot$ed.value >= 3),]
+
+ed.high$edcat      <- "-3 and Below"
+ed.somehigh$edcat  <- "-3 to -2"
+ed.modhigh$edcat   <- "-2 to -1"
+ed.zerohigh$edcat  <- "-1 to 0"
+ed.zero$edcat      <- "0"
+ed.zerolow$edcat   <- "0 to 1"
+ed.modlow$edcat    <- "1 to 2"
+ed.somelow$edcat   <- "2 to 3"
+ed.low$edcat       <- "3 and Above"
+
+newtable <- rbind(ed.high,ed.somehigh,ed.modhigh,ed.zerohigh,ed.zero,ed.zerolow,ed.modlow,ed.somelow,ed.low)
+
+newtable$edcat <- factor(newtable$edcat, levels = c("-3 and Below", 
+                                                    "-3 to -2",
+                                                    "-2 to -1",
+                                                    "-1 to 0", 
+                                                    "0",  
+                                                    "0 to 1", 
+                                                    "1 to 2", 
+                                                    "2 to 3",
+                                                    "3 and Above"))
+
+write.csv(table(newtable$edcat,newtable$category),"EdwardsCategories.csv")
+
+percenttab <- table(newtable$edcat,newtable$category)
+
+iso_one   <- percenttab[1,]
+iso_two   <- percenttab[2,]
+iso_three <- percenttab[3,]
+iso_four  <- percenttab[4,]
+iso_five  <- percenttab[5,]
+iso_six   <- percenttab[6,]
+iso_seven <- percenttab[7,]
+iso_eight <- percenttab[8,]
+iso_nine  <- percenttab[9,]
+
+perc_one   <- round(iso_one/sum(iso_one),2)
+perc_two   <- round(iso_two/sum(iso_two),2)
+perc_three <- round(iso_three/sum(iso_three),2)
+perc_four  <- round(iso_four/sum(iso_four),2)
+perc_five  <- round(iso_five/sum(iso_five),2)
+perc_six   <- round(iso_six/sum(iso_six),2)
+perc_seven <- round(iso_seven/sum(iso_seven),2)
+perc_eight <- round(iso_eight/sum(iso_eight),2)
+perc_nine  <- round(iso_nine/sum(iso_nine),2)
+
+presenttab <- rbind(perc_one,perc_two,perc_three,perc_four,perc_five,perc_six,perc_seven,perc_eight,perc_nine)
+
+edcat <- c("-3 and Below", "-3 to -2", "-2 to -1", "-1 to 0", "0", "0 to 1", "1 to 2", "2 to 3", "3 and Above")
+
+displaytab <- cbind(edcat,presenttab)
+
+write.csv(displaytab,"EdwardsCategories_as_percents.csv", row.names = FALSE)
+
+# table(newtable$edcat,newtable$category)     ## make a heatmap of this table (11/9/24)
+## should be percentage within edwards array
+
+heatplot <- read.csv("EdwardsCategories_as_percents.csv")
+
+heatplot$linear..p. <- paste(heatplot$linear..p.*100, "%")
+heatplot$non.mono..s. <- paste(heatplot$non.mono..s.*100, "%")
+heatplot$non.mono..hook.mp. <- paste(heatplot$non.mono..hook.mp.*100, "%")
+heatplot$non.mono..hook.ep. <- paste(heatplot$non.mono..hook.ep.*100, "%")
+heatplot$non.mono..j. <- paste(heatplot$non.mono..j.*100, "%")
+heatplot$non.mono..flat. <- paste(heatplot$non.mono..flat.*100, "%")
+heatplot$non.mono..peaked. <- paste(heatplot$non.mono..peaked.*100, "%")
+heatplot$non.mono..hook.en. <- paste(heatplot$non.mono..hook.en.*100, "%")
+heatplot$non.mono..hook.mn. <- paste(heatplot$non.mono..hook.mn.*100, "%")
+heatplot$non.mono..z. <- paste(heatplot$non.mono..z.*100, "%")
+heatplot$linear..n. <- paste(heatplot$linear..n.*100, "%")
+
+papaja::apa_table(heatplot, 
+                  caption = "Percent functional form (within Edwards array)",
+                  note = "(p) = positive; (s) = 's' shaped; (hook mp) = positive moderate hook shaped; (hook ep) = positive extreme hook shaped ; (j) = 'j' shaped; (flat) = lays horizonally; (peaked) =  peaks near the middle; (hook en) = negative extreme hook shaped; (hook mn) = negative moderate hook shaped; (z) = 'z' shaped; (n) = negative
+",
+#                  row.names=FALSE,
+                  escape = FALSE) 
+
+```
+
 
 ## Study 1 Discussion 
 
