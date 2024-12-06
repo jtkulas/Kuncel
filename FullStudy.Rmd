@@ -2844,7 +2844,7 @@ papaja::apa_table(dat_text3,
 
 ```
 
-```{r Edwardstable}
+```{r Figure4, fig.cap="Percentage of Kuncel Tellegen Categories that Fall within Edwards Strata", fig.width=8, fig.height=6, echo=FALSE}
 
 
 ed.high     <- forcatplot[(forcatplot$ed.value <= -3),]
@@ -2881,60 +2881,37 @@ newtable$edcat <- factor(newtable$edcat, levels = c("-3 and Below",
 
 write.csv(table(newtable$edcat,newtable$category),"EdwardsCategories.csv")
 
-percenttab <- table(newtable$edcat,newtable$category)
+library(tidyr)
+library(forcats)
 
-iso_one   <- percenttab[1,]
-iso_two   <- percenttab[2,]
-iso_three <- percenttab[3,]
-iso_four  <- percenttab[4,]
-iso_five  <- percenttab[5,]
-iso_six   <- percenttab[6,]
-iso_seven <- percenttab[7,]
-iso_eight <- percenttab[8,]
-iso_nine  <- percenttab[9,]
+mapdata <- read.csv("EdwardsCategories.csv")
 
-perc_one   <- round(iso_one/sum(iso_one),2)
-perc_two   <- round(iso_two/sum(iso_two),2)
-perc_three <- round(iso_three/sum(iso_three),2)
-perc_four  <- round(iso_four/sum(iso_four),2)
-perc_five  <- round(iso_five/sum(iso_five),2)
-perc_six   <- round(iso_six/sum(iso_six),2)
-perc_seven <- round(iso_seven/sum(iso_seven),2)
-perc_eight <- round(iso_eight/sum(iso_eight),2)
-perc_nine  <- round(iso_nine/sum(iso_nine),2)
+##rename colnames so they're easier to read/match other visuals
+colnames(mapdata) <- c("edcat", "Linear (p)", "Nonmono (s)", "Nonmono Hook (mp)", "Nonmono Hook (ep)", "Nonmono (j)", "Nonmono Flat", "Nonmono Peaked", "Nonmono Hook (en)", "Nonmono Hook (mn)", "Nonmono (z)", "Linear (n)")
 
-presenttab <- rbind(perc_one,perc_two,perc_three,perc_four,perc_five,perc_six,perc_seven,perc_eight,perc_nine)
+##need long table
+#edcat category percent
+mapdata <- mapdata %>%
+  pivot_longer(cols = `Linear (p)`:`Linear (n)`,
+             names_to = "Category",
+             values_to = "Percentage")
 
-edcat <- c("-3 and Below", "-3 to -2", "-2 to -1", "-1 to 0", "0", "0 to 1", "1 to 2", "2 to 3", "3 and Above")
+mapdata$Percentage <- mapdata$Percentage * 100
 
-displaytab <- cbind(edcat,presenttab)
+##HEATMAP Linear (P) Top on Y Axis
+##used fct_inorder for x axis; needed to use fct_relvel for y --- I do not understand why it needs to be in reverse order, but it apparently
+##has to be in reverse order.
+heatmap <- ggplot(data = mapdata, mapping = aes(x = fct_inorder(edcat), y = fct_relevel(Category, c("Linear (n)", "Nonmono (z)", "Nonmono Hook (mn)", "Nonmono Hook (en)", "Nonmono Peaked", "Nonmono Flat", "Nonmono (j)",
+                                                                                                    "Nonmono Hook (ep)", "Nonmono Hook (mp)", "Nonmono (s)", "Linear (p)")), fill = Percentage)) +
+  geom_tile(color = "white",
+            lwd = 1.5,
+            linetype = 1) +
+  scale_fill_gradient(low = "lightblue", high = "black") +
+  coord_fixed() +
+  xlab(label = "Edwards") +
+  ylab(label = "Category")
 
-write.csv(displaytab,"EdwardsCategories_as_percents.csv", row.names = FALSE)
-
-# table(newtable$edcat,newtable$category)     ## make a heatmap of this table (11/9/24)
-## should be percentage within edwards array
-
-heatplot <- read.csv("EdwardsCategories_as_percents.csv")
-
-heatplot$linear..p. <- paste(heatplot$linear..p.*100, "%")
-heatplot$non.mono..s. <- paste(heatplot$non.mono..s.*100, "%")
-heatplot$non.mono..hook.mp. <- paste(heatplot$non.mono..hook.mp.*100, "%")
-heatplot$non.mono..hook.ep. <- paste(heatplot$non.mono..hook.ep.*100, "%")
-heatplot$non.mono..j. <- paste(heatplot$non.mono..j.*100, "%")
-heatplot$non.mono..flat. <- paste(heatplot$non.mono..flat.*100, "%")
-heatplot$non.mono..peaked. <- paste(heatplot$non.mono..peaked.*100, "%")
-heatplot$non.mono..hook.en. <- paste(heatplot$non.mono..hook.en.*100, "%")
-heatplot$non.mono..hook.mn. <- paste(heatplot$non.mono..hook.mn.*100, "%")
-heatplot$non.mono..z. <- paste(heatplot$non.mono..z.*100, "%")
-heatplot$linear..n. <- paste(heatplot$linear..n.*100, "%")
-
-papaja::apa_table(heatplot, 
-                  caption = "Percent functional form (within Edwards array)",
-                  note = "(p) = positive; (s) = 's' shaped; (hook mp) = positive moderate hook shaped; (hook ep) = positive extreme hook shaped ; (j) = 'j' shaped; (flat) = lays horizonally; (peaked) =  peaks near the middle; (hook en) = negative extreme hook shaped; (hook mn) = negative moderate hook shaped; (z) = 'z' shaped; (n) = negative
-",
-#                  row.names=FALSE,
-                  escape = FALSE) 
-
+heatmap + theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) 
 ```
 
 
@@ -3761,7 +3738,7 @@ geom_bar(stat="identity", position=position_dodge())  +
 
 ```
 
-```{r Figure4,echo=FALSE,fig.cap=" Mean ICC by Item Type", fig.width=8, fig.height=6}
+```{r Figure5,echo=FALSE,fig.cap=" Mean ICC by Item Type", fig.width=8, fig.height=6}
 p + labs(x="Type", y="Mean ICC", fill = "Study")
 ```
 
@@ -3922,7 +3899,7 @@ rm(asym,asym_des,linear,linear_des,quasi,quasi_des,Qdat_text,Adat_text,Ldat_text
 ```
 
 
-```{r Figure5, fig.cap="Study 2: Functional Form and ICC by Item", echo=FALSE, fig.width=9, fig.height=6}
+```{r Figure7, fig.cap="Study 2: Functional Form and ICC by Item", echo=FALSE, fig.width=9, fig.height=6}
 study2plots <- grid.arrange(A_plot,L_plot,Q_plot)
 
 rm(A_plot,L_plot,Q_plot)
