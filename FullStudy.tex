@@ -62,38 +62,28 @@
   \let\oldsubparagraph\subparagraph
   \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
-% definitions for citeproc citations
-\NewDocumentCommand\citeproctext{}{}
-\NewDocumentCommand\citeproc{mm}{%
-  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
-\makeatletter
- % allow citations to break across lines
- \let\@cite@ofmt\@firstofone
- % avoid brackets around text for \cite:
- \def\@biblabel#1{}
- \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
-\makeatother
 \newlength{\cslhangindent}
 \setlength{\cslhangindent}{1.5em}
 \newlength{\csllabelwidth}
 \setlength{\csllabelwidth}{3em}
-\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
- {\begin{list}{}{%
-  \setlength{\itemindent}{0pt}
-  \setlength{\leftmargin}{0pt}
-  \setlength{\parsep}{0pt}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
   % turn on hanging indent if param 1 is 1
   \ifodd #1
-   \setlength{\leftmargin}{\cslhangindent}
-   \setlength{\itemindent}{-1\cslhangindent}
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
   \fi
   % set entry spacing
-  \setlength{\itemsep}{#2\baselineskip}}}
- {\end{list}}
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
 \usepackage{calc}
-\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
-\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
-\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 \ifLuaTeX
 \usepackage[bidi=basic]{babel}
@@ -179,7 +169,7 @@
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
-\usepackage{bookmark}
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
 \hypersetup{
@@ -224,7 +214,8 @@ Procedurally, these response tendencies within Psychological assessment contexts
 
 These indicator saturation investigations \emph{did} enjoy a brief flurry of attention in the mid \(20^{th}\) Century (see, for example, Edwards, 1953, 1957b, 1957a), although this interest dimmed without the direct advocacy of its originating proponent and researcher, Allen Edwards. Recently, there has been a little movement toward revisiting these direct item evaluations (Cui et al., 2022; Leising et al., 2021), as well as a contemporary recommendation aimed at the \emph{method} used to collect the evaluations (aka ``ratings,'' e.g., Kuncel \& Tellegen, 2009). The current paper contrasts the traditional (aka ``Edwardian'') with the more recently advocated contemporary methodology. Our intent was to investigate possible redundancies in information conveyed across the two approaches, as well as to seek out indicators of task complexity when judges are asked to provide such ratings.
 
-\subsection{The Role of Social Desirability in Psychological Assessment}\label{the-role-of-social-desirability-in-psychological-assessment}
+\hypertarget{the-role-of-social-desirability-in-psychological-assessment}{%
+\subsection{The Role of Social Desirability in Psychological Assessment}\label{the-role-of-social-desirability-in-psychological-assessment}}
 
 Two contemporary methodologies have been most commonly applied in the evaluation of social desirability's impact on Psychological assessment scores, and both generally support the conclusion that social desirability should not be considered overly problematic (e.g., it is a ``red herring,'' Ones et al., 1996).
 
@@ -236,13 +227,15 @@ The meta-analyses of Birkeland et al. (2006), Ones et al. (1996), and Viswesvara
 
 Viswesvaran and Ones (1999) applied a similar meta-analytic lens to \emph{experimental} investigations involving instructions to ``fake good'' or ``fake bad'', finding that Big 5 scales tended to exhibit similar levels of fakability. This analysis confirmed that respondents can indeed intentionally distort their responses (e.g., respond in a socially desirable manner) if instructed to do so. Regarding non-laboratory investigations where context is assumed to prime a socially desirable response orientation, Birkeland et al. (2006) similarly documented elevated Big 5 scale scores with applicant respondents relative to non-applicant respondents, but also noted that the pattern of rating elevation differed across the type of position the applicant was seeking. Note here that all methodologies encompassed by these meta-analyses are characterized by an individual difference orientation (e.g., it is differences across respondent proclivity to enhance - either driven by context or psyche - within which the social desirability influence is manifest).
 
-\subsubsection{An Elemental Focus Alternative}\label{an-elemental-focus-alternative}
+\hypertarget{an-elemental-focus-alternative}{%
+\subsubsection{An Elemental Focus Alternative}\label{an-elemental-focus-alternative}}
 
 Alternative to the above-noted inter-individual-oriented approaches to exploring social desirability's role in Psychological assessment, there exists a subset of researchers who have focused on the assessment elements themselves (e.g., the \emph{item}, see, for example, Edwards, 1957b). This approach appears to be more contemporarily popular within non-work assessment domains than the business or Industrial and Organizational assessment literatures (see, for example, Leising et al., 2012, 2015).
 
 For roughly 60 years, the standard investigation of item-level saturation with socially desirable content had been applied in a fairly consistent manner, with little methodological deviation from the procedure first advocated by Edwards. Edwards (1953) simply asked judges to rate the content of personality items along a social desirability continuum (wherein, for example, the personality item, ``I hate people'' would likely be deemed less desirable than an item such as, ``I regularly give money to charities in need''). Edwards specifically asked his judges to provide ratings ranging from extremely undesirable to extremely desirable along a 9-point scale, and subsequently went on to further demonstrate that the more socially desirable an item is, the more likely someone will endorse having that characteristic (Edwards, 1953, 1957b) \footnote{This is a very robust finding that has been replicated many times. The implications of this finding are also far-reaching, and constitute one of the reasons an exploration of the contemporary viability of Edwards' approach is deemed important. However, the focus of the current exploration is fully \emph{procedural}, pointed directly at the \emph{method used to collect item social desirability ratings} rather than the broader implications of attraction toward the socially desirable within Psychological assessment.}.
 
-\paragraph{A Procedural Revisitation}\label{a-procedural-revisitation}
+\hypertarget{a-procedural-revisitation}{%
+\paragraph{A Procedural Revisitation}\label{a-procedural-revisitation}}
 
 Kuncel and Tellegen (2009) revisited the Edwardian item rating protocol, proposing that traditional measurement approaches such as Edwards' are perhaps overly simplistic if assessment specialists aim to truly understand the impact of social desirability on assessment responses. Specifically, Kuncel and Tellegen (2009) noted that previous investigations had largely ignored the potential for social desirability to be maximally salient at locations other than trait extremes. This perspective challenged the previously implicit assumption that social desirability manifests itself in a linear fashion across response options, whereby ``agreement'' with more (or less) of a characteristic is consistently associated with greater levels of social desirability (or \emph{un}desirability). Procedurally, Kuncel and Tellegen (2009) assessed differential attraction to item \emph{response options}, as opposed to the Edwardian focus on the \emph{item stem}.
 
@@ -272,29 +265,36 @@ Given the greater time and resource commitments required of the contemporary app
 \emph{Research Question 2}: Is the contemporary procedure more cognitively taxing than the traditional procedure? \(\leftarrow\) \textbf{Reword after finanlize analyses - didn't collect response latencies from the Edwards form}
 \end{quote}
 
-\section{Study 1}\label{study-1}
+\hypertarget{study-1}{%
+\section{Study 1}\label{study-1}}
 
-\section{Methods}\label{methods}
+\hypertarget{methods}{%
+\section{Methods}\label{methods}}
 
-\subsection{Participants}\label{participants}
+\hypertarget{participants}{%
+\subsection{Participants}\label{participants}}
 
 Seventy-six undergraduate students made ratings of \emph{either} item social desirability (\emph{n} = 14, Edwards, 1957b), or levels of desirability associated with different trait levels (\emph{n} = 62, e.g., Kuncel \& Tellegen, 2009).
 
-\subsection{Materials}\label{materials}
+\hypertarget{materials}{%
+\subsection{Materials}\label{materials}}
 
 The IPIP-NEO is a 300-item personality measure intended to assess the Big Five personality dimensions: Conscientiousness, Agreeableness, Extraversion, Openness to Experience, and Neuroticism (Johnson, 2005). For the purposes of the current investigation, we did not collect typical responses to these 300 indicators, but were rather interested in the evaluative content of the items (or, alternatively, the evaluative content associated with differential standing along the construct implied by the item response options).
 
-\subsection{Procedure}\label{procedure}
+\hypertarget{procedure}{%
+\subsection{Procedure}\label{procedure}}
 
 All ratings were made via paper and pencil in an experimental laboratory. The Edwards (1957b) ratings were made along Edwards' originally specified 9-point scale ranging from Extremely Undesirable to Extremely Desirable. Because we investigated a fairly large instrument, we constructed 2 counterbalanced ``Edwards'' forms as an effort to limit potential fatigue effects across the rating process. The Kuncel and Tellegen (2009) ratings were collected from 60 different item stems across 10 different counterbalancings. Each rater (regardless of task; item stem or response option rating) was therefore asked to perform 300 total ratings (either 1 evaluation per 300 items or 5 evaluations per 60 items).
 
-\section{Results}\label{results}
+\hypertarget{results}{%
+\section{Results}\label{results}}
 
-All analyses were performed in R version 4.2.2 (R Core Team, 2022). Three different approaches were applied to compare findings across the two item rating procedures. First, simple linear regressions was applied to all ``Kuncel \& Tellegen'' functions (as explained below), extracting slope coefficients, with Edwards' ratings being correlated with these slope coefficients across items. Secondly, 300 hierarchical \(2^{nd}\) degree \emph{polynomial} regressions were applied to each function in an attempt to capture empirical ``U'' or ``inverted-U'' functional forms, and the number of items characterized by the quadratic regression term (incrementally ``above and beyond'' the linear) were noted. Lastly, visual perceptions of the functions were categorized, and the above noted associations were revisited within \emph{differently categorized functional forms}.\footnote{NOTE. Old but maybe revisit: used these groupings to help inform ranges of Edwards values along which nonlinear item functions tend to be more prominent (e.g., how many ``inverted U-shaped'' functions were noted in items characterized by Edwards' system as \emph{extremely undesirable}, \emph{undesirable}, \emph{average}, \emph{desirable}, and \emph{extremely desirable}).}
+All analyses were performed in R version 4.3.1 (R Core Team, 2023). Three different approaches were applied to compare findings across the two item rating procedures. First, simple linear regressions was applied to all ``Kuncel \& Tellegen'' functions (as explained below), extracting slope coefficients, with Edwards' ratings being correlated with these slope coefficients across items. Secondly, 300 hierarchical \(2^{nd}\) degree \emph{polynomial} regressions were applied to each function in an attempt to capture empirical ``U'' or ``inverted-U'' functional forms, and the number of items characterized by the quadratic regression term (incrementally ``above and beyond'' the linear) were noted. Lastly, visual perceptions of the functions were categorized, and the above noted associations were revisited within \emph{differently categorized functional forms}.\footnote{NOTE. Old but maybe revisit: used these groupings to help inform ranges of Edwards values along which nonlinear item functions tend to be more prominent (e.g., how many ``inverted U-shaped'' functions were noted in items characterized by Edwards' system as \emph{extremely undesirable}, \emph{undesirable}, \emph{average}, \emph{desirable}, and \emph{extremely desirable}).}
 
 All three approaches focused on the \emph{functional form} of ``Kuncel \& Tellegen'' ratings, and relied upon either regression analyses to provide an empirical estimate of the function form and/or judge categorizations to provide a subjective interpretation of the function form. These functions all reflect progression across Kuncel \& Tellegen frames of reference (ranging from someone who is ``Extremely High in the characteristic (top 1\%)'' to someone who is ``Extremely Low in the characteristic (below 1\%)'', again see Figure \ref{fig:Figure1} for exposition). The ``height'' of the function at each of five rated frames of reference is determined by the \emph{average desirability rating} at each of these points of normative evaluation.
 
-\subsubsection{Approach \#1: Functional Slope (Empirical)}\label{approach-1-functional-slope-empirical}
+\hypertarget{approach-1-functional-slope-empirical}{%
+\subsubsection{Approach \#1: Functional Slope (Empirical)}\label{approach-1-functional-slope-empirical}}
 
 One reasonable manifestation of similarity across the two procedures would be stronger incidences of functional linearity with extremely desirable and undesirable items (and correspondingly weaker linear associations with moderate items). For the first investigative approach, we therefore probed for associations between ``Edwards''' item ratings and \emph{regression slope} of ``Kuncel \& Tellegen'' function.
 
@@ -308,7 +308,8 @@ For added visual exposition, items were also categorized within arrays of values
 \caption{\label{fig:Figure2}Kuncel \& Tellegen (2009) functional patterns across Edwards (1953) scale value strata.}
 \end{figure}
 
-\subsubsection{Approach \#2: Functional form (Empirical)}\label{approach-2-functional-form-empirical}
+\hypertarget{approach-2-functional-form-empirical}{%
+\subsubsection{Approach \#2: Functional form (Empirical)}\label{approach-2-functional-form-empirical}}
 
 Our second approach leveraged hierarchical polynomial regressions, with the index of interest being the change in \(R^2\) associated with nonlinear association, as operationalized as a quadratic (second degree) polynomial term. Most item functions (\(n_k\) = 203) exhibited a very low change in \(R^2\) (see Table \ref{tab:polytable} for a summary of these results and explicit articulations of our subjective classifications of ``low'' or ``very low'').\footnote{\(F\)-tests associated with the \(\Delta R^2\) indicated that 92.31\% of item functions were not \emph{significantly} improved when specifying the quadratic term (\(\alpha\) = .05). This information is being presented for completeness, although it should be noted that \(F\) critical values are very large in this atypical application of regression and effect sizes are more appropriately informative.} These results suggest that, although subjective judgements may be able to visually distinguish functional form\footnote{Compare with the \% of ``linear'' and maybe ``egyptian'' that we subjectively categorized - 5/30/24. Also add to discussion -- there is a blurry line between a function being ``linear'' and ``non-linear''. Subjectively allowances are given that can be mutually agreed upon. There comes a point, however, where one judge deems a function ``linear'' and another disagrees. Similarly, there comes a point where both judges agree that the function exhibits non-linearity. Indeed, humans in general may not be very good at dissociating curved and straight lines (Bales \& Follansbee, 1935; Gibson, 1933; Ogilvie \& Daicar, 1967; Watt et al., 1987).}, empirical estimates are not as sensitive to deviations from linearity.
 
@@ -344,7 +345,8 @@ Never splurge & 0.82 & Above .80 & 2\\
 
 \end{table*}
 
-\subsubsection{Approach \#3: Functional form (Visual)}\label{approach-3-functional-form-visual}
+\hypertarget{approach-3-functional-form-visual}{%
+\subsubsection{Approach \#3: Functional form (Visual)}\label{approach-3-functional-form-visual}}
 
 To supplement the empirical results, Figure \ref{fig:Figure2} plots for all 300 items were presented to judges who performed an inductive content analysis (Miles \& Huberman, 1994) -- grouping item functions by \emph{perceived functional similarity} without further instruction. There were 11 total categories identified, and all but three item functions fit into one of these 11 categories (item functions were assigned exclusively to only one category)\footnote{The unclassified items were, ``Am not interested in other peoples' problems'', ``Postpone decisions'', and ``Readily overcome setbacks''.}. Figure \ref{fig:lastone} presents an exemplar function for each of the 11 categories as well as panel scatterplots and correlations executed within each of the 11 categories. Note that several of the categories represent ``mirror'' functions (e.g., the ``leftmost'' category is a symmetrical mirror of the ``rightmost'' category). The average Edwards rating for all items grouped within each category is presented in Table \ref{tab:qsorttable} along with the number of items classified as exhibiting the functional form.
 
@@ -396,7 +398,8 @@ m= 1.86 & linear (n) & 26.00\\
 \caption{\label{fig:Figure4}Percentage of Kuncel Tellegen Categories that Fall within Edwards Strata}
 \end{figure}
 
-\subsection{Study 1 Discussion}\label{study-1-discussion}
+\hypertarget{study-1-discussion}{%
+\subsection{Study 1 Discussion}\label{study-1-discussion}}
 
 Across approaches, results tended to converge on similar patterns. The preponderance of our results first suggest that, in general, linear or ``close-to'' linear relationships with social desirability (across response options) may fairly well represent the plurarity of assessment item functions. Additionally, similar information seems to be available through both the traditional and contemporary measurement approaches.
 
@@ -408,31 +411,38 @@ NOTE. Emily task for 12/21 -- 1) count frequencies of ``number of individuals ch
 
 Although more meaningful deviations from linear functions do exist, they are predominantly associated with \emph{moderately rated} Edwards items. Consultation of the 25 randomly sampled item functions (Figure \ref{fig:Figure2}) also reflects this pattern of non-monotonicity.\footnote{A full list of all 300 item functions are available in this paper's online resources.} It is quite plausible that the \emph{most informatively meaningful} ``U'' or ``inverted U'' shaped functions, when they occur, are reflective of some ambiguous or contextually primed desirability, and that this ambiguity or contextual moderation results in ``middle ground'' evaluation via the Edwards method.
 
-\section{Study 2}\label{study-2}
+\hypertarget{study-2}{%
+\section{Study 2}\label{study-2}}
 
 One of our observations across the two item rating procedures has been that the Kuncel and Tellegen (2009) approach is more cognitively taxing for raters than is the Edwards (1953) rating task. Study Two therefore collected ratings via computer, with estimates of difficulty operationalized as response latencies.
 
-\section{Methods}\label{methods-1}
+\hypertarget{methods-1}{%
+\section{Methods}\label{methods-1}}
 
-\subsection{Participants}\label{participants-1}
+\hypertarget{participants-1}{%
+\subsection{Participants}\label{participants-1}}
 
-One hundred and thirty one undergraduate students from two universities participated in item ratings. After data cleaning, 87 students ratings were analyzed.
+One hundred and thirty one undergraduate students from two universities provided item ratings.
 
-\subsection{Procedure}\label{procedure-1}
+\hypertarget{procedure-1}{%
+\subsection{Procedure}\label{procedure-1}}
 
-All ratings and response latencies (measured in seconds `s') were gathered online using Qualtrics (2014), utilizing the Kuncel and Tellegen (2009) rating scale. The ratings included fifteen of the most archetypal items from Study 1, focusing on the three functional forms: asymmetric, linear, and quasisymmetric.The assessment also included two practice questions at the beginning so students could be familiar with the scales.
+All ratings and response latencies were collected online via Qualtrics (2014). Kuncel and Tellegen (2009) ratings were made across fifteen Study 1 items that exhibited strong functional forms: linear (\emph{k}=5), asymmetric (\emph{k}=5), and quasisymmetric (\emph{k}=5). This administration also included two practice questions at the beginning to familiarize participants with the so students could be familiar with the rating procedure.
 
-During data cleaning, we screened out total survey durations less than 500 seconds and longer than 2000 seconds (n=46) as well as individuals who had total response latencies less than 20 seconds across the final 20 items (on average less than 1 second per item response; n=8). These conservative screens were applied based on observations from experiment proctors that several participants were not fully engaged in their responses. Additionally, questions were implemented to gauge task difficulty and carelessness - no data was removed utilizing these questions. However, carelessness analyses continuted with the computation of consecutive non-differentiating responses as well as intra-individual response variability estimates was done due to tedium and cognitive complexity of the task (see, for example, Dunn et al., 2018; Marjanovic et al., 2015) via the \emph{careless} R package (Yentes \& Wilhelm, 2021) in R version 4.2.2 (R Core Team, 2022).
+Conservative data screening excluded participants with a total survey duration of less than 500 seconds or longer than 2000 seconds (\emph{n}=46) as well as individuals who had an aggregated response duration of less than 20 seconds across their final 20 responses (\emph{n}=8). Additionally, consecutive non-differentiating responses as well as intra-individual response variability estimates was done due to tedium and cognitive complexity of the task (see, for example, Dunn et al., 2018; Marjanovic et al., 2015) via the \emph{careless} R package (Yentes \& Wilhelm, 2023) in R version 4.3.1 (R Core Team, 2023).
 
-\section{Results}\label{results-1}
+\hypertarget{results-1}{%
+\section{Results}\label{results-1}}
 
-\subsubsection{Response Latencies}\label{response-latencies}
+\hypertarget{response-latencies}{%
+\subsubsection{Response Latencies}\label{response-latencies}}
 
 All latencies were taken and compiled into one list so that outliers could be removed. Any latencies that were 0 were first removed, then any time below the 10th percentile and above 90th percentile, from the remaining times, were removed. Afterwards, mean latencies were gathered for four conditions: the item (e.g., worry about things), the level (e.g., extremely high), the type (e.g., linear), and negatively worded items.
 
 Latency data had some differences in type with quasisymmetric taking the least amount of time (\emph{M} = 2.8 seconds) and asymmetric taking the most time (\emph{M} = 3.5 seconds). Negatively worded items took on average 0.5s longer than non-negatively worded items. The extremely high level had the largest latency time at 6.0 seconds, while the other levels ranged from 2.0s to 3.0s. However, this is likely an artifact due to extremely high levels being the first rating after reading the item characteristic, rather than it being harder to rate.
 
-\subsubsection{Interrater Reliability}\label{interrater-reliability}
+\hypertarget{interrater-reliability}{%
+\subsubsection{Interrater Reliability}\label{interrater-reliability}}
 
 ICC(2,1) was used for interrater reliability (BIB REF) for Study 1 and Study 2 comparisons on the Edwards (1957b) as well as Kuncel and Tellegen (2009) methodologies. For Edwards, the ICC(2,1) was run for the three functional forms, and then all ratings were combined to obtain an overall ICC. However, for the Kuncel and Tellgen method, interrater reliability was first run on the item itself, and then all interrater reliabilities were averaged to obtain the three functional form types for Study 1 and Study 2. Kuncel and Tellegen method ICCs are shown in Table 3.
 
@@ -484,7 +494,8 @@ Averaged ICC by functional form and condition are presented in Figure 4 via bars
 \caption{\label{fig:Figure5} Mean ICC by Item Type}
 \end{figure}
 
-\subsubsection{Functional Forms}\label{functional-forms}
+\hypertarget{functional-forms}{%
+\subsubsection{Functional Forms}\label{functional-forms}}
 
 Figures 5 and 6 represent individual ICCs with their functional forms in the Kuncel and Tellegen conditions for both study 2 and study 1 for comparison. Visually, linear functional forms stayed consistent between study 1 and study 2. Concerning asymmetric forms, study 1 had more extreme visuals in comparison to study 2, going from ep to mp (but these would still be classified as asymmetric forms). Quasisymmetric forms had two items that visually switched functional forms: ``Enjoy Wild Flights of Fantasy'' (to linear), and ``Relaxed Most of the Time'' (to asymmetric).
 
@@ -500,7 +511,8 @@ Figures 5 and 6 represent individual ICCs with their functional forms in the Kun
 \caption{\label{fig:Figure6}Study 1: Functional Form and ICC by Item}
 \end{figure}
 
-\section{Discussion}\label{discussion}
+\hypertarget{discussion}{%
+\section{Discussion}\label{discussion}}
 
 \begin{quote}
 Note. Anecdotally the functions appeared more pronounced on one side versus the other - look at Figure 3 and some ``hooks'' tended to be stronger (more gentle slopes with the other side)
@@ -514,7 +526,8 @@ Certainly the Kuncel and Tellegen (2009) procedure conveys information not conta
 
 Kuncel and Tellegen (2009) proposed 4 functional types - visual inspection of our empirical functions suggest that additional information lies in the \emph{location} of the function as well. Witches hat has different implications than egyptian or captain hook. Captain hook and witches hat are both ``non-monotonic'', but differ in ``high point'' location, either at neutral or moderately desirable locations. Captain hook can likely be treated as effectively linear whereas witches hat should not. Our functional slope index captures these deviations and should perhaps be considered in future investigations (intercept too? If it's witches hat then intercept \emph{most likely} neutral-ish although not necessarily so).
 
-\subsection{Limitations}\label{limitations}
+\hypertarget{limitations}{%
+\subsection{Limitations}\label{limitations}}
 
 Our task was likely too long - in retrospect a shorter measure should have been pursued.
 
@@ -532,123 +545,124 @@ Commentary at the end of the references: rated the visual functions along dimens
 NOTE. Maybe do something with residuals to replace current subjective rating graph - lm object is named, ``try'' 8/12/23
 \end{quote}
 
-\section{References}\label{references}
+\hypertarget{references}{%
+\section{References}\label{references}}
 
 \begingroup
 \setlength{\parindent}{-0.5in}
 \setlength{\leftskip}{0.5in}
 
-\phantomsection\label{refs}
+\hypertarget{refs}{}
 \begin{CSLReferences}{1}{0}
-\bibitem[\citeproctext]{ref-alicke_self-enhancement_2009}
+\leavevmode\vadjust pre{\hypertarget{ref-alicke_self-enhancement_2009}{}}%
 Alicke, M. D., \& Sedikides, C. (2009). Self-enhancement and self-protection: What they are and what they do. \emph{European Review of Social Psychology}, \emph{20}(1), 1--48.
 
-\bibitem[\citeproctext]{ref-alicke_handbook_2011}
+\leavevmode\vadjust pre{\hypertarget{ref-alicke_handbook_2011}{}}%
 Alicke, M. D., \& Sedikides, C. (2011). \emph{Handbook of self-enhancement and self-protection}. Guilford Press.
 
-\bibitem[\citeproctext]{ref-R-papaja}
+\leavevmode\vadjust pre{\hypertarget{ref-R-papaja}{}}%
 Aust, F., \& Barth, M. (2023). \emph{Papaja: Prepare american psychological association journal articles with r markdown}. \url{https://github.com/crsh/papaja}
 
-\bibitem[\citeproctext]{ref-bales1935after}
+\leavevmode\vadjust pre{\hypertarget{ref-bales1935after}{}}%
 Bales, J. F., \& Follansbee, G. L. (1935). The after-effect of the perception of curved lines. \emph{Journal of Experimental Psychology}, \emph{18}(4), 499.
 
-\bibitem[\citeproctext]{ref-barrick_what_2009}
+\leavevmode\vadjust pre{\hypertarget{ref-barrick_what_2009}{}}%
 Barrick, M. R., Shaffer, J. A., \& DeGrassi, S. W. (2009). What you see may not be what you get: Relationships among self-presentation tactics and ratings of interview and job performance. \emph{Journal of Applied Psychology}, \emph{94}(6), 1394.
 
-\bibitem[\citeproctext]{ref-birkeland_meta-analytic_2006}
+\leavevmode\vadjust pre{\hypertarget{ref-birkeland_meta-analytic_2006}{}}%
 Birkeland, S. A., Manson, T. M., Kisamore, J. L., Brannick, M. T., \& Smith, M. A. (2006). A meta-analytic investigation of job applicant faking on personality measures. \emph{International Journal of Selection and Assessment}, \emph{14}(4), 317--335.
 
-\bibitem[\citeproctext]{ref-crowne_new_1960}
+\leavevmode\vadjust pre{\hypertarget{ref-crowne_new_1960}{}}%
 Crowne, D. P., \& Marlowe, D. (1960). A new scale of social desirability independent of psychopathology. \emph{Journal of Consulting Psychology}, \emph{24}(4), 349.
 
-\bibitem[\citeproctext]{ref-cui2022distinguishing}
+\leavevmode\vadjust pre{\hypertarget{ref-cui2022distinguishing}{}}%
 Cui, T., Kam, C. C. S., Cheng, E. H., \& Ho, M. Y. (2022). Distinguishing between trait desirability and item desirability in predicting item scores: Is informant evaluation of personality free from social desirability? \emph{Personality and Individual Differences}, \emph{196}, 111708.
 
-\bibitem[\citeproctext]{ref-dauenheimer_self-enhancement_2002}
+\leavevmode\vadjust pre{\hypertarget{ref-dauenheimer_self-enhancement_2002}{}}%
 Dauenheimer, D. G., Stahlberg, D., Spreemann, S., \& Sedikides, C. (2002). Self-enhancement, self-verification, or self-assessment? The intricate role of trait modifiability in the self-evaluation process. \emph{Revue Internationale de Psychologie Sociale}.
 
-\bibitem[\citeproctext]{ref-dimoulas_patterns_1998}
+\leavevmode\vadjust pre{\hypertarget{ref-dimoulas_patterns_1998}{}}%
 Dimoulas, E., Wender, S., Keenan, J. P., Gallup, G., \& Goulet, N. (1998). Patterns of deception in human mating strategies. \emph{Journal of Psychology and the Behavioral Sciences}, \emph{12}, 39--42.
 
-\bibitem[\citeproctext]{ref-donovan_impact_2014}
+\leavevmode\vadjust pre{\hypertarget{ref-donovan_impact_2014}{}}%
 Donovan, J. J., Dwight, S. A., \& Schneider, D. (2014). The impact of applicant faking on selection measures, hiring decisions, and employee performance. \emph{Journal of Business and Psychology}, \emph{29}(3), 479--493.
 
-\bibitem[\citeproctext]{ref-dunn_intra-individual_2018}
+\leavevmode\vadjust pre{\hypertarget{ref-dunn_intra-individual_2018}{}}%
 Dunn, A. M., Heggestad, E. D., Shanock, L. R., \& Theilgard, N. (2018). Intra-individual response variability as an indicator of insufficient effort responding: Comparison to other indicators and relationships with individual differences. \emph{Journal of Business and Psychology}, \emph{33}(1), 105--121.
 
-\bibitem[\citeproctext]{ref-edwards_relationship_1953}
+\leavevmode\vadjust pre{\hypertarget{ref-edwards_relationship_1953}{}}%
 Edwards, A. L. (1953). The relationship between the judged desirability of a trait and the probability that the trait will be endorsed. \emph{Journal of Applied Psychology}, \emph{37}(2), 90--93.
 
-\bibitem[\citeproctext]{ref-edwards_social_1957-4}
+\leavevmode\vadjust pre{\hypertarget{ref-edwards_social_1957-4}{}}%
 Edwards, A. L. (1957a). Social desirability and probability of endorsement of items in the interpersonal check list. \emph{The Journal of Abnormal and Social Psychology}, \emph{55}(3), 394--396.
 
-\bibitem[\citeproctext]{ref-edwards_social_1957}
+\leavevmode\vadjust pre{\hypertarget{ref-edwards_social_1957}{}}%
 Edwards, A. L. (1957b). \emph{The social desirability variable in personality assessment and research.}
 
-\bibitem[\citeproctext]{ref-gibson1933adaptation}
+\leavevmode\vadjust pre{\hypertarget{ref-gibson1933adaptation}{}}%
 Gibson, J. J. (1933). Adaptation, after-effect and contrast in the perception of curved lines. \emph{Journal of Experimental Psychology}, \emph{16}(1), 1--31.
 
-\bibitem[\citeproctext]{ref-kuncel_conceptual_2009}
+\leavevmode\vadjust pre{\hypertarget{ref-kuncel_conceptual_2009}{}}%
 Kuncel, N. R., \& Tellegen, A. (2009). A conceptual and empirical reexamination of the measurement of the social desirability of items: Implications for detecting desirable response style and scale development. \emph{Personnel Psychology}, \emph{62}(2), 201--228.
 
-\bibitem[\citeproctext]{ref-leising_vocabulary_2012}
+\leavevmode\vadjust pre{\hypertarget{ref-leising_vocabulary_2012}{}}%
 Leising, D., Ostrovski, O., \& Borkenau, P. (2012). Vocabulary for describing disliked persons is more differentiated than vocabulary for describing liked persons. \emph{Journal of Research in Personality}, \emph{46}(4), 393--396.
 
-\bibitem[\citeproctext]{ref-leising_model_2015}
+\leavevmode\vadjust pre{\hypertarget{ref-leising_model_2015}{}}%
 Leising, D., Scherbaum, S., Locke, K. D., \& Zimmermann, J. (2015). A model of {``substance''} and {``evaluation''} in person judgments. \emph{Journal of Research in Personality}, \emph{57}(1), 61--71.
 
-\bibitem[\citeproctext]{ref-leising2021correlations}
+\leavevmode\vadjust pre{\hypertarget{ref-leising2021correlations}{}}%
 Leising, D., Vogel, D., Waller, V., \& Zimmermann, J. (2021). Correlations between person-descriptive items are predictable from the product of their mid-point-centered social desirability values. \emph{European Journal of Personality}, \emph{35}(5), 667--689.
 
-\bibitem[\citeproctext]{ref-levashina_model_2006}
+\leavevmode\vadjust pre{\hypertarget{ref-levashina_model_2006}{}}%
 Levashina, J., \& Campion, M. A. (2006). A model of faking likelihood in the employment interview. \emph{International Journal of Selection and Assessment}, \emph{14}(4), 299--316.
 
-\bibitem[\citeproctext]{ref-li_using_2006}
+\leavevmode\vadjust pre{\hypertarget{ref-li_using_2006}{}}%
 Li, A., \& Bagger, J. (2006). Using the {BIDR} to distinguish the effects of impression management and self-deception on the criterion validity of personality measures: A meta-analysis. \emph{International Journal of Selection and Assessment}, \emph{14}(2), 131--141.
 
-\bibitem[\citeproctext]{ref-marjanovic_inter-item_2015}
+\leavevmode\vadjust pre{\hypertarget{ref-marjanovic_inter-item_2015}{}}%
 Marjanovic, Z., Holden, R., Struthers, W., Cribbie, R., \& Greenglass, E. (2015). The inter-item standard deviation ({ISD}): An index that discriminates between conscientious and random responders. \emph{Personality and Individual Differences}, \emph{84}, 79--83.
 
-\bibitem[\citeproctext]{ref-miles1994qualitative}
+\leavevmode\vadjust pre{\hypertarget{ref-miles1994qualitative}{}}%
 Miles, M. B., \& Huberman, A. M. (1994). \emph{Qualitative data analysis: An expanded sourcebook} (2nd ed.). Sage.
 
-\bibitem[\citeproctext]{ref-morgeson_reconsidering_2007}
+\leavevmode\vadjust pre{\hypertarget{ref-morgeson_reconsidering_2007}{}}%
 Morgeson, F. P., Campion, M. A., Dipboye, R. L., Hollenbeck, J. R., Murphy, K., \& Schmitt, N. (2007). Reconsidering the use of personality tests in personnel selection contexts. \emph{Personnel Psychology}, \emph{60}(3), 683--729.
 
-\bibitem[\citeproctext]{ref-ogilvie1967perception}
+\leavevmode\vadjust pre{\hypertarget{ref-ogilvie1967perception}{}}%
 Ogilvie, J., \& Daicar, E. (1967). The perception of curvature. \emph{Canadian Journal of Psychology/Revue Canadienne de Psychologie}, \emph{21}(6), 521.
 
-\bibitem[\citeproctext]{ref-ones_role_1996}
+\leavevmode\vadjust pre{\hypertarget{ref-ones_role_1996}{}}%
 Ones, D. S., Viswesvaran, C., \& Reiss, A. D. (1996). Role of social desirability in personality testing for personnel selection: The red herring. \emph{Journal of Applied Psychology}, \emph{81}(6), 660--679.
 
-\bibitem[\citeproctext]{ref-paulhus_balanced_1988}
+\leavevmode\vadjust pre{\hypertarget{ref-paulhus_balanced_1988}{}}%
 Paulhus, D. L. (1988). Balanced inventory of desirable responding ({BIDR}). \emph{Acceptance and Commitment Therapy. Measures Package}, \emph{41}, 79586--79587.
 
-\bibitem[\citeproctext]{ref-qualtrics_qualtrics_2014}
+\leavevmode\vadjust pre{\hypertarget{ref-qualtrics_qualtrics_2014}{}}%
 Qualtrics, L. L. C. (2014). Qualtrics {[}software{]}. \emph{Utah, {USA}: Qualtrics}.
 
-\bibitem[\citeproctext]{ref-R-base}
-R Core Team. (2022). \emph{R: A language and environment for statistical computing}. R Foundation for Statistical Computing. \url{https://www.R-project.org/}
+\leavevmode\vadjust pre{\hypertarget{ref-R-base}{}}%
+R Core Team. (2023). \emph{R: A language and environment for statistical computing}. R Foundation for Statistical Computing. \url{https://www.R-project.org/}
 
-\bibitem[\citeproctext]{ref-sedikides_self-enhancement_2012}
+\leavevmode\vadjust pre{\hypertarget{ref-sedikides_self-enhancement_2012}{}}%
 Sedikides, C., \& Alicke, M. D. (2012). \emph{Self-enhancement and self-protection motives}. Oxford handbook of motivation, ed. R. Ryan. Oxford University Press.{[}{rWvH}{]}.
 
-\bibitem[\citeproctext]{ref-taylor_illusion_1988}
+\leavevmode\vadjust pre{\hypertarget{ref-taylor_illusion_1988}{}}%
 Taylor, S. E., \& Brown, J. D. (1988). Illusion and well-being: A social psychological perspective on mental health. \emph{Psychological Bulletin}, \emph{103}(2), 193.
 
-\bibitem[\citeproctext]{ref-viswesvaran_meta-analyses_1999}
+\leavevmode\vadjust pre{\hypertarget{ref-viswesvaran_meta-analyses_1999}{}}%
 Viswesvaran, C., \& Ones, D. S. (1999). Meta-analyses of fakability estimates: Implications for personality measurement. \emph{Educational and Psychological Measurement}, \emph{59}(2), 197--210.
 
-\bibitem[\citeproctext]{ref-watt1987detection}
+\leavevmode\vadjust pre{\hypertarget{ref-watt1987detection}{}}%
 Watt, R., Ward, R., \& Casco, C. (1987). The detection of deviation from straightness in lines. \emph{Vision Research}, \emph{27}(9), 1659--1678.
 
-\bibitem[\citeproctext]{ref-weiss_looking_2006}
+\leavevmode\vadjust pre{\hypertarget{ref-weiss_looking_2006}{}}%
 Weiss, B., \& Feldman, R. S. (2006). Looking good and lying to do it: Deception as an impression management strategy in job interviews. \emph{Journal of Applied Social Psychology}, \emph{36}(4), 1070--1086.
 
-\bibitem[\citeproctext]{ref-R-careless}
-Yentes, R., \& Wilhelm, F. (2021). \emph{Careless: Procedures for computing indices of careless responding}. \url{https://github.com/ryentes/careless/}
+\leavevmode\vadjust pre{\hypertarget{ref-R-careless}{}}%
+Yentes, R., \& Wilhelm, F. (2023). \emph{Careless: Procedures for computing indices of careless responding}. \url{https://github.com/ryentes/careless/}
 
-\bibitem[\citeproctext]{ref-ziegler_applicant_2011}
+\leavevmode\vadjust pre{\hypertarget{ref-ziegler_applicant_2011}{}}%
 Ziegler, M. (2011). Applicant faking: A look into the black box. \emph{The Industrial and Organizational Psychologist}, \emph{49}(1), 29--36.
 
 \end{CSLReferences}

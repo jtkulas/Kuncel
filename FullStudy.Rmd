@@ -2867,13 +2867,13 @@ ed.low$edcat       <- "3 and Above"
 
 newtable <- rbind(ed.high,ed.somehigh,ed.modhigh,ed.zerohigh,ed.zero,ed.zerolow,ed.modlow,ed.somelow,ed.low)
 
-newtable$edcat <- factor(newtable$edcat, levels = c("-3 and Below", 
+newtable$edcat <- factor(newtable$edcat, levels = c("-3 and Below",
                                                     "-3 to -2",
                                                     "-2 to -1",
-                                                    "-1 to 0", 
+                                                    "-1 to 0",
                                                     "0",  
-                                                    "0 to 1", 
-                                                    "1 to 2", 
+                                                    "0 to 1",
+                                                    "1 to 2",
                                                     "2 to 3",
                                                     "3 and Above"))
 
@@ -2894,7 +2894,6 @@ mapdata <- mapdata %>%
              names_to = "Category",
              values_to = "Percentage")
 
-mapdata$Percentage <- mapdata$Percentage * 100
 
 ##HEATMAP Linear (P) Top on Y Axis
 ##used fct_inorder for x axis; needed to use fct_relvel for y --- I do not understand why it needs to be in reverse order, but it apparently
@@ -2911,7 +2910,6 @@ heatmap <- ggplot(data = mapdata, mapping = aes(x = fct_inorder(edcat), y = fct_
 
 heatmap + theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) 
 ```
-
 
 ## Study 1 Discussion 
 
@@ -2932,13 +2930,13 @@ One of our observations across the two item rating procedures has been that the 
 # Methods 
 ## Participants
 
-One hundred and thirty one undergraduate students from two universities participated in item ratings. After data cleaning, 87 students ratings were analyzed. 
+One hundred and thirty one undergraduate students from two universities provided item ratings.  
 
 ## Procedure
 
-All ratings and response latencies (measured in seconds 's') were gathered online using @qualtrics_qualtrics_2014, utilizing the Kuncel and Tellegen (2009) rating scale. The ratings included fifteen of the most archetypal items from Study 1, focusing on the three functional forms: asymmetric, linear, and quasisymmetric.The assessment also included two practice questions at the beginning so students could be familiar with the scales. 
+All ratings and response latencies were collected online via @qualtrics_qualtrics_2014. @kuncel_conceptual_2009 ratings were made across fifteen Study 1 items that exhibited strong functional forms: linear (*k*=5), asymmetric (*k*=5), and quasisymmetric (*k*=5). This administration also included two practice questions at the beginning to familiarize participants with the so students could be familiar with the rating procedure. 
 
-During data cleaning, we screened out total survey durations less than 500 seconds and longer than 2000 seconds (n=46) as well as individuals who had total response latencies less than 20 seconds across the final 20 items (on average less than 1 second per item response; n=8). These conservative screens were applied based on observations from experiment proctors that several participants were not fully engaged in their responses. Additionally, questions were implemented to gauge task difficulty and carelessness - no data was removed utilizing these questions. However, carelessness analyses continuted with the computation of consecutive non-differentiating responses as well as intra-individual response variability estimates was done due to tedium and cognitive complexity of the task [see, for example, @dunn_intra-individual_2018; @marjanovic_inter-item_2015] via the *careless* R package [@R-careless] in R version `r as.character(getRversion())` [@R-base].
+Conservative data screening excluded participants with a total survey duration of less than 500 seconds or longer than 2000 seconds (*n*=46) as well as individuals who had an aggregated response duration of less than 20 seconds across their final 20 responses (*n*=8).  Additionally, consecutive non-differentiating responses as well as intra-individual response variability estimates was done due to tedium and cognitive complexity of the task [see, for example, @dunn_intra-individual_2018; @marjanovic_inter-item_2015] via the *careless* R package [@R-careless] in R version `r as.character(getRversion())` [@R-base].
 
 
 # Results
