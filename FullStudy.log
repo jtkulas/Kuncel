@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.27)  21 DEC 2024 10:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.27)  2 JAN 2025 10:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -742,28 +742,25 @@ Package pdftex.def Info: FullStudy_files/figure-latex/Figure4-1.pdf  used on inp
 
 
 [6 <./FullStudy_files/figure-latex/lastone-1.pdf> <./FullStudy_files/figure-latex/Figure4-1.pdf>]
-Underfull \vbox (badness 4156) has occurred while \output is active []
-
-
 
 
 
 [7]
 
-<FullStudy_files/figure-latex/Figure5-1.pdf, id=137, 578.16pt x 433.62pt>
+<FullStudy_files/figure-latex/Figure5-1.pdf, id=138, 578.16pt x 433.62pt>
 File: FullStudy_files/figure-latex/Figure5-1.pdf Graphic file (type pdf)
 <use FullStudy_files/figure-latex/Figure5-1.pdf>
-Package pdftex.def Info: FullStudy_files/figure-latex/Figure5-1.pdf  used on input line 493.
+Package pdftex.def Info: FullStudy_files/figure-latex/Figure5-1.pdf  used on input line 489.
 (pdftex.def)             Requested size: 241.74043pt x 181.30533pt.
-<FullStudy_files/figure-latex/Figure7-1.pdf, id=138, 650.43pt x 433.62pt>
+<FullStudy_files/figure-latex/Figure7-1.pdf, id=139, 650.43pt x 433.62pt>
 File: FullStudy_files/figure-latex/Figure7-1.pdf Graphic file (type pdf)
 <use FullStudy_files/figure-latex/Figure7-1.pdf>
-Package pdftex.def Info: FullStudy_files/figure-latex/Figure7-1.pdf  used on input line 504.
+Package pdftex.def Info: FullStudy_files/figure-latex/Figure7-1.pdf  used on input line 500.
 (pdftex.def)             Requested size: 241.73712pt x 161.15808pt.
-<FullStudy_files/figure-latex/Figure6-1.pdf, id=139, 650.43pt x 433.62pt>
+<FullStudy_files/figure-latex/Figure6-1.pdf, id=140, 650.43pt x 433.62pt>
 File: FullStudy_files/figure-latex/Figure6-1.pdf Graphic file (type pdf)
 <use FullStudy_files/figure-latex/Figure6-1.pdf>
-Package pdftex.def Info: FullStudy_files/figure-latex/Figure6-1.pdf  used on input line 510.
+Package pdftex.def Info: FullStudy_files/figure-latex/Figure6-1.pdf  used on input line 506.
 (pdftex.def)             Requested size: 241.73712pt x 161.15808pt.
 
 
@@ -803,16 +800,16 @@ L3 programming layer <2020/03/25>
 Here is how much of TeX's memory you used:
  16045 strings out of 475245
  264552 string characters out of 5765893
- 690856 words of memory out of 5000000
+ 691856 words of memory out of 5000000
  38518 multiletter control sequences out of 15000+600000
  622711 words of font info for 135 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 83i,11n,93p,3380b,611s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,11n,93p,3380b,582s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/symbol/usyr.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on FullStudy.pdf (12 pages, 372939 bytes).
+Output written on FullStudy.pdf (12 pages, 373062 bytes).
 PDF statistics:
- 375 PDF objects out of 1000 (max. 8388607)
- 325 compressed objects within 4 object streams
+ 374 PDF objects out of 1000 (max. 8388607)
+ 324 compressed objects within 4 object streams
  120 named destinations out of 1000 (max. 500000)
  220 words of extra memory for PDF output out of 10000 (max. 10000000)
 
