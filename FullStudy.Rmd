@@ -2925,20 +2925,20 @@ Although more meaningful deviations from linear functions do exist, they are pre
 
 
 # Study 2
-One of our observations across the two item rating procedures has been that the @kuncel_conceptual_2009 approach is *more cognitively taxing* for raters than is the @edwards_relationship_1953 rating task. Study Two therefore collected ratings via computer, with estimates of difficulty operationalized as response latencies. 
+A consistent proctor observation across the two item rating procedures is that the @kuncel_conceptual_2009 approach is *more cognitively taxing* for raters than is the @edwards_relationship_1953 rating task. Study Two therefore collected targeted ratings via computer, with estimates of difficulty operationalized as response latencies. 
 
 # Methods 
 ## Participants
 
-One hundred and thirty one undergraduate students from two universities provided item ratings.  
+One hundred and thirty-one undergraduate students from two universities provided item ratings.  
 
 ## Procedure
 
-All ratings were gathered online via @qualtrics_qualtrics_2014, utilizing the Kuncel and Tellegen (2009) rating scale. The ratings included fifteen of the most archetypal items from Study 1, focusing on three functional forms: asymmetric, linear, and quasi-symmetric. Because response latencies were of interest, two practice items were included at the beginning of the procedure so participants would have process familiarity prior to substantive data collection.
+All ratings were gathered online via @qualtrics_qualtrics_2014, utilizing the Kuncel and Tellegen (2009) rating scale. The ratings were made across fifteen Study 1 that exhibited archetypal functional forms: asymmetric, linear, and quasi-symmetric. Because response latencies were being recorded, two practice items were administered at the beginning of the procedure so participants would have process familiarity prior to substantive data collection.
 
 # Results
 
-Applying conservative data screens excluded 30 individuals with total survey durations less than 300 seconds (n=16) or total response latencies less than 20 seconds across the final 20 items (on average less than 1 second per item response; n=14). These screens were applied based on observations from experiment proctors that several participants were not fully engaged in their responses. Additionally, two participants self-disclosed that they responded "not at all carefully" and were excluded from analysis. Further carelessness screens included 10 or more consecutive non-differentiating responses (n=7) as well as intra-individual response variability estimates of two standard deviations below the mean (*M*=0.88; n=5) [see, for example, @dunn_intra-individual_2018; @marjanovic_inter-item_2015] via the *careless* R package [@R-careless] in R version `r as.character(getRversion())` [@R-base].
+Applying conservative data screens excluded 30 individuals with total survey durations less than 300 seconds (n=16) or total response latencies less than 20 seconds across the final 20 items (on average less than 1 second per item response; n=14). These screens were applied based on observations from experiment proctors that several participants did not appear to be fully engaged in the rating task. Additionally, two participants self-disclosed that they responded "not at all carefully" and were excluded from analysis. Further screens via the *careless* R package [@R-careless] identified individuals with 10 or more consecutive non-differentiating responses (n=7) as well as intra-individual response variability estimates of two standard deviations below the mean (*M*=0.88; n=5) and these individuals were also excluded from analysis [see, for example, @dunn_intra-individual_2018; @marjanovic_inter-item_2015].
 
 ```{r getting study data, include=FALSE}
 ##STUDY 2 - Interrater Reliabilities (FINAL SCRIPT)
@@ -3672,9 +3672,11 @@ colnames(tALL_ICC) <- c("Study 2", "Study 1")
 
 ### Response Latencies
  
-  All latencies were taken and compiled into one list so that outliers could be removed. Any latencies that were 0 were first removed, then any time below the 10th percentile and above 90th percentile, from the remaining times, were removed. Afterwards, mean latencies were gathered for four conditions: the item (e.g., worry about things), the level (e.g., extremely high), the type (e.g., linear), and negatively worded items.  
+Mean latencies were investigated at four different levels: item (e.g., worry about things), response category (e.g., extremely high), item type (e.g., linear), and item polarity (e.g., positive versus negatively worded items).    
   
-  Latency data had some differences in type with quasisymmetric taking the least amount of time (*M* = 2.8 seconds) and asymmetric taking the most time (*M* = 3.5 seconds). Negatively worded items took on average 0.5s longer than non-negatively worded items. The extremely high level had the largest latency time at 6.0 seconds, while the other levels ranged from 2.0s to 3.0s. However, this is likely an artifact due to extremely high levels being the first rating after reading the item characteristic, rather than it being harder to rate. 
+Response latencies of "0" were removed, then any time below the 10th percentile and above 90th percentile, from the remaining times, were removed. Afterwards,
+
+Latency data had some differences in type with quasisymmetric taking the least amount of time (*M* = 2.8 seconds) and asymmetric taking the most time (*M* = 3.5 seconds). Negatively worded items took on average 0.5s longer than non-negatively worded items. The extremely high level had the largest latency time at 6.0 seconds, while the other levels ranged from 2.0s to 3.0s. However, this is likely an artifact due to extremely high levels being the first rating after reading the item characteristic, rather than it being harder to rate. 
   
 ### Interrater Reliability
 
