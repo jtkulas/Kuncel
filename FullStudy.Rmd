@@ -3174,7 +3174,6 @@ means$neg <- NA
 neg <- c("Y", "N", "N", "Y", "Y", "N","N","N","N","N","N","Y","N","N","N")
 means$neg <- rep(neg, each=5) 
 
-rm(item,level,neg,type)
 
 
 #Latency Mean by Level
@@ -3194,8 +3193,107 @@ neg_avg <- means %>%
   group_by(neg) %>% 
   summarise(mean_neg = mean(`des$mean`, na.rm = TRUE))
 
-rm(des,Lat_unlist,means,level_avg,neg_avg,type_avg)
 
+#ANOVAS - LATENCIES
+#Packages
+#install.packages("report")
+library(report)
+library(janitor)
+
+##Anova by Level
+
+level <- as.data.frame(unlist(Latency))
+level$group <- NA
+group <- c("EH", "AA", "A", "BA", "EL")
+level$group<- rep(group, times = 15, each = 87)
+
+
+level_aov <- aov(unlist(Latency) ~ group,
+  data = level)
+
+summary(level_aov)
+report(level_aov)
+
+#perform Tukey's Test
+TukeyHSD(level_aov, conf.level=.95) 
+
+
+##Anova by Type
+
+type <- as.data.frame(unlist(Latency))
+type$group <- NA
+group <- c("asym","linear","asym","linear", "linear", "asym","quasi", "asym","asym", "linear","quasi","linear","quasi","quasi","quasi")
+type$group<- rep(group, times = 5, each = 87)
+
+type_aov <- aov(unlist(Latency) ~ group,
+  data = type)
+
+summary(type_aov)
+report(type_aov)
+
+#perform Tukey's Test
+TukeyHSD(type_aov, conf.level=.95) 
+
+
+#Anova by Item
+item <- as.data.frame(unlist(Latency))
+item$group <- NA
+group <- c("Worry", "Friends","Trust", "Angry", "Blue", "Charge", "Busy", "Sat", "Excite", "Symp","fant","irr","go","relax","habit")
+item$group<- rep(group, times = 5, each = 87)
+
+item_aov <- aov(unlist(Latency) ~ group,
+  data = item)
+
+summary(item_aov)
+report(item_aov)
+
+#perform Tukey's Test
+TukeyHSD(item_aov, conf.level=.95) 
+
+#Anova by Neg Worded
+neg <- as.data.frame(unlist(Latency))
+neg$group <- NA
+group <- c("Y", "N", "N", "Y", "Y", "N","N","N","N","N","N","Y","N","N","N")
+neg$group<- rep(group, times = 5, each = 87)
+
+neg_aov <- aov(unlist(Latency) ~ group,
+  data = neg)
+
+summary(neg_aov)
+report(neg_aov)
+
+
+##MAKE ANOVA TABLE?
+#ALL ANOVAS HERE:
+
+##LEVEL
+summary(level_aov)
+report(level_aov)
+
+#perform Tukey's Test
+TukeyHSD(level_aov, conf.level=.95) 
+
+##TYPE
+summary(type_aov)
+report(type_aov)
+
+#perform Tukey's Test
+TukeyHSD(type_aov, conf.level=.95) 
+
+##ITEM
+summary(item_aov)
+report(item_aov)
+
+#perform Tukey's Test
+TukeyHSD(item_aov, conf.level=.95) 
+
+##NEG WORDED
+summary(neg_aov)
+report(neg_aov)
+
+
+rm(des,Lat_unlist,means,level_avg,neg_avg,type_avg)
+rm(item,level,neg,type)
 
 ##Going Back to Only Items in the dataset
 Cleaned <- Cleaned %>% dplyr:: select(contains("Desirability"))
